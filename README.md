@@ -1,48 +1,36 @@
-# Macro Dashboard
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A modern self-updating financial and macro dashboard built with Next.js, Tailwind CSS, Python chart scripts, GitHub Actions, and Vercel.
+## Getting Started
 
-## Stack
-
-- Next.js, React, TypeScript, and Tailwind CSS for the website
-- Python, pandas, matplotlib, pandas_datareader, and yfinance for chart generation
-- GitHub Actions for daily chart updates
-- Vercel for hosting
-
-## Local Website
+First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Visit `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Generate Charts Locally
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r scripts/requirements.txt
-python scripts/yield_curve.py
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-The script writes:
+## Learn More
 
-- `public/charts/yield_curve.png`
-- `public/data/yield_curve.json`
+To learn more about Next.js, take a look at the following resources:
 
-## Automation
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-`.github/workflows/update-charts.yml` runs daily at `22:30 UTC`, installs Python dependencies, regenerates charts, and commits updated files when there are changes.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Vercel will redeploy when GitHub receives the generated chart commit.
+## Deploy on Vercel
 
-## Build Order
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-1. Confirm the homepage renders locally.
-2. Generate the first chart locally.
-3. Push to GitHub.
-4. Deploy the repo on Vercel.
-5. Confirm the GitHub Action can run manually.
-6. Add more chart scripts one at a time.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
