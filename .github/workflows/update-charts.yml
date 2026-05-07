@@ -1,0 +1,44 @@
+name: Update Charts
+
+on:
+  schedule:
+    - cron: "30 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-charts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Run chart scripts
+        run: |
+          python scripts/yield_curve.py
+
+      - name: Commit updated charts
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add public/charts public/data
+
+          if git diff --cached --quiet; then
+            echo "No chart updates to commit."
+          else
+            git commit -m "Update generated charts"
+            git push
+          fi

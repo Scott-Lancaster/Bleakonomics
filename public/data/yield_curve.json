@@ -1,0 +1,7 @@
+{
+  "title": "10Y - 2Y Treasury Yield Spread",
+  "latest": 0,
+  "updated_at": "2026-05-07T00:00:00",
+  "source": "FRED",
+  "description": "Tracks the spread between 10-year and 2-year U.S. Treasury yields."
+}
