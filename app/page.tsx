@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import bleakLogo from "../bleaklogo1.png";
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
         </span>
       </header>
 
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-16">
+      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-20">
         <h1 className="max-w-4xl text-5xl font-bold tracking-tight text-white md:text-7xl">
           Macroeconomics, open for the people.
         </h1>
@@ -26,56 +27,30 @@ export default function Home() {
           everyone.
         </p>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a
-            href="#charts"
-            className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-neutral-200"
+        <section className="mt-14 border-t border-neutral-900 pt-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+            First chart
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold text-white">
+            10Y - 2Y Treasury Spread
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-neutral-400">
+            A recession-risk signal comparing long-term and short-term Treasury
+            yields. Click the chart for the interactive view.
+          </p>
+
+          <Link
+            href="/yield-curve"
+            className="mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+            aria-label="Open interactive 10Y - 2Y Treasury Spread chart"
           >
-            View charts
-          </a>
-
-          <a
-            href="#methodology"
-            className="rounded-full border border-neutral-700 px-5 py-3 text-sm font-semibold text-white transition hover:border-neutral-400"
-          >
-            Methodology
-          </a>
-        </div>
-
-        <div
-          id="charts"
-          className="mt-16 grid gap-4 border-t border-neutral-900 pt-8 md:grid-cols-3"
-        >
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5">
-            <p className="text-sm text-neutral-500">First chart</p>
-            <h2 className="mt-2 text-xl font-semibold">
-              10Y - 2Y Treasury Spread
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-neutral-400">
-              Coming soon: generated daily from your Python script.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5">
-            <p className="text-sm text-neutral-500">Second chart</p>
-            <h2 className="mt-2 text-xl font-semibold">
-              Inflation Pressure
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-neutral-400">
-              CPI, rates, and other inflation signals.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-neutral-800 bg-neutral-950 p-5">
-            <p className="text-sm text-neutral-500">Third chart</p>
-            <h2 className="mt-2 text-xl font-semibold">
-              Liquidity Watch
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-neutral-400">
-              M2, Fed balance sheet, and related liquidity indicators.
-            </p>
-          </div>
-        </div>
+            <img
+              src="/charts/yield_curve.png"
+              alt="10Y - 2Y Treasury Spread chart"
+              className="aspect-[2/1] w-full bg-neutral-950 object-contain"
+            />
+          </Link>
+        </section>
       </section>
     </main>
   );

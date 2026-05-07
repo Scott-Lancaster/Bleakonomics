@@ -122,6 +122,14 @@ plt.close(fig)
 
 # ———————————————— FINAL SUMMARY ————————————————
 latest = yield_curve.iloc[-1]['T10Y2Y']
+observations = [
+    {
+        "date": index.date().isoformat(),
+        "value": float(row["T10Y2Y"]),
+    }
+    for index, row in yield_curve.dropna().iterrows()
+]
+
 metadata = {
     "title": "10Y - 2Y Treasury Yield Spread",
     "latest": float(latest),
@@ -129,6 +137,7 @@ metadata = {
     "source": "FRED",
     "chart_path": "/charts/yield_curve.png",
     "description": "Daily spread between the 10-year and 2-year U.S. Treasury yields.",
+    "observations": observations,
 }
 
 with open(DATA_PATH, "w", encoding="utf-8") as f:
