@@ -19,12 +19,11 @@ export default function Home() {
 
       <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-20">
         <h1 className="max-w-4xl text-5xl font-bold tracking-tight text-white md:text-7xl">
-          Macroeconomics, open for the people.
+          Macroeconomics
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-400">
-          A daily-updated dashboard tracking the most important stuff. For
-          everyone.
+          Free & Open Sourced. Updated daily.
         </p>
 
         <section className="mt-14 border-t border-neutral-900 pt-8">

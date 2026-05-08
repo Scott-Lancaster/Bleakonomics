@@ -9,6 +9,7 @@ type YieldCurveData = {
   latest?: number;
   updated_at?: string;
   observations?: Array<{ date: string; value: number }>;
+  recessions?: Array<{ start: string; end: string }>;
 };
 
 const data = yieldCurveData as YieldCurveData;
@@ -48,6 +49,7 @@ export default function YieldCurvePage() {
         <div className="mt-8">
           <YieldCurveChart
             observations={data.observations ?? []}
+            recessions={data.recessions ?? []}
             latest={typeof data.latest === "number" ? data.latest : null}
             updatedAt={data.updated_at ?? null}
           />

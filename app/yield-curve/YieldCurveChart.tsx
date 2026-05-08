@@ -7,8 +7,14 @@ type Observation = {
   value: number;
 };
 
+type Recession = {
+  start: string;
+  end: string;
+};
+
 type YieldCurveChartProps = {
   observations: Observation[];
+  recessions: Recession[];
   latest: number | null;
   updatedAt: string | null;
 };
@@ -39,7 +45,12 @@ function formatShortDate(date: string) {
   }).format(new Date(date));
 }
 
-export default function YieldCurveChart({ observations, latest, updatedAt }: YieldCurveChartProps) {
+export default function YieldCurveChart({
+  observations,
+  recessions,
+  latest,
+  updatedAt,
+}: YieldCurveChartProps) {
   const [activeRange, setActiveRange] = useState<number | null>(10);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
@@ -94,9 +105,24 @@ export default function YieldCurveChart({ observations, latest, updatedAt }: Yie
       const time = minTime + ((maxTime - minTime) / 5) * index;
       return { date: new Date(time).toISOString(), x: x(time) };
     });
+    const recessionBands = recessions
+      .map((recession) => {
+        const start = Math.max(new Date(recession.start).getTime(), minTime);
+        const end = Math.min(new Date(recession.end).getTime(), maxTime);
 
-    return { line, x, y, zeroY, yTicks, xTicks };
-  }, [points]);
+        if (end <= minTime || start >= maxTime || end <= start) {
+          return null;
+        }
+
+        return {
+          x: x(start),
+          width: Math.max(x(end) - x(start), 1),
+        };
+      })
+      .filter((band): band is { x: number; width: number } => band !== null);
+
+    return { line, x, y, zeroY, yTicks, xTicks, recessionBands };
+  }, [points, recessions]);
 
   const activePoint = hoverIndex === null ? points[points.length - 1] : points[hoverIndex];
   const activeX = chart && activePoint ? chart.x(new Date(activePoint.date).getTime()) : 0;
@@ -168,6 +194,17 @@ export default function YieldCurveChart({ observations, latest, updatedAt }: Yie
           }}
         >
           <rect width={width} height={height} fill="#0a0a0a" />
+          {chart.recessionBands.map((band, index) => (
+            <rect
+              key={index}
+              x={band.x}
+              y={pad.top}
+              width={band.width}
+              height={height - pad.top - pad.bottom}
+              fill="#7f1d1d"
+              opacity="0.28"
+            />
+          ))}
           {chart.yTicks.map((tick) => (
             <g key={tick.value}>
               <line x1={pad.left} x2={width - pad.right} y1={tick.y} y2={tick.y} stroke="#262626" strokeWidth="1" />
@@ -194,7 +231,7 @@ export default function YieldCurveChart({ observations, latest, updatedAt }: Yie
       </div>
 
       <p className="mt-4 text-xs leading-5 text-neutral-500">
-        Source: FRED T10Y2Y. {updatedAt ? "Updated " + formatDate(updatedAt) + "." : ""}
+        Source: FRED T10Y2Y and USREC. Red bands mark NBER recession periods. {updatedAt ? "Updated " + formatDate(updatedAt) + "." : ""}
       </p>
     </section>
   );

@@ -122,6 +122,27 @@ plt.close(fig)
 
 # ———————————————— FINAL SUMMARY ————————————————
 latest = yield_curve.iloc[-1]['T10Y2Y']
+
+recessions = []
+in_recession = False
+rec_start = None
+for date, row in recession.iterrows():
+    if row['USREC'] == 1 and not in_recession:
+        in_recession = True
+        rec_start = date
+    elif row['USREC'] == 0 and in_recession:
+        in_recession = False
+        recessions.append({
+            "start": rec_start.date().isoformat(),
+            "end": date.date().isoformat(),
+        })
+
+if in_recession and rec_start is not None:
+    recessions.append({
+        "start": rec_start.date().isoformat(),
+        "end": end.date().isoformat(),
+    })
+
 observations = [
     {
         "date": index.date().isoformat(),
@@ -138,6 +159,7 @@ metadata = {
     "chart_path": "/charts/yield_curve.png",
     "description": "Daily spread between the 10-year and 2-year U.S. Treasury yields.",
     "observations": observations,
+    "recessions": recessions,
 }
 
 with open(DATA_PATH, "w", encoding="utf-8") as f:
