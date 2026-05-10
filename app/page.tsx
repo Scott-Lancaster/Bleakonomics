@@ -36,8 +36,7 @@ export default function Home() {
         </div>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-400">
-          Bringing the top macroeconomic charts to the people. Free, open, and
-          with a little thought behind it.
+          Bringing the top macro charts to the people. Free, open, currated.
         </p>
 
         <section className="mt-14 border-t border-neutral-900 pt-8">

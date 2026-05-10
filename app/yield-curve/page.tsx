@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import bleakLogo from "../../bleaklogo1.png";
 import yieldCurveData from "../../public/data/yield_curve.json";
+import DonateButton from "../../components/DonateButton";
 import YieldCurveChart from "./YieldCurveChart";
 
 type YieldCurveData = {
@@ -29,9 +30,12 @@ export default function YieldCurvePage() {
             Bleakonomics
           </span>
         </Link>
-        <Link href="/" className="text-sm font-semibold text-neutral-400 hover:text-white">
-          Back
-        </Link>
+        <div className="flex items-center gap-3">
+          <DonateButton />
+          <Link href="/" className="text-sm font-semibold text-neutral-400 hover:text-white">
+            Back
+          </Link>
+        </div>
       </header>
 
       <section className="mx-auto mt-14 max-w-6xl">
