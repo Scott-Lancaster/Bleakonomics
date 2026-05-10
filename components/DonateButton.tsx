@@ -7,6 +7,13 @@ const bitcoinUri = "bitcoin:" + bitcoinAddress;
 const lightningAddress = "fuchsiaseahorse21@primal.net";
 const lightningUri = "lightning:" + lightningAddress;
 
+type PaymentOption = "lightning" | "bitcoin";
+
+const paymentOptions: Array<{ id: PaymentOption; label: string }> = [
+  { id: "lightning", label: "Lightning" },
+  { id: "bitcoin", label: "Bitcoin" },
+];
+
 function CopyButton({ value }: { value: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -29,17 +36,15 @@ function CopyButton({ value }: { value: string }) {
 
 export default function DonateButton() {
   const [open, setOpen] = useState(false);
+  const [activeOption, setActiveOption] = useState<PaymentOption>("lightning");
+  const activeValue = activeOption === "lightning" ? lightningAddress : bitcoinAddress;
+  const activeUri = activeOption === "lightning" ? lightningUri : bitcoinUri;
+  const activeLabel = activeOption === "lightning" ? "Lightning address" : "Bitcoin address";
   const qrUrl = useMemo(
     () =>
-      "https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=12&data=" +
-      encodeURIComponent(bitcoinUri),
-    [],
-  );
-  const lightningQrUrl = useMemo(
-    () =>
-      "https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=12&data=" +
-      encodeURIComponent(lightningUri),
-    [],
+      "https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=" +
+      encodeURIComponent(activeUri),
+    [activeUri],
   );
 
   return (
@@ -72,40 +77,42 @@ export default function DonateButton() {
               </button>
             </div>
 
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-md border border-neutral-900 bg-black p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                  Bitcoin
-                </p>
-                <div className="mx-auto mt-3 flex h-44 w-44 items-center justify-center rounded-md bg-white p-3">
-                  <img src={qrUrl} alt="Bitcoin donation QR code" className="h-full w-full" />
-                </div>
-                <div className="mt-4 flex gap-2">
-                  <code className="min-w-0 flex-1 overflow-hidden text-ellipsis rounded-md border border-neutral-900 bg-neutral-950 px-3 py-2 text-sm text-neutral-300">
-                    {bitcoinAddress}
-                  </code>
-                  <CopyButton value={bitcoinAddress} />
-                </div>
+            <div className="mt-5 rounded-md border border-neutral-900 bg-black p-4">
+              <div className="mx-auto flex h-64 w-64 items-center justify-center rounded-md bg-white p-3">
+                <img src={qrUrl} alt={activeLabel + " QR code"} className="h-full w-full" />
               </div>
 
-              <div className="rounded-md border border-neutral-900 bg-black p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                  Lightning
-                </p>
-                <div className="mx-auto mt-3 flex h-44 w-44 items-center justify-center rounded-md bg-white p-3">
-                  <img src={lightningQrUrl} alt="Lightning donation QR code" className="h-full w-full" />
-                </div>
-                <div className="mt-4 flex gap-2">
-                  <code className="min-w-0 flex-1 overflow-hidden text-ellipsis rounded-md border border-neutral-900 bg-neutral-950 px-3 py-2 text-sm text-neutral-300">
-                    {lightningAddress}
-                  </code>
-                  <CopyButton value={lightningAddress} />
-                </div>
+              <p className="mt-5 text-center text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+                {activeLabel}
+              </p>
+              <div className="mt-2 flex gap-2">
+                <code className="min-w-0 flex-1 overflow-hidden text-ellipsis rounded-md border border-neutral-900 bg-neutral-950 px-3 py-2 text-sm text-neutral-300">
+                  {activeValue}
+                </code>
+                <CopyButton value={activeValue} />
               </div>
             </div>
 
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {paymentOptions.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => setActiveOption(option.id)}
+                  className={
+                    "rounded-md border px-4 py-3 text-sm font-semibold transition " +
+                    (activeOption === option.id
+                      ? "border-amber-500 bg-amber-500/10 text-amber-300 shadow-[0_0_18px_rgba(245,158,11,0.24)]"
+                      : "border-neutral-800 text-neutral-300 hover:border-neutral-600 hover:text-white")
+                  }
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+
             <p className="mt-4 text-sm leading-6 text-neutral-400">
-              Thank you for supporting free, open macro charts. You can change either address in <code className="text-neutral-200">components/DonateButton.tsx</code>.
+              Thank you for supporting free, open macro charts.
             </p>
           </div>
         </div>
