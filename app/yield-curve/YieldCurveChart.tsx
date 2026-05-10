@@ -19,11 +19,23 @@ type YieldCurveChartProps = {
   updatedAt: string | null;
 };
 
-const ranges = [
+type RangePreset = {
+  label: string;
+  months?: number;
+  years?: number;
+  ytd?: boolean;
+  max?: boolean;
+};
+
+const ranges: RangePreset[] = [
+  { label: "6M", months: 6 },
+  { label: "YTD", ytd: true },
   { label: "1Y", years: 1 },
+  { label: "2Y", years: 2 },
   { label: "5Y", years: 5 },
   { label: "10Y", years: 10 },
-  { label: "Max", years: null },
+  { label: "20Y", years: 20 },
+  { label: "Max", max: true },
 ];
 
 const width = 1100;
@@ -45,29 +57,80 @@ function formatShortDate(date: string) {
   }).format(new Date(date));
 }
 
+function toInputDate(date: string) {
+  return date.slice(0, 10);
+}
+
+function getPresetCutoff(preset: RangePreset, lastDate: Date) {
+  if (preset.max) {
+    return null;
+  }
+
+  const cutoff = new Date(lastDate);
+
+  if (preset.ytd) {
+    return new Date(lastDate.getFullYear(), 0, 1);
+  }
+
+  if (preset.months) {
+    cutoff.setMonth(lastDate.getMonth() - preset.months);
+    return cutoff;
+  }
+
+  if (preset.years) {
+    cutoff.setFullYear(lastDate.getFullYear() - preset.years);
+    return cutoff;
+  }
+
+  return null;
+}
+
 export default function YieldCurveChart({
   observations,
   recessions,
   latest,
   updatedAt,
 }: YieldCurveChartProps) {
-  const [activeRange, setActiveRange] = useState<number | null>(10);
+  const cleanObservations = useMemo(
+    () =>
+      observations
+        .filter((point) => Number.isFinite(point.value))
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()),
+    [observations],
+  );
+
+  const minDate = cleanObservations[0]?.date ?? "";
+  const maxDate = cleanObservations[cleanObservations.length - 1]?.date ?? "";
+
+  const [activeRange, setActiveRange] = useState("10Y");
+  const [customStart, setCustomStart] = useState("");
+  const [customEnd, setCustomEnd] = useState("");
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   const points = useMemo(() => {
-    const clean = observations
-      .filter((point) => Number.isFinite(point.value))
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-
-    if (!activeRange || clean.length === 0) {
-      return clean;
+    if (cleanObservations.length === 0) {
+      return cleanObservations;
     }
 
-    const lastDate = new Date(clean[clean.length - 1].date);
-    const cutoff = new Date(lastDate);
-    cutoff.setFullYear(lastDate.getFullYear() - activeRange);
-    return clean.filter((point) => new Date(point.date) >= cutoff);
-  }, [activeRange, observations]);
+    if (activeRange === "Custom") {
+      const startTime = customStart ? new Date(customStart).getTime() : -Infinity;
+      const endTime = customEnd ? new Date(customEnd).getTime() : Infinity;
+      return cleanObservations.filter((point) => {
+        const time = new Date(point.date).getTime();
+        return time >= startTime && time <= endTime;
+      });
+    }
+
+    const preset = ranges.find((range) => range.label === activeRange) ?? ranges[6];
+    const lastDate = new Date(cleanObservations[cleanObservations.length - 1].date);
+    const cutoff = getPresetCutoff(preset, lastDate);
+
+    if (!cutoff) {
+      return cleanObservations;
+    }
+
+    return cleanObservations.filter((point) => new Date(point.date) >= cutoff);
+  }, [activeRange, cleanObservations, customEnd, customStart]);
 
   const chart = useMemo(() => {
     if (points.length < 2) {
@@ -127,6 +190,7 @@ export default function YieldCurveChart({
   const activePoint = hoverIndex === null ? points[points.length - 1] : points[hoverIndex];
   const activeX = chart && activePoint ? chart.x(new Date(activePoint.date).getTime()) : 0;
   const activeY = chart && activePoint ? chart.y(activePoint.value) : 0;
+  const customRangeInvalid = Boolean(customStart && customEnd && customStart > customEnd);
 
   if (!chart || !activePoint) {
     return (
@@ -139,33 +203,92 @@ export default function YieldCurveChart({
 
   return (
     <section className="rounded-lg border border-neutral-800 bg-neutral-950 p-4 sm:p-6">
-      <div className="flex flex-col gap-4 border-b border-neutral-900 pb-5 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">
-            10Y - 2Y Treasury Yield Spread
-          </p>
-          <p className="mt-2 text-4xl font-bold text-white">{activePoint.value.toFixed(2)}%</p>
-          <p className="mt-1 text-sm text-neutral-400">
-            {formatDate(activePoint.date)} {latest !== null ? "· Latest: " + latest.toFixed(2) + "%" : ""}
-          </p>
+      <div className="flex flex-col gap-5 border-b border-neutral-900 pb-5">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">
+              10Y - 2Y Treasury Yield Spread
+            </p>
+            <p className="mt-2 text-4xl font-bold text-white">{activePoint.value.toFixed(2)}%</p>
+            <p className="mt-1 text-sm text-neutral-400">
+              {formatDate(activePoint.date)} {latest !== null ? "· Latest: " + latest.toFixed(2) + "%" : ""}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {ranges.map((range) => (
+              <button
+                key={range.label}
+                type="button"
+                onClick={() => {
+                  setActiveRange(range.label);
+                  setHoverIndex(null);
+                }}
+                className={
+                  "rounded-md border px-3 py-2 text-sm font-semibold transition " +
+                  (activeRange === range.label
+                    ? "border-white bg-white text-black"
+                    : "border-neutral-800 text-neutral-300 hover:border-neutral-600")
+                }
+              >
+                {range.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex gap-2">
-          {ranges.map((range) => (
-            <button
-              key={range.label}
-              type="button"
-              onClick={() => setActiveRange(range.years)}
-              className={
-                "rounded-md border px-3 py-2 text-sm font-semibold transition " +
-                (activeRange === range.years
-                  ? "border-white bg-white text-black"
-                  : "border-neutral-800 text-neutral-300 hover:border-neutral-600")
-              }
-            >
-              {range.label}
-            </button>
-          ))}
+        <div className="flex flex-col gap-3 rounded-md border border-neutral-900 bg-black/40 p-3 sm:flex-row sm:items-end">
+          <label className="grid gap-1 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
+            Start
+            <input
+              type="date"
+              min={toInputDate(minDate)}
+              max={toInputDate(maxDate)}
+              value={customStart}
+              onChange={(event) => setCustomStart(event.target.value)}
+              className="h-10 rounded-md border border-neutral-800 bg-neutral-950 px-3 text-sm font-medium normal-case tracking-normal text-white [color-scheme:dark]"
+            />
+          </label>
+          <label className="grid gap-1 text-xs font-semibold uppercase tracking-[0.16em] text-neutral-500">
+            End
+            <input
+              type="date"
+              min={toInputDate(minDate)}
+              max={toInputDate(maxDate)}
+              value={customEnd}
+              onChange={(event) => setCustomEnd(event.target.value)}
+              className="h-10 rounded-md border border-neutral-800 bg-neutral-950 px-3 text-sm font-medium normal-case tracking-normal text-white [color-scheme:dark]"
+            />
+          </label>
+          <button
+            type="button"
+            disabled={customRangeInvalid || (!customStart && !customEnd)}
+            onClick={() => {
+              setActiveRange("Custom");
+              setHoverIndex(null);
+            }}
+            className="h-10 rounded-md border border-neutral-700 px-4 text-sm font-semibold text-white transition hover:border-neutral-400 disabled:cursor-not-allowed disabled:border-neutral-900 disabled:text-neutral-700"
+          >
+            Apply
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setCustomStart("");
+              setCustomEnd("");
+              setActiveRange("10Y");
+              setHoverIndex(null);
+            }}
+            className="h-10 rounded-md border border-neutral-900 px-4 text-sm font-semibold text-neutral-400 transition hover:border-neutral-700 hover:text-white"
+          >
+            Reset
+          </button>
+          {activeRange === "Custom" && !customRangeInvalid ? (
+            <p className="text-sm text-neutral-400">Custom range active</p>
+          ) : null}
+          {customRangeInvalid ? (
+            <p className="text-sm text-red-400">Start date must be before end date.</p>
+          ) : null}
         </div>
       </div>
 

@@ -19,23 +19,19 @@ export default function Home() {
 
       <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-20">
         <h1 className="max-w-4xl text-5xl font-bold tracking-tight text-white md:text-7xl">
-          Macroeconomics
+          Bleakonomics
         </h1>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-400">
-          Free & Open Sourced. Updated daily.
+          Brining the top macroeconomic charts to the people. Free, open, and with a little thought behind it.
         </p>
 
         <section className="mt-14 border-t border-neutral-900 pt-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
-            First chart
-          </p>
           <h2 className="mt-3 text-2xl font-semibold text-white">
-            10Y - 2Y Treasury Spread
+            10 Year - 2 Year Treasury Spread
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-neutral-400">
-            A recession-risk signal comparing long-term and short-term Treasury
-            yields. Click the chart for the interactive view.
+            One of the most cited recession indicators, negative yield events is when 
           </p>
 
           <Link
