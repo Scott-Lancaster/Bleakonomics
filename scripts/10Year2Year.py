@@ -6,6 +6,8 @@ os.environ['MATPLOTLIB_NO_SECURE_CODING_WARNING'] = '1'
 ===============================================================================
 10Y - 2Y TREASURY YIELD SPREAD | Dark Mode
 ===============================================================================
+TLDR: | Negative spread equates to negative sentiment. Investors have more faith 
+in the economy 2 years from now than 10 years from now 
 
 WHAT IT SHOWS
   Daily spread = 10-Year Treasury Yield – 2-Year Treasury Yield (%)
@@ -154,7 +156,7 @@ observations = [
 metadata = {
     "title": "10Y - 2Y Treasury Yield Spread",
     "latest": float(latest),
-    "updated_at": datetime.now().isoformat(),
+    "updated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
     "source": "FRED",
     "chart_path": "/charts/yield_curve.png",
     "description": "Daily spread between the 10-year and 2-year U.S. Treasury yields.",
