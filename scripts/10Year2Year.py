@@ -25,6 +25,11 @@ DATA SOURCES (FRED)
 
 DATA FREQUENCY: Daily (market close; T10Y2Y updated ~3:30 PM ET)
 
+PAPERS
+  https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf
+  https://doi.org/10.1111/j.1540-6261.1991.tb02674.x
+  https://doi.org/10.2469/faj.v45.n5.38
+
 ZOOM: Set START_YEAR / END_YEAR
 ===============================================================================
 """
@@ -147,6 +152,22 @@ if in_recession and rec_start is not None:
         "end": end.date().isoformat(),
     })
 
+summary = "Negative spread equates to negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now."
+papers = [
+    {
+        "title": "https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf",
+        "url": "https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf",
+    },
+    {
+        "title": "https://doi.org/10.1111/j.1540-6261.1991.tb02674.x",
+        "url": "https://doi.org/10.1111/j.1540-6261.1991.tb02674.x",
+    },
+    {
+        "title": "https://doi.org/10.2469/faj.v45.n5.38",
+        "url": "https://doi.org/10.2469/faj.v45.n5.38",
+    },
+]
+
 observations = [
     {
         "date": index.date().isoformat(),
@@ -162,6 +183,8 @@ metadata = {
     "source": "FRED",
     "chart_path": "/charts/yield_curve.png",
     "description": "Daily spread between the 10-year and 2-year U.S. Treasury yields.",
+    "summary": summary,
+    "papers": papers,
     "observations": observations,
     "recessions": recessions,
 }

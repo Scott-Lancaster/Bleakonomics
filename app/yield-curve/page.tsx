@@ -3,6 +3,7 @@ import Link from "next/link";
 import bleakLogo from "../../bleaklogo1.png";
 import yieldCurveData from "../../public/data/yield_curve.json";
 import DonateButton from "../../components/DonateButton";
+import ChartInfoButtons from "./ChartInfoButtons";
 import YieldCurveChart from "./YieldCurveChart";
 
 type YieldCurveData = {
@@ -11,6 +12,8 @@ type YieldCurveData = {
   updated_at?: string;
   observations?: Array<{ date: string; value: number }>;
   recessions?: Array<{ start: string; end: string }>;
+  summary?: string;
+  papers?: Array<{ title: string; url: string }>;
 };
 
 const data = yieldCurveData as YieldCurveData;
@@ -42,9 +45,18 @@ export default function YieldCurvePage() {
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
           Interactive chart
         </p>
-        <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
-          10Y - 2Y Treasury Spread
-        </h1>
+        <div className="mt-3 flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
+            10Y - 2Y Treasury Spread
+          </h1>
+          <ChartInfoButtons
+            summary={
+              data.summary ??
+              "Negative spread equates to negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now."
+            }
+            papers={data.papers ?? []}
+          />
+        </div>
         <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-400">
           Hover across the chart to inspect daily values. Use the range controls
           to move between recent history and the full data set.
