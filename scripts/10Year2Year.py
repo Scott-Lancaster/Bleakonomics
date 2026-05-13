@@ -34,6 +34,8 @@ from pathlib import Path
 
 import pandas as pd
 import pandas_datareader.data as web
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from datetime import datetime
 

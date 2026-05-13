@@ -23,6 +23,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white">
+      <div className="absolute right-6 top-6 z-20">
+        <DonateButton />
+      </div>
+
       <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-20">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
           <Image
@@ -82,7 +86,6 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
           <p>Last updated: {updatedAt}</p>
           <div className="flex items-center gap-4">
-            <DonateButton />
             <a
               href="https://github.com/Scott-Lancaster/Bleakonomics/tree/main/scripts"
               target="_blank"
