@@ -1,11 +1,11 @@
 {
   "title": "10Y - 2Y Treasury Yield Spread",
-  "latest": 0.46,
-  "updated_at": "2026-05-13T14:21:05Z",
+  "latest": 0.48,
+  "updated_at": "2026-05-14T05:25:32Z",
   "source": "FRED",
   "chart_path": "/charts/yield_curve.png",
   "description": "Daily spread between the 10-year and 2-year U.S. Treasury yields.",
-  "summary": "Negative spread equates to negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now.",
+  "summary": "The 10-year and 2-year Treasury yields are market interest rates on U.S. government debt at different maturities. This spread compares long-term growth and inflation expectations against near-term policy and credit conditions: a steep positive spread usually signals normal expansion, while an inversion suggests investors expect weaker growth or future rate cuts. Historically, sustained inversions have preceded U.S. recessions, making the curve a useful warning signal rather than a precise timer.",
   "papers": [
     {
       "title": "https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf",
@@ -46384,6 +46384,10 @@
     {
       "date": "2026-05-12",
       "value": 0.46
+    },
+    {
+      "date": "2026-05-13",
+      "value": 0.48
     }
   ],
   "recessions": [

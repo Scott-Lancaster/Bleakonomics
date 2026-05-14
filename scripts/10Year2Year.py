@@ -152,7 +152,7 @@ if in_recession and rec_start is not None:
         "end": end.date().isoformat(),
     })
 
-summary = "Negative spread equates to negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now."
+summary = "The 10-year and 2-year Treasury yields are market interest rates on U.S. government debt at different maturities. This spread compares long-term growth and inflation expectations against near-term policy and credit conditions: a steep positive spread usually signals normal expansion, while an inversion suggests investors expect weaker growth or future rate cuts. Historically, sustained inversions have preceded U.S. recessions, making the curve a useful warning signal rather than a precise timer."
 papers = [
     {
         "title": "https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf",
