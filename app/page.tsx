@@ -66,10 +66,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
               <div className="max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-red-300">
-                  TLDR
-                </p>
-                <p className="mt-2 text-lg font-semibold leading-7 text-white">
+                <p className="text-lg font-semibold leading-7 text-white">
                   Negative spread equals negative sentiment.
                 </p>
                 <p className="mt-2 text-sm leading-6 text-neutral-300">

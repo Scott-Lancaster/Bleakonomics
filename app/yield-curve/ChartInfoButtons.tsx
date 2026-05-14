@@ -35,7 +35,7 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
       </button>
 
       {openPanel ? (
-        <div className="absolute right-0 top-12 z-30 w-[min(22rem,calc(100vw-3rem))] rounded-lg border border-neutral-800 bg-neutral-950 p-4 shadow-2xl">
+        <div className="absolute right-0 top-12 z-30 w-[min(34rem,calc(100vw-3rem))] rounded-lg border border-neutral-800 bg-neutral-950 p-4 shadow-2xl">
           {openPanel === "summary" ? (
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
@@ -56,7 +56,7 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
                       href={paper.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-md border border-neutral-900 bg-black px-3 py-2 text-sm leading-5 text-neutral-300 transition hover:border-neutral-700 hover:text-white"
+                      className="block min-w-0 break-all rounded-md border border-neutral-900 bg-black px-3 py-2 text-sm leading-5 text-neutral-300 transition hover:border-neutral-700 hover:text-white"
                     >
                       {paper.url}
                     </a>
