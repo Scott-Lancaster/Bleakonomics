@@ -57,9 +57,24 @@ END_YEAR   = None  # None = today
 start = datetime(START_YEAR, 1, 1)
 end   = datetime.now() if END_YEAR is None else datetime(END_YEAR, 12, 31)
 
-# Fetch data
-yield_curve = web.DataReader('T10Y2Y', 'fred', start, end)
-recession   = web.DataReader('USREC',  'fred', start, end)
+# Fetch data. If FRED is unavailable in CI, keep the last committed outputs
+# instead of failing the whole scheduled website update.
+try:
+    print("Fetching FRED data...")
+    yield_curve = web.DataReader('T10Y2Y', 'fred', start, end)
+    recession   = web.DataReader('USREC',  'fred', start, end)
+
+    if yield_curve.dropna().empty or recession.dropna().empty:
+        raise RuntimeError("FRED returned empty yield or recession data.")
+except Exception as exc:
+    print(f"WARNING: Could not fetch FRED data: {exc}")
+    if CHART_PATH.exists() and DATA_PATH.exists():
+        print("Keeping existing generated chart/data files.")
+        raise SystemExit(0)
+    raise
+
+yield_curve = yield_curve.dropna()
+recession = recession.dropna()
 
 # ———————————————— DARK MODE STYLE ————————————————
 plt.style.use('dark_background')
