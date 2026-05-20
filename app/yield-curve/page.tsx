@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import yieldCurveData from "../../public/data/yield_curve.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "./ChartInfoButtons";
+import DataGradeSection from "./DataGradeSection";
 import YieldCurveChart from "./YieldCurveChart";
 
 type YieldCurveData = {
@@ -60,6 +61,19 @@ export default function YieldCurvePage() {
             recessions={data.recessions ?? []}
             latest={typeof data.latest === "number" ? data.latest : null}
             updatedAt={data.updated_at ?? null}
+          />
+        </div>
+
+        <div className="mt-6">
+          <DataGradeSection
+            items={[
+              {
+                label: "Treasury Yields",
+                grade: "A",
+                description:
+                  "Markets price these every day and the source updates once a day. As good as data gets.",
+              },
+            ]}
           />
         </div>
       </section>

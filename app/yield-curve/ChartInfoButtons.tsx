@@ -16,10 +16,13 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
   const [openPanel, setOpenPanel] = useState<"summary" | "papers" | null>(null);
 
   return (
-    <div className="relative flex items-center gap-2">
+    <div
+      className="relative flex items-center gap-2"
+      onMouseLeave={() => setOpenPanel(null)}
+    >
       <button
         type="button"
-        onClick={() => setOpenPanel(openPanel === "summary" ? null : "summary")}
+        onClick={() => setOpenPanel("summary")}
         className="flex h-10 w-10 items-center justify-center rounded-md border border-neutral-800 text-lg font-bold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
         aria-label="Show chart summary"
       >
@@ -27,7 +30,7 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
       </button>
       <button
         type="button"
-        onClick={() => setOpenPanel(openPanel === "papers" ? null : "papers")}
+        onClick={() => setOpenPanel("papers")}
         className="flex h-10 w-10 items-center justify-center rounded-md border border-neutral-800 text-xl text-neutral-300 transition hover:border-neutral-600 hover:text-white"
         aria-label="Show related research papers"
       >
@@ -52,13 +55,13 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
                 {papers.length > 0 ? (
                   papers.map((paper) => (
                     <a
-                      key={paper.title}
+                      key={paper.url}
                       href={paper.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="block min-w-0 break-all rounded-md border border-neutral-900 bg-black px-3 py-2 text-sm leading-5 text-neutral-300 transition hover:border-neutral-700 hover:text-white"
+                      className="block min-w-0 rounded-md border border-neutral-900 bg-black px-3 py-2 text-sm leading-5 text-neutral-300 transition hover:border-neutral-700 hover:text-white"
                     >
-                      {paper.url}
+                      {paper.title}
                     </a>
                   ))
                 ) : (
