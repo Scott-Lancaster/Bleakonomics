@@ -170,15 +170,15 @@ if in_recession and rec_start is not None:
 summary = "The 10-year and 2-year Treasury yields are market interest rates on U.S. government debt at different maturities. This spread compares long-term growth and inflation expectations against near-term policy and credit conditions: a steep positive spread usually signals normal expansion, while an inversion suggests investors expect weaker growth or future rate cuts. Historically, sustained inversions have preceded U.S. recessions, making the curve a useful warning signal rather than a precise timer."
 papers = [
     {
-        "title": "https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf",
+        "title": "The Yield Curve as a Predictor of U.S. Recessions",
         "url": "https://www.newyorkfed.org/medialibrary/media/research/current_issues/ci2-7.pdf",
     },
     {
-        "title": "https://doi.org/10.1111/j.1540-6261.1991.tb02674.x",
+        "title": "The Term Structure as a Predictor of Real Economic Activity",
         "url": "https://doi.org/10.1111/j.1540-6261.1991.tb02674.x",
     },
     {
-        "title": "https://doi.org/10.2469/faj.v45.n5.38",
+        "title": "Forecasts of Economic Growth from the Bond and Stock Markets",
         "url": "https://doi.org/10.2469/faj.v45.n5.38",
     },
 ]

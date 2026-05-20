@@ -52,7 +52,7 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
                 {papers.length > 0 ? (
                   papers.map((paper) => (
                     <a
-                      key={paper.url}
+                      key={paper.title}
                       href={paper.url}
                       target="_blank"
                       rel="noreferrer"
