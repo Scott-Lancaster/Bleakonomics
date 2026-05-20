@@ -41,19 +41,16 @@ export default function Home() {
         </div>
 
         <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-400">
-          Bringing the top macro charts to the people. Free, open, curated.
+          Key macro charts for the people | Free, Open, Curated, & Current.
+        </p>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-neutral-500">
+          Click or hover over charts to learn more.
         </p>
 
         <section className="mt-14 border-t border-neutral-900 pt-8">
           <h2 className="mt-3 text-2xl font-semibold text-white">
             10 Year - 2 Year Treasury Spread
           </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-neutral-400">
-            One of the most watched recession indicators. When the spread turns
-            negative, short-term Treasury yields are higher than long-term
-            yields, a signal that markets expect stress ahead.
-          </p>
-
           <Link
             href="/yield-curve"
             className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
