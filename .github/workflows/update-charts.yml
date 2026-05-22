@@ -37,6 +37,7 @@ jobs:
       - name: Run chart scripts
         run: |
           python scripts/10Year2Year.py
+          python scripts/Unemployment.py
 
       - name: Commit updated charts
         run: |

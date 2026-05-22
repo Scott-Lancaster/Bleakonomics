@@ -1,25 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import bleakLogo from "../../bleaklogo1.png";
-import yieldCurveData from "../../public/data/yield_curve.json";
+import unemploymentData from "../../public/data/unemployment.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
 import DataGradeSection from "../../components/DataGradeSection";
-import YieldCurveChart from "./YieldCurveChart";
+import UnemploymentChart from "./UnemploymentChart";
 
-type YieldCurveData = {
+type UnemploymentData = {
   title?: string;
   latest?: number;
   updated_at?: string;
-  observations?: Array<{ date: string; value: number }>;
+  observations?: Array<{
+    date: string;
+    value: number;
+    sahm?: number | null;
+    three_month_average?: number | null;
+  }>;
   recessions?: Array<{ start: string; end: string }>;
   summary?: string;
   papers?: Array<{ title: string; url: string }>;
+  sahm?: number;
+  status?: string;
 };
 
-const data = yieldCurveData as YieldCurveData;
+const data = unemploymentData as UnemploymentData;
 
-export default function YieldCurvePage() {
+export default function UnemploymentPage() {
   return (
     <main className="min-h-screen bg-black px-6 py-8 text-white">
       <header className="mx-auto flex max-w-6xl items-center justify-between">
@@ -45,21 +52,24 @@ export default function YieldCurvePage() {
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            10Y - 2Y Treasury Spread
+            US Unemployment Rate
           </h1>
           <ChartInfoButtons
             summary={
               data.summary ??
-              "Negative spread equates to negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now."
+              "The unemployment rate shows how much labor-market stress has reached workers, while the Sahm Rule tracks whether unemployment is rising quickly enough to confirm recession risk."
             }
             papers={data.papers ?? []}
           />
         </div>
+
         <div className="mt-8">
-          <YieldCurveChart
+          <UnemploymentChart
             observations={data.observations ?? []}
             recessions={data.recessions ?? []}
             latest={typeof data.latest === "number" ? data.latest : null}
+            sahm={typeof data.sahm === "number" ? data.sahm : null}
+            status={data.status ?? null}
             updatedAt={data.updated_at ?? null}
           />
         </div>
@@ -68,10 +78,10 @@ export default function YieldCurvePage() {
           <DataGradeSection
             items={[
               {
-                label: "Treasury Yields",
+                label: "Unemployment Rate",
                 grade: "A",
                 description:
-                  "Markets price these every day and the source updates once a day. As good as data gets.",
+                  "BLS publishes this monthly and FRED updates shortly after release. Clean, official, and widely used, though less immediate than market-priced data.",
               },
             ]}
           />
