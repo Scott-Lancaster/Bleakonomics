@@ -27,27 +27,24 @@ export default function Home() {
         <DonateButton />
       </div>
 
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-20">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+      <section className="mx-auto flex min-h-screen max-w-6xl flex-col px-6 pb-16 pt-28">
+        <div className="flex flex-col items-center gap-4 text-center">
           <Image
             src={bleakLogo}
             alt="Bleakonomics logo"
-            className="h-20 w-20 object-contain sm:h-24 sm:w-24"
+            className="h-16 w-16 object-contain sm:h-20 sm:w-20"
             priority
           />
-          <h1 className="max-w-4xl text-5xl font-bold tracking-tight text-white md:text-7xl">
+          <h1 className="font-mono text-5xl font-bold tracking-wide text-white md:text-7xl">
             Bleakonomics
           </h1>
         </div>
 
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-400">
-          Key macro charts for the people | Free, Open, Curated, & Current.
-        </p>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-neutral-500">
-          Click or hover over charts to learn more.
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-neutral-400">
+          Macro charts for the people. Free, Open, & Current.
         </p>
 
-        <section className="mt-14 border-t border-neutral-900 pt-8">
+        <section className="mt-10 border-t border-neutral-900 pt-7">
           <h2 className="mt-3 text-2xl font-semibold text-white">
             10 Year - 2 Year Treasury Spread
           </h2>
@@ -78,7 +75,12 @@ export default function Home() {
 
       <footer className="border-t border-neutral-900 px-6 py-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>Last updated: {updatedAt}</p>
+          <div className="space-y-1">
+            <p>Last updated: {updatedAt}</p>
+            <p className="text-xs text-neutral-600">
+              Bleakonomics has no affiliation with the Freakonomics brand.
+            </p>
+          </div>
           <div className="flex items-center gap-4">
             <a
               href="https://github.com/Scott-Lancaster/Bleakonomics/tree/main/scripts"
