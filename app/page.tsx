@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import bleakLogo from "../bleaklogo1.png";
-import DonateButton from "../components/DonateButton";
+import SiteHeader from "../components/SiteHeader";
 import yieldCurveData from "../public/data/yield_curve.json";
 
 function formatUpdatedAtUtc(date: string) {
@@ -23,11 +23,9 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <div className="absolute right-6 top-6 z-20">
-        <DonateButton />
-      </div>
+      <SiteHeader active="home" />
 
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col px-6 pb-16 pt-28">
+      <section className="mx-auto flex max-w-6xl flex-col px-6 pb-16 pt-16">
         <div className="flex flex-col items-center gap-4 text-center">
           <Image
             src={bleakLogo}
