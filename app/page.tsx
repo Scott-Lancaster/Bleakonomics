@@ -64,7 +64,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  {yieldCurveData.summary}
+                  Negative spread equals negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now.
                 </p>
               </div>
             </Link>
@@ -86,7 +86,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  {unemploymentData.summary}
+                  The unemployment rate is the share of people in the labor force who are actively looking for work but do not have a job. Less of a predictor and more of an indication that stress has hit U.S. households.
                 </p>
               </div>
             </Link>

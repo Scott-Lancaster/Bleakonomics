@@ -47,7 +47,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CHART_PATH = ROOT / "public" / "charts" / "unemployment.png"
 DATA_PATH = ROOT / "public" / "data" / "unemployment.json"
 
-START_YEAR = 1950
+START_YEAR = 1980
 SHOW_SAHM_DOTS = False
 
 start = datetime(START_YEAR, 1, 1)
