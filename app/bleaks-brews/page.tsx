@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import bleaksBrewsButton from "../../BleaksBrewsButton.png";
+import bleaksBrewIntroduction from "../../BleaksBrewIntroduction.png";
 import SiteHeader from "../../components/SiteHeader";
 
 const sections = [
@@ -65,9 +66,26 @@ export default function BleaksBrewsPage() {
                   {section.title}
                 </Link>
               </h2>
-              <p className="mt-4 text-base leading-8 text-neutral-400">
-                {section.placeholder}
-              </p>
+
+              {section.id === "introduction" ? (
+                <div className="mt-5 grid gap-6 md:grid-cols-[minmax(0,1fr)_280px] md:items-start">
+                  <div className="text-base leading-8 text-neutral-400">
+                    <p className="italic text-neutral-300">
+                      The following is an analogy for to help simplify the macroeconomic picture. For all master brewers and economist, I apologize for all the innaccuracies
+                    </p>
+                    <p className="mt-4">{section.placeholder}</p>
+                  </div>
+                  <Image
+                    src={bleaksBrewIntroduction}
+                    alt="Bleak's Brews introduction"
+                    className="w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover"
+                  />
+                </div>
+              ) : (
+                <p className="mt-4 text-base leading-8 text-neutral-400">
+                  {section.placeholder}
+                </p>
+              )}
             </section>
           ))}
         </div>
