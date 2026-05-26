@@ -8,20 +8,25 @@ const sections = [
   {
     id: "introduction",
     title: "Introduction",
-    placeholder:
-      "Placeholder text for the Bleak's Brews introduction. Replace this with the opening notes when ready.",
+    placeholder: `Placeholder text for the Bleak's Brews introduction. Replace this with the opening notes when ready.
+
+Add a second paragraph here when you want more room.
+
+And a third paragraph here if the thought needs to breathe.`,
   },
   {
     id: "10-year-2-year-treasury-yields",
     title: "10 Year - 2 Year Treasury Yields",
-    placeholder:
-      "Placeholder text for the 10Y - 2Y Treasury yield section. Add your chart notes, context, and eventual image tie-in here.",
+    placeholder: `Placeholder text for the 10Y - 2Y Treasury yield section. Add your chart notes, context, and eventual image tie-in here.
+
+This section can now hold multiple paragraphs without breaking the page.`,
   },
   {
     id: "unemployment",
     title: "Unemployment",
-    placeholder:
-      "Placeholder text for the unemployment section. Add your labor-market notes, chart context, and eventual image tie-in here.",
+    placeholder: `Placeholder text for the unemployment section. Add your labor-market notes, chart context, and eventual image tie-in here.
+
+This section can also hold as much text as you want to draft.`,
   },
 ];
 
@@ -68,21 +73,22 @@ export default function BleaksBrewsPage() {
               </h2>
 
               {section.id === "introduction" ? (
-                <div className="mt-5 grid gap-6 md:grid-cols-[minmax(0,1fr)_280px] md:items-start">
-                  <div className="text-base leading-8 text-neutral-400">
-                    <p className="italic text-neutral-300">
-                      The following is an analogy for to help simplify the macroeconomic picture. For all master brewers and economist, I apologize for all the innaccuracies
-                    </p>
-                    <p className="mt-4">{section.placeholder}</p>
-                  </div>
+                <div className="mt-5">
                   <Image
                     src={bleaksBrewIntroduction}
                     alt="Bleak's Brews introduction"
                     className="w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover"
+                    priority
                   />
+                  <div className="mt-6 text-base leading-8 text-neutral-400">
+                    <p className="italic text-neutral-300">
+                      The following is an analogy for to help simplify the macroeconomic picture. For all master brewers and economist, I apologize for all the innaccuracies
+                    </p>
+                    <p className="mt-4 whitespace-pre-line">{section.placeholder}</p>
+                  </div>
                 </div>
               ) : (
-                <p className="mt-4 text-base leading-8 text-neutral-400">
+                <p className="mt-4 whitespace-pre-line text-base leading-8 text-neutral-400">
                   {section.placeholder}
                 </p>
               )}

@@ -187,6 +187,7 @@ export default function YieldCurveChart({
     return { line, x, y, zeroY, yTicks, xTicks, recessionBands };
   }, [points, recessions]);
 
+  const isInspecting = hoverIndex !== null;
   const activePoint = hoverIndex === null ? points[points.length - 1] : points[hoverIndex];
   const activeX = chart && activePoint ? chart.x(new Date(activePoint.date).getTime()) : 0;
   const activeY = chart && activePoint ? chart.y(activePoint.value) : 0;
@@ -211,7 +212,7 @@ export default function YieldCurveChart({
             </p>
             <p className="mt-2 text-4xl font-bold text-white">{activePoint.value.toFixed(2)}%</p>
             <p className="mt-1 text-sm text-neutral-400">
-              {formatDate(activePoint.date)} {latest !== null ? "· Latest: " + latest.toFixed(2) + "%" : ""}
+              {formatDate(activePoint.date)} {isInspecting && latest !== null ? "· Latest: " + latest.toFixed(2) + "%" : ""}
             </p>
           </div>
 
