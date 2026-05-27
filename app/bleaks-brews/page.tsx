@@ -8,25 +8,29 @@ const sections = [
   {
     id: "introduction",
     title: "Introduction",
-    placeholder: `Placeholder text for the Bleak's Brews introduction. Replace this with the opening notes when ready.
+    placeholder: `This is Bleak. He’s a brewmaster, the owner of his own brewery, and a lifelong lover of quality beer. Bleak has been brewing since he was a cub, and over the years he has developed a pretty good feel for what makes a great batch. He runs a real business brewing and serving his beer, but he still makes sure to give some away to his friends.
 
-Add a second paragraph here when you want more room.
-
-And a third paragraph here if the thought needs to breathe.`,
+Bleak’s purpose in life is simple: make the finest beer in the world for everyone to enjoy. This article uses Bleak’s everyday life in the brewery to explain the macroeconomic charts behind Bleakonomics. The analogy will not be perfect, but the goal is to make intimidating economic signals feel more intuitive, familiar, and maybe even a little fun.`,
   },
   {
     id: "10-year-2-year-treasury-yields",
     title: "10 Year - 2 Year Treasury Yields",
-    placeholder: `Placeholder text for the 10Y - 2Y Treasury yield section. Add your chart notes, context, and eventual image tie-in here.
+    placeholder: `Bleak brews all kinds of beer: crispy pilsners, fancy Kölsches, hazy IPAs, and dark stouts that look like they were forged deep inside a bear cave. Some batches are quick movers, the kind of beer everyone wants right now. Others take more patience, more planning, better ingredients, and maybe a few late nights spent staring into a fermentation tank like it holds the secrets of the universe.
 
-This section can now hold multiple paragraphs without breaking the page.`,
+After years of brewing, Bleak has developed a sixth sense for the beer world. He knows what customers are ordering, what ingredients cost, which styles are trending, and whether the regulars are saying things like, “I’ll take a growler to go,” or “Eh, maybe I’ll just have one.” He also knows that every batch depends on inputs: the quality of the hops, the strength of the yeast, the grain bill, the temperature, the aging time, and whether the whole brew is coming together cleanly or starting to taste a little weird.
+
+Because Bleak knows his brewery so well, he can look at a batch before it ever hits the tap and make a pretty good guess at what it is worth. A quick pilsner made with solid ingredients and strong customer demand might command a good price today. A long-aging stout might depend more on what Bleak thinks the brewery, the customers, and the ingredient market will look like months from now. Every input changes the final “yield” of the beer: how much people want it, how much they are willing to pay, and whether the batch turns into profit or just a very expensive science experiment with foam.
+
+That is similar to the 10-year minus 2-year Treasury yield. Like Bleak pricing his beer, the market takes in all the information it has — inflation, employment, growth, interest rates, risk, and overall economic vibes — and uses it to price short-term expectations against long-term expectations. When the 2-year yield moves above the 10-year yield, it is like Bleak deciding that the quick batch is more demanding, expensive, or valuable than the slow batch aging in the back. Something about the near-term brew is running hotter than the long-term outlook.`,
   },
   {
     id: "unemployment",
     title: "Unemployment",
-    placeholder: `Placeholder text for the unemployment section. Add your labor-market notes, chart context, and eventual image tie-in here.
+    placeholder: `High unemployment means a higher percentage of people in the economy are not actively producing goods or services. In Bleak’s brewery, that is like having a higher percentage of his ingredients be stale, weak, or missing altogether.
 
-This section can also hold as much text as you want to draft.`,
+Bleak still has customers to serve, so the brewery keeps running. But if the hops are stale, the yeast is lazy, the grain is low quality, or a few key ingredients never show up, the batch is going to suffer. He can still make beer, but it is harder to make good beer.
+
+That is similar to unemployment. When more people are out of work, the economy has fewer productive inputs helping create value. The system can still produce, but the final product gets weaker. In Bleak’s world, high unemployment means too many bad or missing ingredients are going into the brew, which leads to flat, weird, and unprofitable batches.`,
   },
 ];
 

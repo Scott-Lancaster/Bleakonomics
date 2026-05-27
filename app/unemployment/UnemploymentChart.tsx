@@ -168,6 +168,7 @@ export default function UnemploymentChart({
     return { line, x, y, yTicks, xTicks, recessionBands };
   }, [points, recessions]);
 
+  const isInspecting = hoverIndex !== null;
   const activePoint = hoverIndex === null ? points[points.length - 1] : points[hoverIndex];
   const activeX = chart && activePoint ? chart.x(new Date(activePoint.date).getTime()) : 0;
   const activeY = chart && activePoint ? chart.y(activePoint.value) : 0;
@@ -191,9 +192,9 @@ export default function UnemploymentChart({
             </p>
             <p className="mt-2 text-4xl font-bold text-white">{activePoint.value.toFixed(1)}%</p>
             <p className="mt-1 text-sm text-neutral-400">
-              {formatDate(activePoint.date)} {latest !== null ? "· Latest: " + latest.toFixed(1) + "%" : ""}
-              {sahm !== null ? " · Sahm: " + sahm.toFixed(2) + " pp" : ""}
-              {status ? " · " + status : ""}
+              {formatDate(activePoint.date)} {isInspecting && latest !== null ? "· Latest: " + latest.toFixed(1) + "%" : ""}
+              {isInspecting && sahm !== null ? " · Sahm: " + sahm.toFixed(2) + " pp" : ""}
+              {isInspecting && status ? " · " + status : ""}
             </p>
           </div>
 
@@ -308,13 +309,17 @@ export default function UnemploymentChart({
             </text>
           ))}
           <path d={chart.line} fill="none" stroke="#e5e5e5" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-          <line x1={activeX} x2={activeX} y1={pad.top} y2={height - pad.bottom} stroke="#525252" strokeWidth="1" />
-          <circle cx={activeX} cy={activeY} r="6" fill="#ffffff" stroke="#0a0a0a" strokeWidth="3" />
-          <g transform={"translate(" + Math.min(activeX + 16, width - 245) + " " + Math.max(activeY - 66, 18) + ")"}>
-            <rect width="225" height="56" rx="6" fill="#171717" stroke="#404040" />
-            <text x="12" y="23" fill="#d4d4d4" fontSize="13">{formatDate(activePoint.date)}</text>
-            <text x="12" y="43" fill="#ffffff" fontSize="18" fontWeight="700">{activePoint.value.toFixed(1)}%</text>
-          </g>
+          {isInspecting ? (
+            <>
+              <line x1={activeX} x2={activeX} y1={pad.top} y2={height - pad.bottom} stroke="#525252" strokeWidth="1" />
+              <circle cx={activeX} cy={activeY} r="6" fill="#ffffff" stroke="#0a0a0a" strokeWidth="3" />
+              <g transform={"translate(" + Math.min(activeX + 16, width - 245) + " " + Math.max(activeY - 66, 18) + ")"}>
+                <rect width="225" height="56" rx="6" fill="#171717" stroke="#404040" />
+                <text x="12" y="23" fill="#d4d4d4" fontSize="13">{formatDate(activePoint.date)}</text>
+                <text x="12" y="43" fill="#ffffff" fontSize="18" fontWeight="700">{activePoint.value.toFixed(1)}%</text>
+              </g>
+            </>
+          ) : null}
         </svg>
       </div>
 
