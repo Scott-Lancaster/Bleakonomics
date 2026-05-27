@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import bleaksBrewsButton from "../../BleaksBrewsButton.png";
 import bleaksBrewIntroduction from "../../BleaksBrewIntroduction.png";
+import bleaksBrewYield from "../../BleaksBrewYieldCurve.png";
 import SiteHeader from "../../components/SiteHeader";
 
 const sections = [
@@ -10,7 +11,7 @@ const sections = [
     title: "Introduction",
     placeholder: `This is Bleak. He’s a brewmaster, the owner of his own brewery, and a lifelong lover of quality beer. Bleak has been brewing since he was a cub, and over the years he has developed a pretty good feel for what makes a great batch. He runs a real business brewing and serving his beer, but he still makes sure to give some away to his friends.
 
-Bleak’s purpose in life is simple: make the finest beer in the world for everyone to enjoy. This article uses Bleak’s everyday life in the brewery to explain the macroeconomic charts behind Bleakonomics. The analogy will not be perfect, but the goal is to make intimidating economic signals feel more intuitive, familiar, and maybe even a little fun.`,
+Bleak’s purpose in life is simple: make the finest beer in the world for everyone to enjoy. This article uses Bleak’s everyday life in the brewery to explain the macroeconomic charts behind Bleakonomics. The analogy will not be perfect, but the goal is to make intimidating economic signals feel more intuitive, familiar, and maybe even a little fun. For all master brewers and economist, I apologize in advance for all the innaccuracies`,
   },
   {
     id: "10-year-2-year-treasury-yields",
@@ -78,8 +79,8 @@ export default function BleaksBrewsPage() {
 
               {section.id === "introduction" ? (
                 <div className="mt-5">
-                  <p className="text-base leading-6 text-neutral-300 italic">
-                    The following is an analogy for to help simplify the macroeconomic picture. For all master brewers and economist, I apologize for all the innaccuracies
+                  <p className="whitespace-pre-line text-base leading-6 text-neutral-400">
+                    {section.placeholder.split("\n\n")[0]}
                   </p>
                   <Image
                     src={bleaksBrewIntroduction}
@@ -87,12 +88,23 @@ export default function BleaksBrewsPage() {
                     className="mx-auto mt-5 w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover md:w-2/3"
                     priority
                   />
-                  <div className="mt-6 text-base leading-8 text-neutral-400">
-                    <p className="whitespace-pre-line">{section.placeholder}</p>
-                  </div>
+                  <p className="mt-5 whitespace-pre-line text-base leading-6 text-neutral-400">
+                    {section.placeholder.split("\n\n").slice(1).join("\n\n")}
+                  </p>
+                </div>
+              ) : section.id === "10-year-2-year-treasury-yields" ? (
+                <div className="mt-4">
+                  <Image
+                    src={bleaksBrewYield}
+                    alt="Bleak's Brews 10 Year - 2 Year Treasury Yields"
+                    className="mx-auto w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover md:w-2/3"
+                  />
+                  <p className="mt-5 whitespace-pre-line text-base leading-6 text-neutral-400">
+                    {section.placeholder}
+                  </p>
                 </div>
               ) : (
-                <p className="mt-4 whitespace-pre-line text-base leading-8 text-neutral-400">
+                <p className="mt-4 whitespace-pre-line text-base leading-6 text-neutral-400">
                   {section.placeholder}
                 </p>
               )}
