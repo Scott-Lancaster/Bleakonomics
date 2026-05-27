@@ -80,9 +80,9 @@ export default function UnemploymentPage() {
             items={[
               {
                 label: "Unemployment Rate",
-                grade: "A",
+                grade: "C",
                 description:
-                  "BLS publishes this monthly and FRED updates shortly after release. Clean, official, and widely used, though less immediate than market-priced data.",
+                  "BLS publishes this only once a month, and the numbers are often revised in the following months.",
               },
             ]}
           />

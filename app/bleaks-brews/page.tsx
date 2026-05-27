@@ -3,6 +3,7 @@ import Link from "next/link";
 import bleaksBrewsButton from "../../BleaksBrewsButton.png";
 import bleaksBrewIntroduction from "../../BleaksBrewIntroduction.png";
 import bleaksBrewYield from "../../BleaksBrewYieldCurve.png";
+import bleaksBrewUnemployment from "../../BleaksBrewUnemployment.png";
 import SiteHeader from "../../components/SiteHeader";
 
 const sections = [
@@ -52,7 +53,7 @@ export default function BleaksBrewsPage() {
             Bleak&apos;s Brews
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-400">
-            Notes, explanations, and plain-English context for the charts.
+            A tasty analogy for better macro consumption
           </p>
         </div>
 
@@ -97,6 +98,17 @@ export default function BleaksBrewsPage() {
                   <Image
                     src={bleaksBrewYield}
                     alt="Bleak's Brews 10 Year - 2 Year Treasury Yields"
+                    className="mx-auto w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover md:w-2/3"
+                  />
+                  <p className="mt-5 whitespace-pre-line text-base leading-6 text-neutral-400">
+                    {section.placeholder}
+                  </p>
+                </div>
+              ) : section.id === "unemployment" ? (
+                <div className="mt-4">
+                  <Image
+                    src={bleaksBrewUnemployment}
+                    alt="Bleak's Brews unemployment"
                     className="mx-auto w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover md:w-2/3"
                   />
                   <p className="mt-5 whitespace-pre-line text-base leading-6 text-neutral-400">
