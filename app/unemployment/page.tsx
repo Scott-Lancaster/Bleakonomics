@@ -60,6 +60,7 @@ export default function UnemploymentPage() {
               "The unemployment rate shows how much labor-market stress has reached workers, while the Sahm Rule tracks whether unemployment is rising quickly enough to confirm recession risk."
             }
             papers={data.papers ?? []}
+            brewsHref="/bleaks-brews#unemployment"
           />
         </div>
 

@@ -344,13 +344,17 @@ export default function YieldCurveChart({
           ))}
           <line x1={pad.left} x2={width - pad.right} y1={chart.zeroY} y2={chart.zeroY} stroke="#ef4444" strokeDasharray="7 7" strokeWidth="1.4" />
           <path d={chart.line} fill="none" stroke="#e5e5e5" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-          <line x1={activeX} x2={activeX} y1={pad.top} y2={height - pad.bottom} stroke="#525252" strokeWidth="1" />
-          <circle cx={activeX} cy={activeY} r="6" fill="#ffffff" stroke="#0a0a0a" strokeWidth="3" />
-          <g transform={"translate(" + Math.min(activeX + 16, width - 245) + " " + Math.max(activeY - 66, 18) + ")"}>
-            <rect width="225" height="56" rx="6" fill="#171717" stroke="#404040" />
-            <text x="12" y="23" fill="#d4d4d4" fontSize="13">{formatDate(activePoint.date)}</text>
-            <text x="12" y="43" fill="#ffffff" fontSize="18" fontWeight="700">{activePoint.value.toFixed(2)}%</text>
-          </g>
+          {isInspecting ? (
+            <>
+              <line x1={activeX} x2={activeX} y1={pad.top} y2={height - pad.bottom} stroke="#525252" strokeWidth="1" />
+              <circle cx={activeX} cy={activeY} r="6" fill="#ffffff" stroke="#0a0a0a" strokeWidth="3" />
+              <g transform={"translate(" + Math.min(activeX + 16, width - 245) + " " + Math.max(activeY - 66, 18) + ")"}>
+                <rect width="225" height="56" rx="6" fill="#171717" stroke="#404040" />
+                <text x="12" y="23" fill="#d4d4d4" fontSize="13">{formatDate(activePoint.date)}</text>
+                <text x="12" y="43" fill="#ffffff" fontSize="18" fontWeight="700">{activePoint.value.toFixed(2)}%</text>
+              </g>
+            </>
+          ) : null}
         </svg>
       </div>
 

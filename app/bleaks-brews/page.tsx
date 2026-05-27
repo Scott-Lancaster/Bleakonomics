@@ -74,17 +74,17 @@ export default function BleaksBrewsPage() {
 
               {section.id === "introduction" ? (
                 <div className="mt-5">
+                  <p className="text-base leading-6 text-neutral-300 italic">
+                    The following is an analogy for to help simplify the macroeconomic picture. For all master brewers and economist, I apologize for all the innaccuracies
+                  </p>
                   <Image
                     src={bleaksBrewIntroduction}
                     alt="Bleak's Brews introduction"
-                    className="w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover"
+                    className="mx-auto mt-5 w-full rounded-lg border border-neutral-800 bg-neutral-950 object-cover md:w-2/3"
                     priority
                   />
                   <div className="mt-6 text-base leading-8 text-neutral-400">
-                    <p className="italic text-neutral-300">
-                      The following is an analogy for to help simplify the macroeconomic picture. For all master brewers and economist, I apologize for all the innaccuracies
-                    </p>
-                    <p className="mt-4 whitespace-pre-line">{section.placeholder}</p>
+                    <p className="whitespace-pre-line">{section.placeholder}</p>
                   </div>
                 </div>
               ) : (

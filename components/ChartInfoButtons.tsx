@@ -9,14 +9,15 @@ type Paper = {
   url: string;
 };
 
-type Panel = "summary" | "papers" | "brews";
+type Panel = "summary" | "papers";
 
 type ChartInfoButtonsProps = {
   summary: string;
   papers: Paper[];
+  brewsHref: string;
 };
 
-export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsProps) {
+export default function ChartInfoButtons({ summary, papers, brewsHref }: ChartInfoButtonsProps) {
   const [openPanel, setOpenPanel] = useState<Panel | null>(null);
   const closeTimer = useRef<number | null>(null);
 
@@ -52,19 +53,17 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
       >
         🎓
       </button>
-      <button
-        type="button"
-        onClick={() => setOpenPanel("brews")}
-        onMouseLeave={scheduleClose}
+      <a
+        href={brewsHref}
         className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-md border border-neutral-800 bg-black transition hover:border-neutral-600"
-        aria-label="Show Bleak's Brews"
+        aria-label="Open related Bleak's Brews section"
       >
         <Image
           src={bleaksBrewsButton}
           alt="Bleak's Brews"
           className="h-8 w-8 object-contain"
         />
-      </button>
+      </a>
 
       {openPanel ? (
         <div
@@ -103,15 +102,6 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
                   <p className="text-sm text-neutral-400">Research links coming soon.</p>
                 )}
               </div>
-            </div>
-          ) : null}
-
-          {openPanel === "brews" ? (
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-                Bleak&apos;s Brews
-              </p>
-              <p className="mt-3 text-sm leading-6 text-neutral-300">Coming Soon!</p>
             </div>
           ) : null}
         </div>

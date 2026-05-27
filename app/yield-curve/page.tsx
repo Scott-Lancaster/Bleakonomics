@@ -53,6 +53,7 @@ export default function YieldCurvePage() {
               "Negative spread equates to negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now."
             }
             papers={data.papers ?? []}
+            brewsHref="/bleaks-brews#10-year-2-year-treasury-yields"
           />
         </div>
         <div className="mt-8">
