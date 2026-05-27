@@ -38,10 +38,18 @@ from pathlib import Path
 from datetime import datetime, timedelta
 
 import pandas as pd
-import pandas_datareader.data as web
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+
+
+def read_fred_series(series_id, start, end):
+    url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
+    data = pd.read_csv(url, parse_dates=["observation_date"], na_values=".")
+    data = data.rename(columns={"observation_date": "DATE"}).set_index("DATE")
+    data = data.loc[(data.index >= pd.Timestamp(start)) & (data.index <= pd.Timestamp(end))]
+    return data[[series_id]]
 
 ROOT = Path(__file__).resolve().parents[1]
 CHART_PATH = ROOT / "public" / "charts" / "unemployment.png"
@@ -55,8 +63,8 @@ end = datetime.now()
 
 try:
     print("Fetching FRED data...")
-    unrate = web.DataReader('UNRATE', 'fred', start, end)
-    recession = web.DataReader('USREC', 'fred', start, end)
+    unrate = read_fred_series('UNRATE', start, end)
+    recession = read_fred_series('USREC', start, end)
 
     if unrate.dropna().empty or recession.dropna().empty:
         raise RuntimeError("FRED returned empty unemployment or recession data.")

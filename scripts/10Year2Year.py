@@ -38,11 +38,19 @@ import json
 from pathlib import Path
 
 import pandas as pd
-import pandas_datareader.data as web
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from datetime import datetime
+
+
+
+def read_fred_series(series_id, start, end):
+    url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
+    data = pd.read_csv(url, parse_dates=["observation_date"], na_values=".")
+    data = data.rename(columns={"observation_date": "DATE"}).set_index("DATE")
+    data = data.loc[(data.index >= pd.Timestamp(start)) & (data.index <= pd.Timestamp(end))]
+    return data[[series_id]]
 
 # ———————————————— OUTPUT SETTINGS ————————————————
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,8 +69,8 @@ end   = datetime.now() if END_YEAR is None else datetime(END_YEAR, 12, 31)
 # instead of failing the whole scheduled website update.
 try:
     print("Fetching FRED data...")
-    yield_curve = web.DataReader('T10Y2Y', 'fred', start, end)
-    recession   = web.DataReader('USREC',  'fred', start, end)
+    yield_curve = read_fred_series('T10Y2Y', start, end)
+    recession   = read_fred_series('USREC', start, end)
 
     if yield_curve.dropna().empty or recession.dropna().empty:
         raise RuntimeError("FRED returned empty yield or recession data.")
