@@ -4,6 +4,7 @@ import bleakLogo from "../bleaklogo1.png";
 import SiteHeader from "../components/SiteHeader";
 import yieldCurveData from "../public/data/yield_curve.json";
 import unemploymentData from "../public/data/unemployment.json";
+import sofrIorbData from "../public/data/sofr_iorb.json";
 
 function formatUpdatedAtUtc(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -18,7 +19,7 @@ function formatUpdatedAtUtc(date: string) {
 }
 
 export default function Home() {
-  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at]
+  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at]
     .filter(Boolean)
     .sort()
     .at(-1);
@@ -87,6 +88,28 @@ export default function Home() {
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
                   The unemployment rate is the share of people in the labor force who are actively looking for work but do not have a job. Less of a predictor and more of an indication that stress has hit U.S. households.
+                </p>
+              </div>
+            </Link>
+          </article>
+
+          <article>
+            <h2 className="text-2xl font-semibold text-white">
+              SOFR - IORB Spread
+            </h2>
+            <Link
+              href="/sofr-iorb"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive SOFR - IORB Spread chart"
+            >
+              <img
+                src="/charts/sofr_iorb.png"
+                alt="SOFR - IORB Spread chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  Under Construction
                 </p>
               </div>
             </Link>

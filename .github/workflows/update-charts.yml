@@ -41,6 +41,7 @@ jobs:
         run: |
           python scripts/10Year2Year.py
           python scripts/Unemployment.py
+          python scripts/SOFR-IORB.py
 
       - name: Commit updated charts
         run: |
