@@ -1,7 +1,7 @@
 {
   "title": "US Unemployment Rate + Sahm Rule",
   "latest": 4.3,
-  "updated_at": "2026-06-20T23:46:31Z",
+  "updated_at": "2026-06-21T23:52:11Z",
   "source": "FRED",
   "chart_path": "/charts/unemployment.png",
   "description": "Monthly U.S. unemployment rate with Sahm Rule context.",
