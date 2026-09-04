@@ -1,7 +1,7 @@
 {
   "title": "CPI Inflation",
   "latest": 3.5397514271936714,
-  "updated_at": "2026-09-03T00:32:04Z",
+  "updated_at": "2026-09-04T00:17:11Z",
   "source": "FRED",
   "chart_path": "/charts/cpi.png",
   "description": "Monthly year-over-year inflation derived from CPIAUCSL.",
