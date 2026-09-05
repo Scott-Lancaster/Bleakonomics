@@ -1,7 +1,7 @@
 {
   "title": "US Unemployment Rate + Sahm Rule",
   "latest": 4.1,
-  "updated_at": "2026-09-04T00:17:09Z",
+  "updated_at": "2026-09-05T00:17:37Z",
   "source": "FRED",
   "chart_path": "/charts/unemployment.png",
   "description": "Monthly U.S. unemployment rate with Sahm Rule context.",
@@ -16,7 +16,7 @@
       "url": "https://fred.stlouisfed.org/series/SAHMREALTIME"
     }
   ],
-  "sahm": 0.0,
+  "sahm": -0.06666666666666643,
   "status": "Safe",
   "observations": [
     {
@@ -3366,6 +3366,12 @@
       "value": 4.1,
       "sahm": 0.0,
       "three_month_average": 4.199999999999999
+    },
+    {
+      "date": "2026-08-01",
+      "value": 4.1,
+      "sahm": -0.06666666666666643,
+      "three_month_average": 4.133333333333333
     }
   ],
   "recessions": [
