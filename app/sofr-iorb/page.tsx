@@ -53,9 +53,12 @@ export default function SOFRIORBPage() {
             SOFR - IORB Spread
           </h1>
           <ChartInfoButtons
-            summary="Under Construction"
+            summary={
+              data.summary ??
+              "SOFR is what it costs to borrow cash overnight using Treasuries as collateral. IORB is what the Fed pays banks to park money. When SOFR jumps above IORB, cash is getting scarce."
+            }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews"
+            brewsHref="/bleaks-brews#sofr-iorb"
           />
         </div>
 
@@ -71,10 +74,16 @@ export default function SOFRIORBPage() {
           <DataGradeSection
             items={[
               {
-                label: "SOFR and IORB",
-                grade: "B",
+                label: "SOFR",
+                grade: "A",
                 description:
-                  "Published frequently by official sources, but the spread stitches together market and administered rates and needs interpretation across regimes.",
+                  "Market-set overnight repo rate. Trades every business day. Strong print.",
+              },
+              {
+                label: "IORB",
+                grade: "C",
+                description:
+                  "The Fed sets this. It is policy, not a market discovering a price. The spread is only as honest as this half.",
               },
             ]}
           />

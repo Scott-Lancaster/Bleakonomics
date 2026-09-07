@@ -6,6 +6,7 @@ import yieldCurveData from "../public/data/yield_curve.json";
 import unemploymentData from "../public/data/unemployment.json";
 import sofrIorbData from "../public/data/sofr_iorb.json";
 import cpiData from "../public/data/cpi.json";
+import oilData from "../public/data/oil.json";
 
 function formatUpdatedAtUtc(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -20,7 +21,7 @@ function formatUpdatedAtUtc(date: string) {
 }
 
 export default function Home() {
-  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at]
+  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at]
     .filter(Boolean)
     .sort()
     .at(-1);
@@ -111,7 +112,28 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  Under Construction
+                  How fast a typical pile of stuff is getting more expensive. The government adds it up once a month.
+                </p>
+              </div>
+            </Link>
+          </article>
+          <article>
+            <h2 className="text-2xl font-semibold text-white">
+              WTI Crude Oil
+            </h2>
+            <Link
+              href="/oil"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive WTI Crude Oil chart"
+            >
+              <img
+                src="/charts/oil.png"
+                alt="WTI Crude Oil chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  Dollars per barrel at Cushing. Energy costs show up in inflation, freight, and the price of running the real economy.
                 </p>
               </div>
             </Link>
@@ -132,7 +154,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  Under Construction
+                  Overnight cash versus what the Fed pays banks to sit still. When this jumps, cash is getting scarce.
                 </p>
               </div>
             </Link>

@@ -4,18 +4,26 @@ os.environ['MATPLOTLIB_NO_SECURE_CODING_WARNING'] = '1'
 
 """
 ===============================================================================
-CPI INFLATION | CPIAUCSL | Dark Mode
+WTI CRUDE OIL | Dollars per barrel | Dark Mode
 ===============================================================================
+TLDR: Spot price of West Texas Intermediate crude at Cushing, Oklahoma.
+Oil is a US-traded global commodity: it feeds inflation, trucking, and
+the cost of running just about everything.
 
 WHAT IT SHOWS
-  Monthly year-over-year CPI inflation derived from FRED CPIAUCSL.
+  Daily WTI spot price, dollars per barrel
+  Shaded U.S. recessions (NBER)
 
-DATA SOURCES (FRED)
-  CPIAUCSL: https://fred.stlouisfed.org/series/CPIAUCSL
+DATA SOURCES
+  DCOILWTICO: https://fred.stlouisfed.org/series/DCOILWTICO  (EIA, 1986–)
+  USREC:      https://fred.stlouisfed.org/series/USREC
 
-OUTPUTS
-  public/charts/cpi.png
-  public/data/cpi.json
+DATA FREQUENCY: Daily, business days. EIA via FRED. Weekends/holidays blank.
+
+PAPERS
+  https://www.nber.org/papers/w15002
+  https://www.nber.org/papers/w13368
+  https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm
 ===============================================================================
 """
 
@@ -28,15 +36,6 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-ROOT = Path(__file__).resolve().parents[1]
-CHART_PATH = ROOT / "public" / "charts" / "cpi.png"
-DATA_PATH = ROOT / "public" / "data" / "cpi.json"
-
-START_YEAR = 1980
-FETCH_START_YEAR = START_YEAR - 1
-start = datetime(FETCH_START_YEAR, 1, 1)
-end = datetime.now()
-
 
 def read_fred_series(series_id, start, end):
     url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}"
@@ -45,13 +44,24 @@ def read_fred_series(series_id, start, end):
     data = data.loc[(data.index >= pd.Timestamp(start)) & (data.index <= pd.Timestamp(end))]
     return data[[series_id]]
 
+
+ROOT = Path(__file__).resolve().parents[1]
+CHART_PATH = ROOT / "public" / "charts" / "oil.png"
+DATA_PATH = ROOT / "public" / "data" / "oil.json"
+
+START_YEAR = 1986
+END_YEAR = None
+
+start = datetime(START_YEAR, 1, 1)
+end = datetime.now() if END_YEAR is None else datetime(END_YEAR, 12, 31)
+
 try:
     print("Fetching FRED data...")
-    cpi = read_fred_series("CPIAUCSL", start, end)
-    recession = read_fred_series("USREC", datetime(START_YEAR, 1, 1), end)
+    oil = read_fred_series("DCOILWTICO", start, end)
+    recession = read_fred_series("USREC", start, end)
 
-    if cpi.dropna().empty or recession.dropna().empty:
-        raise RuntimeError("FRED returned empty CPI or recession data.")
+    if oil.dropna().empty or recession.dropna().empty:
+        raise RuntimeError("FRED returned empty WTI or recession data.")
 except Exception as exc:
     print(f"WARNING: Could not fetch FRED data: {exc}")
     if CHART_PATH.exists() and DATA_PATH.exists():
@@ -59,15 +69,8 @@ except Exception as exc:
         raise SystemExit(0)
     raise
 
-data = cpi.dropna(subset=["CPIAUCSL"]).copy()
-data["YoY"] = data["CPIAUCSL"].pct_change(12) * 100
-data["MA_6M"] = data["YoY"].rolling(6, min_periods=1).mean()
-data = data.dropna(subset=["YoY"])
-data = data.loc[data.index >= pd.Timestamp(datetime(START_YEAR, 1, 1))]
+oil = oil.dropna()
 recession = recession.dropna()
-
-if data.empty:
-    raise RuntimeError("Not enough CPI observations to calculate year-over-year inflation.")
 
 plt.style.use("dark_background")
 plt.rcParams.update({
@@ -103,20 +106,19 @@ if in_recession and rec_start is not None:
     label = "Recession" if not recession_added else ""
     ax.axvspan(rec_start, end, color="#cc4444", alpha=0.25, label=label)
 
-ax.plot(data.index, data["YoY"], color="#cccccc", linewidth=1.4, label="CPI YoY")
-ax.plot(data.index, data["MA_6M"], color="#4da6ff", linewidth=2.0, label="6-Month Avg")
-ax.axhline(2, color="#ff6b6b", linestyle="--", linewidth=1.2, alpha=0.75, label="2% reference")
-ax.axhline(0, color="#888888", linestyle="--", linewidth=1.0, alpha=0.5)
+ax.plot(oil.index, oil["DCOILWTICO"], color="#cccccc", linewidth=1.4, label="WTI Crude")
+ax.axhline(0, color="#888888", linestyle="--", linewidth=1.0, alpha=0.45)
 
+latest_value = float(oil["DCOILWTICO"].iloc[-1])
 ax.set_title(
-    f"CPI Inflation YoY ({START_YEAR}-Now)\nLatest: {data['YoY'].iloc[-1]:.2f}%",
+    f"WTI Crude Oil ({START_YEAR}–{END_YEAR or 'Now'})\nLast: ${latest_value:.2f} / barrel",
     color="white",
     fontsize=14,
     pad=20,
     fontweight="bold",
 )
 ax.set_xlabel("Year", color="white")
-ax.set_ylabel("Year-over-year change (%)", color="white")
+ax.set_ylabel("Dollars per barrel", color="white")
 ax.legend(loc="upper left", framealpha=0.95)
 ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
@@ -128,8 +130,6 @@ CHART_PATH.parent.mkdir(parents=True, exist_ok=True)
 DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
 plt.savefig(CHART_PATH, dpi=300, bbox_inches="tight", facecolor="#0a0a0a")
 plt.close(fig)
-
-latest = data.iloc[-1]
 
 recessions = []
 in_recession = False
@@ -150,38 +150,45 @@ if in_recession and rec_start is not None:
         "end": end.date().isoformat(),
     })
 
+summary = (
+    "West Texas Intermediate is the US benchmark price for a barrel of crude oil, "
+    "quoted at Cushing, Oklahoma. It is a global commodity that still lands in US "
+    "inflation, gasoline, freight, and industrial costs. Spikes often show up around "
+    "geopolitical shocks; crashes can print even negative, as in April 2020. It is "
+    "not a Fed policy rate and it is not the price you pay at the pump."
+)
+papers = [
+    {
+        "title": "Causes and Consequences of the Oil Shock of 2007-08",
+        "url": "https://www.nber.org/papers/w15002",
+    },
+    {
+        "title": "The Macroeconomic Effects of Oil Shocks: Why Are the 2000s So Different from the 1970s?",
+        "url": "https://www.nber.org/papers/w13368",
+    },
+    {
+        "title": "EIA spot prices for crude oil (WTI Cushing)",
+        "url": "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm",
+    },
+]
+
 observations = [
     {
         "date": index.date().isoformat(),
-        "value": float(row["YoY"]),
-        "cpi": float(row["CPIAUCSL"]),
-        "ma6": float(row["MA_6M"]),
+        "value": float(row["DCOILWTICO"]),
     }
-    for index, row in data.iterrows()
+    for index, row in oil.iterrows()
 ]
 
 metadata = {
-    "title": "CPI Inflation",
-    "latest": float(latest["YoY"]),
+    "title": "WTI Crude Oil",
+    "latest": round(latest_value, 2),
     "updated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
-    "source": "FRED",
-    "chart_path": "/charts/cpi.png",
-    "description": "Monthly year-over-year inflation derived from CPIAUCSL.",
-    "summary": "This is how fast a typical pile of stuff people buy is getting more expensive. The government adds it up once a month. It is not the price of one thing, and last month's number can get rewritten later.",
-    "papers": [
-        {
-            "title": "BLS Consumer Price Index overview",
-            "url": "https://www.bls.gov/cpi/",
-        },
-        {
-            "title": "BLS Handbook of Methods: Consumer Price Index",
-            "url": "https://www.bls.gov/opub/hom/cpi/home.htm",
-        },
-        {
-            "title": "Fed statement on longer-run goals and monetary policy strategy",
-            "url": "https://www.federalreserve.gov/monetarypolicy/review-of-monetary-policy-strategy-tools-and-communications-statement-on-longer-run-goals-monetary-policy-strategy.htm",
-        },
-    ],
+    "source": "FRED / EIA",
+    "chart_path": "/charts/oil.png",
+    "description": "Daily West Texas Intermediate crude oil spot price in dollars per barrel.",
+    "summary": summary,
+    "papers": papers,
     "observations": observations,
     "recessions": recessions,
 }
@@ -192,4 +199,4 @@ with open(DATA_PATH, "w", encoding="utf-8") as f:
 
 print(f"Generated {CHART_PATH.relative_to(ROOT)}")
 print(f"Generated {DATA_PATH.relative_to(ROOT)}")
-print(f"Latest CPI YoY: {latest['YoY']:.2f}% | CPIAUCSL: {latest['CPIAUCSL']:.3f}")
+print(f"Latest: ${latest_value:.2f} / barrel | Daily EIA WTI via FRED DCOILWTICO")

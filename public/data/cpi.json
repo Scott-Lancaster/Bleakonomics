@@ -5,8 +5,21 @@
   "source": "FRED",
   "chart_path": "/charts/cpi.png",
   "description": "Monthly year-over-year inflation derived from CPIAUCSL.",
-  "summary": "Under Construction",
-  "papers": [],
+  "summary": "This is how fast a typical pile of stuff people buy is getting more expensive. The government adds it up once a month. It is not the price of one thing, and last month's number can get rewritten later.",
+  "papers": [
+    {
+      "title": "BLS Consumer Price Index overview",
+      "url": "https://www.bls.gov/cpi/"
+    },
+    {
+      "title": "BLS Handbook of Methods: Consumer Price Index",
+      "url": "https://www.bls.gov/opub/hom/cpi/home.htm"
+    },
+    {
+      "title": "Fed statement on longer-run goals and monetary policy strategy",
+      "url": "https://www.federalreserve.gov/monetarypolicy/review-of-monetary-policy-strategy-tools-and-communications-statement-on-longer-run-goals-monetary-policy-strategy.htm"
+    }
+  ],
   "observations": [
     {
       "date": "1980-01-01",

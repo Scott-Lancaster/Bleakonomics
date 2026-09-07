@@ -43,6 +43,7 @@ jobs:
           python scripts/Unemployment.py
           python scripts/SOFR-IORB.py
           python scripts/CPI.py
+          python scripts/Oil.py
 
       - name: Commit updated charts
         run: |

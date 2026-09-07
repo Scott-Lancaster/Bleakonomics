@@ -1,32 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import bleakLogo from "../../bleaklogo1.png";
-import unemploymentData from "../../public/data/unemployment.json";
+import oilData from "../../public/data/oil.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
 import DataGradeSection from "../../components/DataGradeSection";
-import UnemploymentChart from "./UnemploymentChart";
+import OilChart from "./OilChart";
 
-type UnemploymentData = {
+type OilData = {
   title?: string;
   latest?: number;
   updated_at?: string;
-  observations?: Array<{
-    date: string;
-    value: number;
-    sahm?: number | null;
-    three_month_average?: number | null;
-  }>;
+  observations?: Array<{ date: string; value: number }>;
   recessions?: Array<{ start: string; end: string }>;
   summary?: string;
   papers?: Array<{ title: string; url: string }>;
-  sahm?: number;
-  status?: string;
 };
 
-const data = unemploymentData as UnemploymentData;
+const data = oilData as OilData;
 
-export default function UnemploymentPage() {
+export default function OilPage() {
   return (
     <main className="min-h-screen bg-black px-6 py-8 text-white">
       <header className="mx-auto flex max-w-6xl items-center justify-between">
@@ -52,25 +45,22 @@ export default function UnemploymentPage() {
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            US Unemployment Rate
+            WTI Crude Oil
           </h1>
           <ChartInfoButtons
             summary={
               data.summary ??
-              "The unemployment rate shows how much labor-market stress has reached workers, while the Sahm Rule tracks whether unemployment is rising quickly enough to confirm recession risk."
+              "West Texas Intermediate is the US benchmark price for a barrel of crude oil."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#unemployment"
+            brewsHref="/bleaks-brews#wti-crude-oil"
           />
         </div>
-
         <div className="mt-8">
-          <UnemploymentChart
+          <OilChart
             observations={data.observations ?? []}
             recessions={data.recessions ?? []}
             latest={typeof data.latest === "number" ? data.latest : null}
-            sahm={typeof data.sahm === "number" ? data.sahm : null}
-            status={data.status ?? null}
             updatedAt={data.updated_at ?? null}
           />
         </div>
@@ -79,10 +69,10 @@ export default function UnemploymentPage() {
           <DataGradeSection
             items={[
               {
-                label: "Unemployment Rate",
-                grade: "C",
+                label: "WTI Cushing Spot",
+                grade: "A",
                 description:
-                  "Government household survey, once a month, often revised. Useful, but laggy. Weight it lighter than daily market prints.",
+                  "Market-set barrel price. EIA only reports it. Daily, weekends blank. April 2020 went negative — that print is real.",
               },
             ]}
           />

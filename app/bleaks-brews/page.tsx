@@ -34,6 +34,21 @@ Bleak still has customers to serve, so the brewery keeps running. But if the hop
 
 That is similar to unemployment. When more people are out of work, the economy has fewer productive inputs helping create value. The system can still produce, but the final product gets weaker. In Bleak’s world, high unemployment means too many bad or missing ingredients are going into the brew, which leads to flat, weird, and unprofitable batches.`,
   },
+  {
+    id: "cpi-inflation",
+    title: "CPI Inflation",
+    placeholder: `Under Construction`,
+  },
+  {
+    id: "sofr-iorb",
+    title: "SOFR - IORB Spread",
+    placeholder: `Under Construction`,
+  },
+  {
+    id: "wti-crude-oil",
+    title: "WTI Crude Oil",
+    placeholder: `Under Construction`,
+  },
 ];
 
 export default function BleaksBrewsPage() {

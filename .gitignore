@@ -36,6 +36,15 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local agent config — keep off the remote
+.grok/
+AGENTS.md
+AGENT.md
+Agents.md
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

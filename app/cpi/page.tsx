@@ -53,9 +53,12 @@ export default function CPIPage() {
             CPI Inflation
           </h1>
           <ChartInfoButtons
-            summary="Under Construction"
+            summary={
+              data.summary ??
+              "This is how fast a typical pile of stuff people buy is getting more expensive. The government adds it up once a month. Last month's number can get rewritten later."
+            }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews"
+            brewsHref="/bleaks-brews#cpi-inflation"
           />
         </div>
 
@@ -73,9 +76,9 @@ export default function CPIPage() {
             items={[
               {
                 label: "CPIAUCSL",
-                grade: "B",
+                grade: "C",
                 description:
-                  "Published monthly by an official source and widely followed, but it arrives with a lag and can be revised or reweighted over time.",
+                  "Government survey, once a month, often revised. Famous, but it is not a market price. Weight it lighter than daily market prints.",
               },
             ]}
           />

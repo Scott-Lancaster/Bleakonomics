@@ -1,12 +1,30 @@
 {
   "title": "SOFR - IORB Spread",
+<<<<<<< HEAD
   "latest": 1.000000000000023,
   "updated_at": "2026-09-07T00:13:53Z",
+=======
+  "latest": -1.0,
+  "updated_at": "2026-08-07T01:36:57Z",
+>>>>>>> 71cd3b9 (adding Oil and cleaning up)
   "source": "FRED",
   "chart_path": "/charts/sofr_iorb.png",
   "description": "Daily spread between SOFR and the Interest Rate on Reserve Balances, shown in basis points.",
-  "summary": "Under Construction",
-  "papers": [],
+  "summary": "SOFR is what it costs to borrow cash overnight using Treasuries as collateral. IORB is what the Fed pays banks to park money. When SOFR jumps above IORB, cash is getting scarce.",
+  "papers": [
+    {
+      "title": "NY Fed: Secured Overnight Financing Rate (SOFR)",
+      "url": "https://www.newyorkfed.org/markets/reference-rates/sofr"
+    },
+    {
+      "title": "Federal Reserve: Interest on Reserve Balances",
+      "url": "https://www.federalreserve.gov/monetarypolicy/reserve-balances.htm"
+    },
+    {
+      "title": "NY Fed: Monetary Policy Implementation with Ample Reserves",
+      "url": "https://www.newyorkfed.org/research/staff_reports/sr910.html"
+    }
+  ],
   "observations": [
     {
       "date": "2021-07-29",

@@ -123,13 +123,26 @@ observations = [
 
 metadata = {
     "title": "SOFR - IORB Spread",
-    "latest": float(latest["Spread_bp"]),
+    "latest": round(float(latest["Spread_bp"]), 1),
     "updated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
     "source": "FRED",
     "chart_path": "/charts/sofr_iorb.png",
     "description": "Daily spread between SOFR and the Interest Rate on Reserve Balances, shown in basis points.",
-    "summary": "Under Construction",
-    "papers": [],
+    "summary": "SOFR is what it costs to borrow cash overnight using Treasuries as collateral. IORB is what the Fed pays banks to park money. When SOFR jumps above IORB, cash is getting scarce.",
+    "papers": [
+        {
+            "title": "NY Fed: Secured Overnight Financing Rate (SOFR)",
+            "url": "https://www.newyorkfed.org/markets/reference-rates/sofr",
+        },
+        {
+            "title": "Federal Reserve: Interest on Reserve Balances",
+            "url": "https://www.federalreserve.gov/monetarypolicy/reserve-balances.htm",
+        },
+        {
+            "title": "NY Fed: Monetary Policy Implementation with Ample Reserves",
+            "url": "https://www.newyorkfed.org/research/staff_reports/sr910.html",
+        },
+    ],
     "observations": observations,
 }
 
