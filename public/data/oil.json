@@ -1,7 +1,7 @@
 {
   "title": "WTI Crude Oil",
   "latest": 91.48,
-  "updated_at": "2026-09-07T05:26:58Z",
+  "updated_at": "2026-09-08T00:37:17Z",
   "source": "FRED / EIA",
   "chart_path": "/charts/oil.png",
   "description": "Daily West Texas Intermediate crude oil spot price in dollars per barrel.",
