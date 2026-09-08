@@ -7,6 +7,8 @@ import unemploymentData from "../public/data/unemployment.json";
 import sofrIorbData from "../public/data/sofr_iorb.json";
 import cpiData from "../public/data/cpi.json";
 import oilData from "../public/data/oil.json";
+import m2Data from "../public/data/m2.json";
+import netLiquidityData from "../public/data/net_liquidity.json";
 
 function formatUpdatedAtUtc(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -21,7 +23,7 @@ function formatUpdatedAtUtc(date: string) {
 }
 
 export default function Home() {
-  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at]
+  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at, m2Data.updated_at, netLiquidityData.updated_at]
     .filter(Boolean)
     .sort()
     .at(-1);
@@ -50,11 +52,29 @@ export default function Home() {
           Macro charts for the people. Free, Open, & Current.
         </p>
 
-        <section className="mt-10 grid gap-10 border-t border-neutral-900 pt-7">
+        <nav className="mt-10 flex flex-wrap justify-center gap-2 border-y border-neutral-900 py-4">
+          <Link
+            href="#long-term-trends"
+            className="rounded-md border border-neutral-800 px-3 py-2 text-sm font-semibold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
+          >
+            Long Term Trends
+          </Link>
+          <Link
+            href="#acute-charts"
+            className="rounded-md border border-neutral-800 px-3 py-2 text-sm font-semibold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
+          >
+            Acute Charts
+          </Link>
+        </nav>
+
+        <section id="long-term-trends" className="mt-10 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
+          <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
+            Long Term Trends
+          </h2>
           <article>
-            <h2 className="mt-3 text-2xl font-semibold text-white">
+            <h3 className="text-lg font-semibold text-neutral-300">
               10 Year - 2 Year Treasury Spread
-            </h2>
+            </h3>
             <Link
               href="/yield-curve"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -74,9 +94,9 @@ export default function Home() {
           </article>
 
           <article>
-            <h2 className="text-2xl font-semibold text-white">
+            <h3 className="text-lg font-semibold text-neutral-300">
               US Unemployment Rate
-            </h2>
+            </h3>
             <Link
               href="/unemployment"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -97,9 +117,9 @@ export default function Home() {
 
 
           <article>
-            <h2 className="text-2xl font-semibold text-white">
+            <h3 className="text-lg font-semibold text-neutral-300">
               CPI Inflation
-            </h2>
+            </h3>
             <Link
               href="/cpi"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -118,9 +138,30 @@ export default function Home() {
             </Link>
           </article>
           <article>
-            <h2 className="text-2xl font-semibold text-white">
+            <h3 className="text-lg font-semibold text-neutral-300">
+              US M2 Money Supply
+            </h3>
+            <Link
+              href="/m2"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive US M2 Money Supply chart"
+            >
+              <img
+                src="/charts/m2.png"
+                alt="US M2 Money Supply chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  The pile of US dollars. About a fifth of one year of world output — a size check, not a slice of global money.
+                </p>
+              </div>
+            </Link>
+          </article>
+          <article>
+            <h3 className="text-lg font-semibold text-neutral-300">
               WTI Crude Oil
-            </h2>
+            </h3>
             <Link
               href="/oil"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -138,10 +179,37 @@ export default function Home() {
               </div>
             </Link>
           </article>
+        </section>
+
+        <section id="acute-charts" className="mt-16 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
+          <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
+            Acute Charts
+          </h2>
           <article>
-            <h2 className="text-2xl font-semibold text-white">
+            <h3 className="text-lg font-semibold text-neutral-300">
+              US Net Liquidity
+            </h3>
+            <Link
+              href="/net-liquidity"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive US Net Liquidity chart"
+            >
+              <img
+                src="/charts/net_liquidity.png"
+                alt="US Net Liquidity chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  Fed assets minus Treasury cash minus overnight RRP. Starts 2002 — not a 1980s series.
+                </p>
+              </div>
+            </Link>
+          </article>
+          <article>
+            <h3 className="text-lg font-semibold text-neutral-300">
               SOFR - IORB Spread
-            </h2>
+            </h3>
             <Link
               href="/sofr-iorb"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"

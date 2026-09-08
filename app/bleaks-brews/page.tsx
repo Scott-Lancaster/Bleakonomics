@@ -49,6 +49,16 @@ That is similar to unemployment. When more people are out of work, the economy h
     title: "WTI Crude Oil",
     placeholder: `Under Construction`,
   },
+  {
+    id: "us-m2",
+    title: "US M2 Money Supply",
+    placeholder: `Under Construction`,
+  },
+  {
+    id: "net-liquidity",
+    title: "US Net Liquidity",
+    placeholder: `Under Construction`,
+  },
 ];
 
 export default function BleaksBrewsPage() {

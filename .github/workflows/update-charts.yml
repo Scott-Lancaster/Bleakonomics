@@ -44,6 +44,8 @@ jobs:
           python scripts/SOFR-IORB.py
           python scripts/CPI.py
           python scripts/Oil.py
+          python scripts/M2.py
+          python scripts/NetLiquidity.py
 
       - name: Commit updated charts
         run: |
