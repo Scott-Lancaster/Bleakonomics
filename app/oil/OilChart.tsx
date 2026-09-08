@@ -373,7 +373,7 @@ export default function OilChart({
       </div>
 
       <p className="mt-4 text-xs leading-5 text-neutral-500">
-        Source: FRED DCOILWTICO (EIA WTI Cushing) and USREC. Red bands mark NBER recession periods. {updatedAt ? "Updated " + formatDate(updatedAt) + "." : ""}
+        Source: FRED WTISPLC (monthly through 1985) and DCOILWTICO (daily from 1986). Red bands mark NBER recession periods. {updatedAt ? "Updated " + formatDate(updatedAt) + "." : ""}
       </p>
     </section>
   );

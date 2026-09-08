@@ -11,14 +11,16 @@ Oil is a US-traded global commodity: it feeds inflation, trucking, and
 the cost of running just about everything.
 
 WHAT IT SHOWS
-  Daily WTI spot price, dollars per barrel
-  Shaded U.S. recessions (NBER)
+  WTI spot price, dollars per barrel, from 1978 so NBER recessions
+  line up with the other long-term charts.
+  Monthly WTISPLC through 1985, then daily DCOILWTICO (Cushing).
 
 DATA SOURCES
-  DCOILWTICO: https://fred.stlouisfed.org/series/DCOILWTICO  (EIA, 1986–)
+  WTISPLC:    https://fred.stlouisfed.org/series/WTISPLC     (monthly, 1946–)
+  DCOILWTICO: https://fred.stlouisfed.org/series/DCOILWTICO  (daily, 1986–)
   USREC:      https://fred.stlouisfed.org/series/USREC
 
-DATA FREQUENCY: Daily, business days. EIA via FRED. Weekends/holidays blank.
+DATA FREQUENCY: Monthly before 1986, then daily business days.
 
 PAPERS
   https://www.nber.org/papers/w15002
@@ -49,7 +51,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CHART_PATH = ROOT / "public" / "charts" / "oil.png"
 DATA_PATH = ROOT / "public" / "data" / "oil.json"
 
-START_YEAR = 1986
+START_YEAR = 1978
 END_YEAR = None
 
 start = datetime(START_YEAR, 1, 1)
@@ -57,10 +59,11 @@ end = datetime.now() if END_YEAR is None else datetime(END_YEAR, 12, 31)
 
 try:
     print("Fetching FRED data...")
-    oil = read_fred_series("DCOILWTICO", start, end)
+    monthly = read_fred_series("WTISPLC", start, end)
+    daily = read_fred_series("DCOILWTICO", start, end)
     recession = read_fred_series("USREC", start, end)
 
-    if oil.dropna().empty or recession.dropna().empty:
+    if monthly.dropna().empty or recession.dropna().empty:
         raise RuntimeError("FRED returned empty WTI or recession data.")
 except Exception as exc:
     print(f"WARNING: Could not fetch FRED data: {exc}")
@@ -69,7 +72,11 @@ except Exception as exc:
         raise SystemExit(0)
     raise
 
-oil = oil.dropna()
+monthly = monthly.dropna().rename(columns={"WTISPLC": "WTI"})
+daily = daily.dropna().rename(columns={"DCOILWTICO": "WTI"})
+if not daily.empty:
+    monthly = monthly.loc[monthly.index < daily.index.min()]
+oil = pd.concat([monthly, daily]).sort_index()
 recession = recession.dropna()
 
 plt.style.use("dark_background")
@@ -106,10 +113,10 @@ if in_recession and rec_start is not None:
     label = "Recession" if not recession_added else ""
     ax.axvspan(rec_start, end, color="#cc4444", alpha=0.25, label=label)
 
-ax.plot(oil.index, oil["DCOILWTICO"], color="#cccccc", linewidth=1.4, label="WTI Crude")
+ax.plot(oil.index, oil["WTI"], color="#cccccc", linewidth=1.4, label="WTI Crude")
 ax.axhline(0, color="#888888", linestyle="--", linewidth=1.0, alpha=0.45)
 
-latest_value = float(oil["DCOILWTICO"].iloc[-1])
+latest_value = float(oil["WTI"].iloc[-1])
 ax.set_title(
     f"WTI Crude Oil ({START_YEAR}–{END_YEAR or 'Now'})\nLast: ${latest_value:.2f} / barrel",
     color="white",
@@ -124,6 +131,8 @@ ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+ax.margins(x=0)
+ax.set_xlim(pd.Timestamp(start), oil.index.max())
 plt.tight_layout()
 
 CHART_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -170,12 +179,16 @@ papers = [
         "title": "EIA spot prices for crude oil (WTI Cushing)",
         "url": "https://www.eia.gov/dnav/pet/pet_pri_spt_s1_d.htm",
     },
+    {
+        "title": "FRED WTISPLC (monthly WTI, 1946–)",
+        "url": "https://fred.stlouisfed.org/series/WTISPLC",
+    },
 ]
 
 observations = [
     {
         "date": index.date().isoformat(),
-        "value": float(row["DCOILWTICO"]),
+        "value": float(row["WTI"]),
     }
     for index, row in oil.iterrows()
 ]
@@ -184,9 +197,9 @@ metadata = {
     "title": "WTI Crude Oil",
     "latest": round(latest_value, 2),
     "updated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
-    "source": "FRED / EIA",
+    "source": "FRED WTISPLC (monthly to 1985), DCOILWTICO (daily from 1986)",
     "chart_path": "/charts/oil.png",
-    "description": "Daily West Texas Intermediate crude oil spot price in dollars per barrel.",
+    "description": "West Texas Intermediate crude oil, dollars per barrel. Monthly before 1986, daily after.",
     "summary": summary,
     "papers": papers,
     "observations": observations,
@@ -199,4 +212,4 @@ with open(DATA_PATH, "w", encoding="utf-8") as f:
 
 print(f"Generated {CHART_PATH.relative_to(ROOT)}")
 print(f"Generated {DATA_PATH.relative_to(ROOT)}")
-print(f"Latest: ${latest_value:.2f} / barrel | Daily EIA WTI via FRED DCOILWTICO")
+print(f"Latest: ${latest_value:.2f} / barrel | Monthly WTISPLC to 1985, daily DCOILWTICO after")

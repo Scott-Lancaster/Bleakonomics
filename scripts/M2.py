@@ -41,7 +41,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CHART_PATH = ROOT / "public" / "charts" / "m2.png"
 DATA_PATH = ROOT / "public" / "data" / "m2.json"
 
-START_YEAR = 1980
+START_YEAR = 1978
 start = datetime(START_YEAR, 1, 1)
 end = datetime.now()
 
@@ -135,6 +135,8 @@ ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+ax.margins(x=0)
+ax.set_xlim(pd.Timestamp(start), m2.index.max())
 plt.tight_layout()
 
 CHART_PATH.parent.mkdir(parents=True, exist_ok=True)

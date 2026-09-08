@@ -1,7 +1,7 @@
 {
   "title": "US M2 Money Supply",
   "latest": 23.22,
-  "updated_at": "2026-09-08T05:31:14Z",
+  "updated_at": "2026-09-08T05:43:44Z",
   "source": "FRED / Federal Reserve H.6",
   "chart_path": "/charts/m2.png",
   "description": "Monthly seasonally adjusted US M2, trillions of dollars.",
@@ -24,6 +24,102 @@
   "m2_pct_us_gdp": 71.5,
   "world_gdp_year": 2025,
   "observations": [
+    {
+      "date": "1978-01-01",
+      "value": 1.28
+    },
+    {
+      "date": "1978-02-01",
+      "value": 1.285
+    },
+    {
+      "date": "1978-03-01",
+      "value": 1.292
+    },
+    {
+      "date": "1978-04-01",
+      "value": 1.3
+    },
+    {
+      "date": "1978-05-01",
+      "value": 1.31
+    },
+    {
+      "date": "1978-06-01",
+      "value": 1.319
+    },
+    {
+      "date": "1978-07-01",
+      "value": 1.324
+    },
+    {
+      "date": "1978-08-01",
+      "value": 1.333
+    },
+    {
+      "date": "1978-09-01",
+      "value": 1.345
+    },
+    {
+      "date": "1978-10-01",
+      "value": 1.352
+    },
+    {
+      "date": "1978-11-01",
+      "value": 1.359
+    },
+    {
+      "date": "1978-12-01",
+      "value": 1.366
+    },
+    {
+      "date": "1979-01-01",
+      "value": 1.372
+    },
+    {
+      "date": "1979-02-01",
+      "value": 1.378
+    },
+    {
+      "date": "1979-03-01",
+      "value": 1.388
+    },
+    {
+      "date": "1979-04-01",
+      "value": 1.402
+    },
+    {
+      "date": "1979-05-01",
+      "value": 1.41
+    },
+    {
+      "date": "1979-06-01",
+      "value": 1.423
+    },
+    {
+      "date": "1979-07-01",
+      "value": 1.435
+    },
+    {
+      "date": "1979-08-01",
+      "value": 1.447
+    },
+    {
+      "date": "1979-09-01",
+      "value": 1.454
+    },
+    {
+      "date": "1979-10-01",
+      "value": 1.46
+    },
+    {
+      "date": "1979-11-01",
+      "value": 1.466
+    },
+    {
+      "date": "1979-12-01",
+      "value": 1.474
+    },
     {
       "date": "1980-01-01",
       "value": 1.483

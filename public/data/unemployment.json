@@ -1,7 +1,7 @@
 {
   "title": "US Unemployment Rate + Sahm Rule",
   "latest": 4.1,
-  "updated_at": "2026-09-08T00:37:11Z",
+  "updated_at": "2026-09-08T05:43:39Z",
   "source": "FRED",
   "chart_path": "/charts/unemployment.png",
   "description": "Monthly U.S. unemployment rate with Sahm Rule context.",
@@ -20,87 +20,231 @@
   "status": "Safe",
   "observations": [
     {
-      "date": "1980-01-01",
+      "date": "1978-01-01",
+      "value": 6.4,
+      "sahm": null,
+      "three_month_average": null
+    },
+    {
+      "date": "1978-02-01",
       "value": 6.3,
       "sahm": null,
       "three_month_average": null
+    },
+    {
+      "date": "1978-03-01",
+      "value": 6.3,
+      "sahm": null,
+      "three_month_average": 6.333333333333333
+    },
+    {
+      "date": "1978-04-01",
+      "value": 6.1,
+      "sahm": null,
+      "three_month_average": 6.233333333333333
+    },
+    {
+      "date": "1978-05-01",
+      "value": 6.0,
+      "sahm": null,
+      "three_month_average": 6.133333333333333
+    },
+    {
+      "date": "1978-06-01",
+      "value": 5.9,
+      "sahm": null,
+      "three_month_average": 6.0
+    },
+    {
+      "date": "1978-07-01",
+      "value": 6.2,
+      "sahm": null,
+      "three_month_average": 6.033333333333334
+    },
+    {
+      "date": "1978-08-01",
+      "value": 5.9,
+      "sahm": null,
+      "three_month_average": 6.0
+    },
+    {
+      "date": "1978-09-01",
+      "value": 6.0,
+      "sahm": null,
+      "three_month_average": 6.033333333333334
+    },
+    {
+      "date": "1978-10-01",
+      "value": 5.8,
+      "sahm": null,
+      "three_month_average": 5.900000000000001
+    },
+    {
+      "date": "1978-11-01",
+      "value": 5.9,
+      "sahm": null,
+      "three_month_average": 5.8999999999999995
+    },
+    {
+      "date": "1978-12-01",
+      "value": 6.0,
+      "sahm": null,
+      "three_month_average": 5.8999999999999995
+    },
+    {
+      "date": "1979-01-01",
+      "value": 5.9,
+      "sahm": null,
+      "three_month_average": 5.933333333333334
+    },
+    {
+      "date": "1979-02-01",
+      "value": 5.9,
+      "sahm": null,
+      "three_month_average": 5.933333333333334
+    },
+    {
+      "date": "1979-03-01",
+      "value": 5.8,
+      "sahm": -0.03333333333333233,
+      "three_month_average": 5.866666666666667
+    },
+    {
+      "date": "1979-04-01",
+      "value": 5.8,
+      "sahm": -0.0333333333333341,
+      "three_month_average": 5.833333333333333
+    },
+    {
+      "date": "1979-05-01",
+      "value": 5.6,
+      "sahm": -0.09999999999999964,
+      "three_month_average": 5.733333333333333
+    },
+    {
+      "date": "1979-06-01",
+      "value": 5.7,
+      "sahm": -0.0333333333333341,
+      "three_month_average": 5.699999999999999
+    },
+    {
+      "date": "1979-07-01",
+      "value": 5.7,
+      "sahm": -0.03333333333333233,
+      "three_month_average": 5.666666666666667
+    },
+    {
+      "date": "1979-08-01",
+      "value": 6.0,
+      "sahm": 0.13333333333333286,
+      "three_month_average": 5.8
+    },
+    {
+      "date": "1979-09-01",
+      "value": 5.9,
+      "sahm": 0.20000000000000018,
+      "three_month_average": 5.866666666666667
+    },
+    {
+      "date": "1979-10-01",
+      "value": 6.0,
+      "sahm": 0.29999999999999893,
+      "three_month_average": 5.966666666666666
+    },
+    {
+      "date": "1979-11-01",
+      "value": 5.9,
+      "sahm": 0.2666666666666666,
+      "three_month_average": 5.933333333333334
+    },
+    {
+      "date": "1979-12-01",
+      "value": 6.0,
+      "sahm": 0.29999999999999893,
+      "three_month_average": 5.966666666666666
+    },
+    {
+      "date": "1980-01-01",
+      "value": 6.3,
+      "sahm": 0.39999999999999947,
+      "three_month_average": 6.066666666666666
     },
     {
       "date": "1980-02-01",
       "value": 6.3,
-      "sahm": null,
-      "three_month_average": null
+      "sahm": 0.5333333333333332,
+      "three_month_average": 6.2
     },
     {
       "date": "1980-03-01",
       "value": 6.3,
-      "sahm": null,
+      "sahm": 0.6333333333333329,
       "three_month_average": 6.3
     },
     {
       "date": "1980-04-01",
       "value": 6.9,
-      "sahm": null,
+      "sahm": 0.833333333333333,
       "three_month_average": 6.5
     },
     {
       "date": "1980-05-01",
       "value": 7.5,
-      "sahm": null,
+      "sahm": 1.2333333333333325,
       "three_month_average": 6.8999999999999995
     },
     {
       "date": "1980-06-01",
       "value": 7.6,
-      "sahm": null,
+      "sahm": 1.666666666666666,
       "three_month_average": 7.333333333333333
     },
     {
       "date": "1980-07-01",
       "value": 7.8,
-      "sahm": null,
+      "sahm": 1.966666666666666,
       "three_month_average": 7.633333333333333
     },
     {
       "date": "1980-08-01",
       "value": 7.7,
-      "sahm": null,
+      "sahm": 1.9000000000000004,
       "three_month_average": 7.7
     },
     {
       "date": "1980-09-01",
       "value": 7.5,
-      "sahm": null,
+      "sahm": 1.7999999999999998,
       "three_month_average": 7.666666666666667
     },
     {
       "date": "1980-10-01",
       "value": 7.5,
-      "sahm": null,
+      "sahm": 1.6333333333333329,
       "three_month_average": 7.566666666666666
     },
     {
       "date": "1980-11-01",
       "value": 7.5,
-      "sahm": null,
+      "sahm": 1.5666666666666664,
       "three_month_average": 7.5
     },
     {
       "date": "1980-12-01",
       "value": 7.2,
-      "sahm": null,
+      "sahm": 1.4333333333333353,
       "three_month_average": 7.400000000000001
     },
     {
       "date": "1981-01-01",
       "value": 7.5,
-      "sahm": null,
+      "sahm": 1.3333333333333348,
       "three_month_average": 7.400000000000001
     },
     {
       "date": "1981-02-01",
       "value": 7.4,
-      "sahm": null,
+      "sahm": 1.166666666666667,
       "three_month_average": 7.366666666666667
     },
     {
