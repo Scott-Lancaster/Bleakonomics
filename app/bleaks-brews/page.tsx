@@ -51,12 +51,22 @@ That is similar to unemployment. When more people are out of work, the economy h
   },
   {
     id: "us-m2",
-    title: "US M2 Money Supply",
+    title: "Money Supply",
     placeholder: `Under Construction`,
   },
   {
     id: "net-liquidity",
     title: "US Net Liquidity",
+    placeholder: `Under Construction`,
+  },
+  {
+    id: "credit-spread",
+    title: "High Yield Credit Spread",
+    placeholder: `Under Construction`,
+  },
+  {
+    id: "credit-card-debt",
+    title: "Credit Card Debt",
     placeholder: `Under Construction`,
   },
 ];

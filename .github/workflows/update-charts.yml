@@ -46,6 +46,8 @@ jobs:
           python scripts/Oil.py
           python scripts/M2.py
           python scripts/NetLiquidity.py
+          python scripts/CreditSpread.py
+          python scripts/CreditCards.py
 
       - name: Commit updated charts
         run: |

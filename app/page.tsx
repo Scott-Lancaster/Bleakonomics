@@ -9,6 +9,8 @@ import cpiData from "../public/data/cpi.json";
 import oilData from "../public/data/oil.json";
 import m2Data from "../public/data/m2.json";
 import netLiquidityData from "../public/data/net_liquidity.json";
+import creditSpreadData from "../public/data/credit_spread.json";
+import creditCardsData from "../public/data/credit_cards.json";
 
 function formatUpdatedAtUtc(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -23,7 +25,7 @@ function formatUpdatedAtUtc(date: string) {
 }
 
 export default function Home() {
-  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at, m2Data.updated_at, netLiquidityData.updated_at]
+  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at, m2Data.updated_at, netLiquidityData.updated_at, creditSpreadData.updated_at, creditCardsData.updated_at]
     .filter(Boolean)
     .sort()
     .at(-1);
@@ -54,10 +56,16 @@ export default function Home() {
 
         <nav className="mt-10 flex flex-wrap justify-center gap-2 border-y border-neutral-900 py-4">
           <Link
-            href="#long-term-trends"
+            href="#the-economy"
             className="rounded-md border border-neutral-800 px-3 py-2 text-sm font-semibold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
           >
-            Long Term Trends
+            The Economy
+          </Link>
+          <Link
+            href="#the-consumer"
+            className="rounded-md border border-neutral-800 px-3 py-2 text-sm font-semibold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
+          >
+            The Consumer
           </Link>
           <Link
             href="#acute-charts"
@@ -67,9 +75,9 @@ export default function Home() {
           </Link>
         </nav>
 
-        <section id="long-term-trends" className="mt-10 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
+        <section id="the-economy" className="mt-10 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
           <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
-            Long Term Trends
+            The Economy
           </h2>
           <article>
             <h3 className="text-lg font-semibold text-neutral-300">
@@ -95,6 +103,79 @@ export default function Home() {
 
           <article>
             <h3 className="text-lg font-semibold text-neutral-300">
+              Money Supply
+            </h3>
+            <Link
+              href="/m2"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive major-region money supply chart"
+            >
+              <img
+                src="/charts/m2.png"
+                alt="Major-region money supply chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  US, Europe, China, and Japan money in dollars. Orange line is the four-region total.
+                  {" "}
+                  {typeof m2Data.global_share_pct === "number"
+                    ? `About ${Math.round(m2Data.global_share_pct)}% of global money supply.`
+                    : "This basket is a large share of global M2."}
+                </p>
+              </div>
+            </Link>
+          </article>
+          <article>
+            <h3 className="text-lg font-semibold text-neutral-300">
+              WTI Crude Oil
+            </h3>
+            <Link
+              href="/oil"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive WTI Crude Oil chart"
+            >
+              <img
+                src="/charts/oil.png"
+                alt="WTI Crude Oil chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  Dollars per barrel at Cushing. Energy costs show up in inflation, freight, and the price of running the real economy.
+                </p>
+              </div>
+            </Link>
+          </article>
+          <article>
+            <h3 className="text-lg font-semibold text-neutral-300">
+              High Yield Credit Spread
+            </h3>
+            <Link
+              href="/credit-spread"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive high yield credit spread chart"
+            >
+              <img
+                src="/charts/credit_spread.png"
+                alt="High yield credit spread chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  Extra yield lenders demand to hold company debt instead of Treasuries. Orange is junk (HY OAS); silver is Baa minus the 10-year.
+                </p>
+              </div>
+            </Link>
+          </article>
+        </section>
+
+        <section id="the-consumer" className="mt-16 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
+          <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
+            The Consumer
+          </h2>
+          <article>
+            <h3 className="text-lg font-semibold text-neutral-300">
               US Unemployment Rate
             </h3>
             <Link
@@ -114,8 +195,6 @@ export default function Home() {
               </div>
             </Link>
           </article>
-
-
           <article>
             <h3 className="text-lg font-semibold text-neutral-300">
               CPI Inflation
@@ -139,42 +218,21 @@ export default function Home() {
           </article>
           <article>
             <h3 className="text-lg font-semibold text-neutral-300">
-              US M2 Money Supply
+              Credit Card Debt
             </h3>
             <Link
-              href="/m2"
+              href="/credit-cards"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
-              aria-label="Open interactive US M2 Money Supply chart"
+              aria-label="Open interactive credit card debt chart"
             >
               <img
-                src="/charts/m2.png"
-                alt="US M2 Money Supply chart"
+                src="/charts/credit_cards.png"
+                alt="Credit card debt chart"
                 className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  The pile of US dollars. About a fifth of one year of world output — a size check, not a slice of global money.
-                </p>
-              </div>
-            </Link>
-          </article>
-          <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              WTI Crude Oil
-            </h3>
-            <Link
-              href="/oil"
-              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
-              aria-label="Open interactive WTI Crude Oil chart"
-            >
-              <img
-                src="/charts/oil.png"
-                alt="WTI Crude Oil chart"
-                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
-              />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
-                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  Dollars per barrel at Cushing. Energy costs show up in inflation, freight, and the price of running the real economy.
+                  What households owe on bank cards. Orange line holds that pile still against M2 growth.
                 </p>
               </div>
             </Link>

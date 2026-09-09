@@ -5,12 +5,9 @@ import { useMemo, useState } from "react";
 type Observation = {
   date: string;
   value: number;
-  us?: number | null;
-  europe?: number | null;
-  china?: number | null;
-  japan?: number | null;
-  total?: number | null;
-  yoy?: number | null;
+  nominal?: number | null;
+  adjusted?: number | null;
+  m2?: number | null;
 };
 
 type Recession = {
@@ -18,19 +15,12 @@ type Recession = {
   end: string;
 };
 
-type M2ChartProps = {
+type CreditCardsChartProps = {
   observations: Observation[];
   recessions: Recession[];
   latest: number | null;
-  latestYoy?: number | null;
-  shares?: {
-    us?: number | null;
-    europe?: number | null;
-    china?: number | null;
-    japan?: number | null;
-  };
-  globalSharePct?: number | null;
-  globalYear?: number | null;
+  latestAdjusted?: number | null;
+  baseDate?: string | null;
   updatedAt: string | null;
 };
 
@@ -53,16 +43,9 @@ const ranges: RangePreset[] = [
   { label: "Max", max: true },
 ];
 
-const regions = [
-  { key: "japan", label: "Japan", color: "#6f9e78" },
-  { key: "europe", label: "Europe", color: "#5b8fc7" },
-  { key: "us", label: "United States", color: "#d6d6d6" },
-  { key: "china", label: "China", color: "#c4a35a" },
-] as const;
-
 const width = 1100;
 const height = 560;
-const pad = { top: 34, right: 78, bottom: 54, left: 72 };
+const pad = { top: 34, right: 78, bottom: 54, left: 78 };
 
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -83,10 +66,10 @@ function toInputDate(date: string) {
   return date.slice(0, 10);
 }
 
-function formatTrillions(value: number) {
+function formatBillions(value: number) {
   const abs = Math.abs(value);
-  const digits = abs >= 10 ? 1 : 2;
-  return (value < 0 ? "-$" : "$") + abs.toFixed(digits) + "T";
+  const digits = abs >= 100 ? 0 : 1;
+  return (value < 0 ? "-$" : "$") + abs.toFixed(digits) + "B";
 }
 
 function num(value: number | null | undefined) {
@@ -108,19 +91,18 @@ function getPresetCutoff(preset: RangePreset, lastDate: Date) {
   return null;
 }
 
-export default function M2Chart({
+export default function CreditCardsChart({
   observations,
   recessions,
   latest,
-  shares,
-  globalSharePct,
-  globalYear,
+  latestAdjusted,
+  baseDate,
   updatedAt,
-}: M2ChartProps) {
+}: CreditCardsChartProps) {
   const cleanObservations = useMemo(
     () =>
       observations
-        .filter((point) => Number.isFinite(point.total ?? point.value))
+        .filter((point) => Number.isFinite(point.nominal ?? point.value))
         .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()),
     [observations],
   );
@@ -153,42 +135,32 @@ export default function M2Chart({
   const chart = useMemo(() => {
     if (points.length < 2) return null;
     const times = points.map((point) => new Date(point.date).getTime());
-    const totals = points.map((point) => num(point.total ?? point.value));
-    const regionValues = points.flatMap((point) => regions.map((region) => num(point[region.key])));
+    const nominals = points.map((point) => num(point.nominal ?? point.value));
+    const adjusteds = points.map((point) => num(point.adjusted));
     const minTime = Math.min(...times);
     const maxTime = Math.max(...times);
     const minValue = 0;
-    const maxValue = Math.max(...regionValues, 0) * 1.12;
-    const totalMin = 0;
-    const totalMax = Math.max(...totals, 0) * 1.12;
+    const maxValue = Math.max(...nominals, 0) * 1.12;
+    const adjMin = 0;
+    const adjMax = Math.max(...adjusteds, 0) * 1.12;
 
     const x = (time: number) =>
       pad.left + ((time - minTime) / (maxTime - minTime)) * (width - pad.left - pad.right);
     const y = (value: number) =>
       pad.top + ((maxValue - value) / (maxValue - minValue)) * (height - pad.top - pad.bottom);
-    const yTotal = (value: number) =>
-      pad.top + ((totalMax - value) / (totalMax - totalMin)) * (height - pad.top - pad.bottom);
+    const yAdj = (value: number) =>
+      pad.top + ((adjMax - value) / (adjMax - adjMin)) * (height - pad.top - pad.bottom);
 
-    const regionLines = regions.map((region) => {
-      const d = points
-        .map((point, index) => {
-          const command = index === 0 ? "M" : "L";
-          return command + " " + x(times[index]).toFixed(2) + " " + y(num(point[region.key])).toFixed(2);
-        })
-        .join(" ");
-      return { key: region.key, color: region.color, d };
-    });
-
-    const totalLine = points
+    const nominalLine = points
       .map((point, index) => {
         const command = index === 0 ? "M" : "L";
-        return (
-          command +
-          " " +
-          x(times[index]).toFixed(2) +
-          " " +
-          yTotal(num(point.total ?? point.value)).toFixed(2)
-        );
+        return command + " " + x(times[index]).toFixed(2) + " " + y(nominals[index]).toFixed(2);
+      })
+      .join(" ");
+    const adjustedLine = points
+      .map((point, index) => {
+        const command = index === 0 ? "M" : "L";
+        return command + " " + x(times[index]).toFixed(2) + " " + yAdj(adjusteds[index]).toFixed(2);
       })
       .join(" ");
 
@@ -196,9 +168,9 @@ export default function M2Chart({
       const value = minValue + ((maxValue - minValue) / 5) * index;
       return { value, y: y(value) };
     });
-    const totalTicks = Array.from({ length: 6 }, (_, index) => {
-      const value = totalMin + ((totalMax - totalMin) / 5) * index;
-      return { value, y: yTotal(value) };
+    const adjTicks = Array.from({ length: 6 }, (_, index) => {
+      const value = adjMin + ((adjMax - adjMin) / 5) * index;
+      return { value, y: yAdj(value) };
     });
     const xTicks = Array.from({ length: 6 }, (_, index) => {
       const time = minTime + ((maxTime - minTime) / 5) * index;
@@ -213,7 +185,7 @@ export default function M2Chart({
       })
       .filter((band): band is { x: number; width: number } => band !== null);
 
-    return { x, y, yTotal, yTicks, totalTicks, xTicks, regionLines, totalLine, recessionBands };
+    return { x, y, yAdj, yTicks, adjTicks, xTicks, nominalLine, adjustedLine, recessionBands };
   }, [points, recessions]);
 
   const isInspecting = hoverIndex !== null;
@@ -224,22 +196,11 @@ export default function M2Chart({
   if (!chart || !activePoint) {
     return (
       <div className="rounded-lg border border-neutral-800 bg-neutral-950 p-6 text-neutral-400">
-        Run <code className="text-neutral-200">python3 scripts/M2.py</code> to generate
-        interactive chart data at <code className="text-neutral-200">public/data/m2.json</code>.
+        Run <code className="text-neutral-200">python3 scripts/CreditCards.py</code> to generate
+        interactive chart data at <code className="text-neutral-200">public/data/credit_cards.json</code>.
       </div>
     );
   }
-
-  const shareLine = shares
-    ? [
-        shares.china != null ? "China " + shares.china + "%" : null,
-        shares.us != null ? "US " + shares.us + "%" : null,
-        shares.europe != null ? "Europe " + shares.europe + "%" : null,
-        shares.japan != null ? "Japan " + shares.japan + "%" : null,
-      ]
-        .filter(Boolean)
-        .join(" · ")
-    : "";
 
   return (
     <section className="rounded-lg border border-neutral-800 bg-neutral-950 p-4 sm:p-6">
@@ -247,26 +208,16 @@ export default function M2Chart({
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">
-              Four-region total
+              Credit card debt
             </p>
             <p className="mt-2 text-4xl font-bold text-white">
-              {formatTrillions(num(activePoint.total ?? activePoint.value))}
+              {formatBillions(num(activePoint.nominal ?? activePoint.value))}
             </p>
             <p className="mt-1 text-sm text-neutral-400">
               {formatDate(activePoint.date)}
-              {isInspecting && latest !== null ? " · Latest: " + formatTrillions(latest) : ""}
+              {typeof activePoint.adjusted === "number" ? " · M2-adjusted " + formatBillions(activePoint.adjusted) : ""}
+              {isInspecting && latest !== null ? " · Latest: " + formatBillions(latest) : ""}
             </p>
-            {typeof globalSharePct === "number" ? (
-              <p className="mt-2 text-sm font-semibold text-neutral-200">
-                ≈{Math.round(globalSharePct)}% of global money supply
-                {globalYear != null ? " (" + globalYear + ")" : ""}
-              </p>
-            ) : null}
-            {shareLine ? (
-              <p className="mt-1 text-xs leading-5 text-neutral-500">
-                Of this basket: {shareLine}
-              </p>
-            ) : null}
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -292,15 +243,13 @@ export default function M2Chart({
         </div>
 
         <div className="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-neutral-400">
-          {regions.map((region) => (
-            <span key={region.key} className="inline-flex items-center gap-2">
-              <span className="h-0.5 w-4" style={{ background: region.color }} />
-              {region.label}
-            </span>
-          ))}
+          <span className="inline-flex items-center gap-2">
+            <span className="h-0.5 w-4 bg-[#d6d6d6]" />
+            Actual
+          </span>
           <span className="inline-flex items-center gap-2">
             <span className="h-0.5 w-4 bg-[#e07a5f]" />
-            Total
+            M2-adjusted
           </span>
         </div>
 
@@ -357,7 +306,7 @@ export default function M2Chart({
         <svg
           viewBox={"0 0 " + width + " " + height}
           role="img"
-          aria-label="Regional money supply lines in dollars with four-region total on a second axis"
+          aria-label="Credit card debt in dollars with an M2-adjusted series on a second axis"
           className="h-auto w-full"
           onMouseMove={(event) => {
             const rect = event.currentTarget.getBoundingClientRect();
@@ -387,19 +336,16 @@ export default function M2Chart({
               opacity="0.28"
             />
           ))}
-          {chart.regionLines.map((line) => (
-            <path
-              key={line.key}
-              d={line.d}
-              fill="none"
-              stroke={line.color}
-              strokeWidth="2.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          ))}
           <path
-            d={chart.totalLine}
+            d={chart.nominalLine}
+            fill="none"
+            stroke="#d6d6d6"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d={chart.adjustedLine}
             fill="none"
             stroke="#e07a5f"
             strokeWidth="2.4"
@@ -410,13 +356,13 @@ export default function M2Chart({
             <g key={"l" + tick.value}>
               <line x1={pad.left} x2={width - pad.right} y1={tick.y} y2={tick.y} stroke="#262626" strokeWidth="1" />
               <text x={pad.left - 14} y={tick.y + 4} fill="#737373" fontSize="13" textAnchor="end">
-                {formatTrillions(tick.value)}
+                {formatBillions(tick.value)}
               </text>
             </g>
           ))}
-          {chart.totalTicks.map((tick) => (
+          {chart.adjTicks.map((tick) => (
             <text key={"r" + tick.value} x={width - pad.right + 8} y={tick.y + 4} fill="#e07a5f" fontSize="12">
-              {formatTrillions(tick.value)}
+              {formatBillions(tick.value)}
             </text>
           ))}
           {chart.xTicks.map((tick) => (
@@ -424,41 +370,26 @@ export default function M2Chart({
               {formatShortDate(tick.date)}
             </text>
           ))}
-          {typeof globalSharePct === "number" ? (
-            <text
-              x={width - pad.right}
-              y={pad.top - 12}
-              fill="#d4d4d4"
-              fontSize="13"
-              fontWeight="600"
-              textAnchor="end"
-            >
-              ≈{Math.round(globalSharePct)}% of global money supply
-              {globalYear != null ? " (" + globalYear + ")" : ""}
-            </text>
-          ) : null}
           {isInspecting ? (
             <>
               <line x1={activeX} x2={activeX} y1={pad.top} y2={height - pad.bottom} stroke="#525252" strokeWidth="1" />
               <circle
                 cx={activeX}
-                cy={chart.yTotal(num(activePoint.total ?? activePoint.value))}
+                cy={chart.y(num(activePoint.nominal ?? activePoint.value))}
                 r="5"
-                fill="#e07a5f"
+                fill="#d6d6d6"
                 stroke="#0a0a0a"
                 strokeWidth="2"
               />
-              <g transform={"translate(" + Math.min(activeX + 16, width - 260) + " " + Math.max(18, 18) + ")"}>
-                <rect width="240" height="148" rx="6" fill="#171717" stroke="#404040" />
+              <g transform={"translate(" + Math.min(activeX + 16, width - 240) + " 18)"}>
+                <rect width="220" height="78" rx="6" fill="#171717" stroke="#404040" />
                 <text x="12" y="22" fill="#d4d4d4" fontSize="13">{formatDate(activePoint.date)}</text>
-                <text x="12" y="44" fill="#e07a5f" fontSize="16" fontWeight="700">
-                  Total {formatTrillions(num(activePoint.total))}
+                <text x="12" y="44" fill="#ffffff" fontSize="15" fontWeight="700">
+                  {formatBillions(num(activePoint.nominal ?? activePoint.value))}
                 </text>
-                {regions.map((region, index) => (
-                  <text key={region.key} x="12" y={66 + index * 18} fill={region.color} fontSize="13">
-                    {region.label}: {formatTrillions(num(activePoint[region.key]))}
-                  </text>
-                ))}
+                <text x="12" y="64" fill="#e07a5f" fontSize="14">
+                  M2-adj {typeof activePoint.adjusted === "number" ? formatBillions(activePoint.adjusted) : "—"}
+                </text>
               </g>
             </>
           ) : null}
@@ -466,17 +397,13 @@ export default function M2Chart({
       </div>
 
       <p className="mt-4 text-xs leading-5 text-neutral-500">
-        Left axis: each region in USD trillions. Right axis: four-region total in USD trillions.
-        US Fed M2, ECB M2, China M2, Japan broad money, converted at month-end FX.
-        China after 2019 and Japan after late 2023 use World Bank annual (plus a PBOC May 2026 China print).
-        {typeof globalSharePct === "number"
-          ? "These four regions are about " +
-            Math.round(globalSharePct) +
-            "% of World Bank global broad money" +
-            (globalYear != null ? " (" + globalYear + "). "
-            : ". ")
-          : "This basket is a lower bound on global M2. "}
-        {updatedAt ? "Updated " + formatDate(updatedAt) + "." : ""}
+        Left axis: actual credit-card and revolving balances at commercial banks (CCLACBW027SBOG, $B).
+        Right axis: the same balances held against M2 growth
+        {baseDate ? " from " + formatDate(baseDate) : ""}.
+        If card debt and M2 rise at the same speed, orange is flat.
+        The 2010 jump is mostly FAS 166/167 accounting, not a household borrowing spike.
+        {latestAdjusted != null ? " Latest M2-adjusted " + formatBillions(latestAdjusted) + "." : ""}
+        {updatedAt ? " Updated " + formatDate(updatedAt) + "." : ""}
       </p>
     </section>
   );
