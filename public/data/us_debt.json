@@ -1,0 +1,3921 @@
+{
+  "title": "US Treasury Debt",
+  "latest": 28991.7,
+  "due_1y": 10192.8,
+  "as_of": "2026-08-31",
+  "updated_at": "2026-09-09T14:18:44Z",
+  "source": "Treasury Fiscal Data MSPD Table III",
+  "chart_path": "/charts/us_debt.png",
+  "description": "Marketable Treasuries outstanding by remaining days to maturity, split by original term, plus the running total.",
+  "summary": "This is every marketable Treasury still outstanding, lined up by how many days until it comes due. Each colored line is the original term \u2014 a 10-year note with 80 days left sits on the left of the 10Y line; a 30-year bond issued last year sits far right. Height is the dollar face still out. TIPS and floating-rate notes are left off. The pile on the left is the near-term refinancing wall. The white line is the running total: at any day-count, how many dollars come due by then.",
+  "papers": [
+    {
+      "title": "Treasury Fiscal Data: Monthly Statement of the Public Debt",
+      "url": "https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/"
+    },
+    {
+      "title": "MSPD Table III: Detail of Treasury Securities Outstanding",
+      "url": "https://fiscaldata.treasury.gov/datasets/monthly-statement-public-debt/detail-of-treasury-securities-outstanding"
+    },
+    {
+      "title": "TreasuryDirect: Treasury securities",
+      "url": "https://www.treasurydirect.gov/marketable-securities/"
+    }
+  ],
+  "totals": {
+    "Bills": 7248.1,
+    "2Y": 1691.5,
+    "3Y": 2224.2,
+    "5Y": 3768.5,
+    "7Y": 4164.7,
+    "10Y": 4369.5,
+    "20Y": 1331.9,
+    "30Y": 4193.4
+  },
+  "cumulative": [
+    {
+      "days": 1,
+      "amount": 275.176
+    },
+    {
+      "days": 3,
+      "amount": 601.173
+    },
+    {
+      "days": 8,
+      "amount": 886.796
+    },
+    {
+      "days": 10,
+      "amount": 1164.577
+    },
+    {
+      "days": 15,
+      "amount": 1503.574
+    },
+    {
+      "days": 17,
+      "amount": 1785.733
+    },
+    {
+      "days": 22,
+      "amount": 2080.44
+    },
+    {
+      "days": 24,
+      "amount": 2357.118
+    },
+    {
+      "days": 29,
+      "amount": 2534.287
+    },
+    {
+      "days": 30,
+      "amount": 2708.277
+    },
+    {
+      "days": 31,
+      "amount": 3042.412
+    },
+    {
+      "days": 36,
+      "amount": 3219.776
+    },
+    {
+      "days": 38,
+      "amount": 3498.551
+    },
+    {
+      "days": 43,
+      "amount": 3679.601
+    },
+    {
+      "days": 45,
+      "amount": 3897.815
+    },
+    {
+      "days": 50,
+      "amount": 4077.472
+    },
+    {
+      "days": 52,
+      "amount": 4257.602
+    },
+    {
+      "days": 57,
+      "amount": 4332.012
+    },
+    {
+      "days": 59,
+      "amount": 4565.619
+    },
+    {
+      "days": 61,
+      "amount": 4733.189
+    },
+    {
+      "days": 64,
+      "amount": 4807.892
+    },
+    {
+      "days": 66,
+      "amount": 4989.064
+    },
+    {
+      "days": 71,
+      "amount": 5065.52
+    },
+    {
+      "days": 73,
+      "amount": 5244.908
+    },
+    {
+      "days": 76,
+      "amount": 5367.293
+    },
+    {
+      "days": 78,
+      "amount": 5443.516
+    },
+    {
+      "days": 80,
+      "amount": 5623.883
+    },
+    {
+      "days": 85,
+      "amount": 5700.197
+    },
+    {
+      "days": 88,
+      "amount": 5928.6
+    },
+    {
+      "days": 91,
+      "amount": 6087.564
+    },
+    {
+      "days": 92,
+      "amount": 6163.497
+    },
+    {
+      "days": 94,
+      "amount": 6245.372
+    },
+    {
+      "days": 99,
+      "amount": 6320.726
+    },
+    {
+      "days": 101,
+      "amount": 6402.677
+    },
+    {
+      "days": 106,
+      "amount": 6530.024
+    },
+    {
+      "days": 108,
+      "amount": 6613.469
+    },
+    {
+      "days": 113,
+      "amount": 6690.061
+    },
+    {
+      "days": 115,
+      "amount": 6824.634
+    },
+    {
+      "days": 122,
+      "amount": 7076.928
+    },
+    {
+      "days": 129,
+      "amount": 7160.109
+    },
+    {
+      "days": 136,
+      "amount": 7242.31
+    },
+    {
+      "days": 137,
+      "amount": 7293.43
+    },
+    {
+      "days": 143,
+      "amount": 7429.395
+    },
+    {
+      "days": 150,
+      "amount": 7513.942
+    },
+    {
+      "days": 153,
+      "amount": 7674.89
+    },
+    {
+      "days": 157,
+      "amount": 7760.15
+    },
+    {
+      "days": 164,
+      "amount": 7843.934
+    },
+    {
+      "days": 168,
+      "amount": 7965.753
+    },
+    {
+      "days": 171,
+      "amount": 8102.808
+    },
+    {
+      "days": 178,
+      "amount": 8185.365
+    },
+    {
+      "days": 181,
+      "amount": 8352.654
+    },
+    {
+      "days": 196,
+      "amount": 8407.856
+    },
+    {
+      "days": 199,
+      "amount": 8461.863
+    },
+    {
+      "days": 212,
+      "amount": 8628.562
+    },
+    {
+      "days": 227,
+      "amount": 8739.485
+    },
+    {
+      "days": 242,
+      "amount": 8904.555
+    },
+    {
+      "days": 255,
+      "amount": 8957.689
+    },
+    {
+      "days": 257,
+      "amount": 9082.854
+    },
+    {
+      "days": 273,
+      "amount": 9246.749
+    },
+    {
+      "days": 283,
+      "amount": 9299.96
+    },
+    {
+      "days": 288,
+      "amount": 9358.461
+    },
+    {
+      "days": 303,
+      "amount": 9530.189
+    },
+    {
+      "days": 311,
+      "amount": 9584.949
+    },
+    {
+      "days": 318,
+      "amount": 9647.899
+    },
+    {
+      "days": 334,
+      "amount": 9818.265
+    },
+    {
+      "days": 339,
+      "amount": 9874.386
+    },
+    {
+      "days": 349,
+      "amount": 10018.86
+    },
+    {
+      "days": 365,
+      "amount": 10192.781
+    },
+    {
+      "days": 380,
+      "amount": 10251.324
+    },
+    {
+      "days": 395,
+      "amount": 10424.649
+    },
+    {
+      "days": 410,
+      "amount": 10482.293
+    },
+    {
+      "days": 426,
+      "amount": 10654.079
+    },
+    {
+      "days": 441,
+      "amount": 10812.548
+    },
+    {
+      "days": 456,
+      "amount": 10997.317
+    },
+    {
+      "days": 471,
+      "amount": 11055.708
+    },
+    {
+      "days": 487,
+      "amount": 11242.249
+    },
+    {
+      "days": 502,
+      "amount": 11312.993
+    },
+    {
+      "days": 518,
+      "amount": 11499.385
+    },
+    {
+      "days": 533,
+      "amount": 11642.26
+    },
+    {
+      "days": 547,
+      "amount": 11847.111
+    },
+    {
+      "days": 562,
+      "amount": 11905.842
+    },
+    {
+      "days": 578,
+      "amount": 12097.422
+    },
+    {
+      "days": 593,
+      "amount": 12165.101
+    },
+    {
+      "days": 608,
+      "amount": 12363.397
+    },
+    {
+      "days": 623,
+      "amount": 12514.563
+    },
+    {
+      "days": 639,
+      "amount": 12715.319
+    },
+    {
+      "days": 654,
+      "amount": 12774.362
+    },
+    {
+      "days": 669,
+      "amount": 12967.523
+    },
+    {
+      "days": 684,
+      "amount": 13032.386
+    },
+    {
+      "days": 700,
+      "amount": 13218.458
+    },
+    {
+      "days": 715,
+      "amount": 13380.653
+    },
+    {
+      "days": 731,
+      "amount": 13578.192
+    },
+    {
+      "days": 746,
+      "amount": 13636.191
+    },
+    {
+      "days": 761,
+      "amount": 13754.658
+    },
+    {
+      "days": 776,
+      "amount": 13813.734
+    },
+    {
+      "days": 792,
+      "amount": 13932.998
+    },
+    {
+      "days": 807,
+      "amount": 14091.265
+    },
+    {
+      "days": 822,
+      "amount": 14208.914
+    },
+    {
+      "days": 837,
+      "amount": 14266.879
+    },
+    {
+      "days": 853,
+      "amount": 14388.483
+    },
+    {
+      "days": 868,
+      "amount": 14463.365
+    },
+    {
+      "days": 884,
+      "amount": 14584.562
+    },
+    {
+      "days": 899,
+      "amount": 14751.05
+    },
+    {
+      "days": 912,
+      "amount": 14874.526
+    },
+    {
+      "days": 927,
+      "amount": 14932.54
+    },
+    {
+      "days": 943,
+      "amount": 15055.215
+    },
+    {
+      "days": 958,
+      "amount": 15123.5
+    },
+    {
+      "days": 973,
+      "amount": 15242.227
+    },
+    {
+      "days": 988,
+      "amount": 15398.172
+    },
+    {
+      "days": 1004,
+      "amount": 15517.341
+    },
+    {
+      "days": 1019,
+      "amount": 15575.341
+    },
+    {
+      "days": 1034,
+      "amount": 15690.465
+    },
+    {
+      "days": 1049,
+      "amount": 15754.496
+    },
+    {
+      "days": 1065,
+      "amount": 15867.192
+    },
+    {
+      "days": 1080,
+      "amount": 16043.66
+    },
+    {
+      "days": 1096,
+      "amount": 16160.218
+    },
+    {
+      "days": 1126,
+      "amount": 16267.33
+    },
+    {
+      "days": 1157,
+      "amount": 16373.094
+    },
+    {
+      "days": 1172,
+      "amount": 16461.647
+    },
+    {
+      "days": 1187,
+      "amount": 16574.563
+    },
+    {
+      "days": 1218,
+      "amount": 16679.23
+    },
+    {
+      "days": 1249,
+      "amount": 16787.162
+    },
+    {
+      "days": 1264,
+      "amount": 16874.564
+    },
+    {
+      "days": 1277,
+      "amount": 16994.169
+    },
+    {
+      "days": 1308,
+      "amount": 17100.188
+    },
+    {
+      "days": 1338,
+      "amount": 17213.022
+    },
+    {
+      "days": 1353,
+      "amount": 17339.685
+    },
+    {
+      "days": 1369,
+      "amount": 17459.962
+    },
+    {
+      "days": 1399,
+      "amount": 17571.027
+    },
+    {
+      "days": 1430,
+      "amount": 17679.554
+    },
+    {
+      "days": 1445,
+      "amount": 17811.905
+    },
+    {
+      "days": 1461,
+      "amount": 17930.09
+    },
+    {
+      "days": 1491,
+      "amount": 18040.233
+    },
+    {
+      "days": 1522,
+      "amount": 18150.765
+    },
+    {
+      "days": 1537,
+      "amount": 18284.446
+    },
+    {
+      "days": 1552,
+      "amount": 18401.863
+    },
+    {
+      "days": 1583,
+      "amount": 18518.76
+    },
+    {
+      "days": 1614,
+      "amount": 18633.103
+    },
+    {
+      "days": 1629,
+      "amount": 18789.594
+    },
+    {
+      "days": 1642,
+      "amount": 18909.145
+    },
+    {
+      "days": 1673,
+      "amount": 19028.729
+    },
+    {
+      "days": 1703,
+      "amount": 19150.483
+    },
+    {
+      "days": 1718,
+      "amount": 19298.161
+    },
+    {
+      "days": 1734,
+      "amount": 19424.701
+    },
+    {
+      "days": 1764,
+      "amount": 19550.705
+    },
+    {
+      "days": 1795,
+      "amount": 19674.438
+    },
+    {
+      "days": 1810,
+      "amount": 19815.782
+    },
+    {
+      "days": 1826,
+      "amount": 19942.204
+    },
+    {
+      "days": 1856,
+      "amount": 19987.034
+    },
+    {
+      "days": 1887,
+      "amount": 20031.729
+    },
+    {
+      "days": 1902,
+      "amount": 20176.301
+    },
+    {
+      "days": 1917,
+      "amount": 20223.211
+    },
+    {
+      "days": 1948,
+      "amount": 20267.302
+    },
+    {
+      "days": 1979,
+      "amount": 20313.74
+    },
+    {
+      "days": 1994,
+      "amount": 20454.253
+    },
+    {
+      "days": 2008,
+      "amount": 20502.688
+    },
+    {
+      "days": 2039,
+      "amount": 20547.487
+    },
+    {
+      "days": 2069,
+      "amount": 20594.5
+    },
+    {
+      "days": 2084,
+      "amount": 20727.245
+    },
+    {
+      "days": 2100,
+      "amount": 20777.269
+    },
+    {
+      "days": 2130,
+      "amount": 20825.647
+    },
+    {
+      "days": 2161,
+      "amount": 20872.564
+    },
+    {
+      "days": 2176,
+      "amount": 20991.988
+    },
+    {
+      "days": 2192,
+      "amount": 21041.298
+    },
+    {
+      "days": 2222,
+      "amount": 21087.728
+    },
+    {
+      "days": 2253,
+      "amount": 21134.254
+    },
+    {
+      "days": 2268,
+      "amount": 21245.509
+    },
+    {
+      "days": 2283,
+      "amount": 21294.54
+    },
+    {
+      "days": 2314,
+      "amount": 21343.228
+    },
+    {
+      "days": 2345,
+      "amount": 21390.328
+    },
+    {
+      "days": 2360,
+      "amount": 21504.844
+    },
+    {
+      "days": 2373,
+      "amount": 21554.115
+    },
+    {
+      "days": 2404,
+      "amount": 21602.661
+    },
+    {
+      "days": 2434,
+      "amount": 21652.198
+    },
+    {
+      "days": 2449,
+      "amount": 21760.408
+    },
+    {
+      "days": 2465,
+      "amount": 21810.9
+    },
+    {
+      "days": 2495,
+      "amount": 21861.487
+    },
+    {
+      "days": 2526,
+      "amount": 21910.352
+    },
+    {
+      "days": 2541,
+      "amount": 22031.932
+    },
+    {
+      "days": 2557,
+      "amount": 22081.589
+    },
+    {
+      "days": 2633,
+      "amount": 22196.267
+    },
+    {
+      "days": 2725,
+      "amount": 22319.36
+    },
+    {
+      "days": 2814,
+      "amount": 22452.116
+    },
+    {
+      "days": 2906,
+      "amount": 22580.856
+    },
+    {
+      "days": 2998,
+      "amount": 22719.912
+    },
+    {
+      "days": 3090,
+      "amount": 22858.406
+    },
+    {
+      "days": 3179,
+      "amount": 22998.536
+    },
+    {
+      "days": 3271,
+      "amount": 23133.471
+    },
+    {
+      "days": 3363,
+      "amount": 23271.313
+    },
+    {
+      "days": 3455,
+      "amount": 23436.536
+    },
+    {
+      "days": 3545,
+      "amount": 23570.554
+    },
+    {
+      "days": 3637,
+      "amount": 23623.177
+    },
+    {
+      "days": 3821,
+      "amount": 23639.766
+    },
+    {
+      "days": 3910,
+      "amount": 23661.179
+    },
+    {
+      "days": 4186,
+      "amount": 23683.704
+    },
+    {
+      "days": 4275,
+      "amount": 23709.204
+    },
+    {
+      "days": 4551,
+      "amount": 23735.113
+    },
+    {
+      "days": 4640,
+      "amount": 23773.892
+    },
+    {
+      "days": 4732,
+      "amount": 23815.323
+    },
+    {
+      "days": 4824,
+      "amount": 23859.887
+    },
+    {
+      "days": 4916,
+      "amount": 23904.789
+    },
+    {
+      "days": 5006,
+      "amount": 24003.654
+    },
+    {
+      "days": 5098,
+      "amount": 24122.356
+    },
+    {
+      "days": 5190,
+      "amount": 24248.515
+    },
+    {
+      "days": 5282,
+      "amount": 24374.019
+    },
+    {
+      "days": 5371,
+      "amount": 24491.48
+    },
+    {
+      "days": 5463,
+      "amount": 24612.039
+    },
+    {
+      "days": 5555,
+      "amount": 24725.15
+    },
+    {
+      "days": 5647,
+      "amount": 24828.773
+    },
+    {
+      "days": 5736,
+      "amount": 24913.807
+    },
+    {
+      "days": 5828,
+      "amount": 24995.242
+    },
+    {
+      "days": 5920,
+      "amount": 25077.773
+    },
+    {
+      "days": 6012,
+      "amount": 25161.833
+    },
+    {
+      "days": 6101,
+      "amount": 25244.69
+    },
+    {
+      "days": 6193,
+      "amount": 25330.245
+    },
+    {
+      "days": 6285,
+      "amount": 25414.418
+    },
+    {
+      "days": 6377,
+      "amount": 25498.985
+    },
+    {
+      "days": 6467,
+      "amount": 25585.088
+    },
+    {
+      "days": 6559,
+      "amount": 25670.845
+    },
+    {
+      "days": 6651,
+      "amount": 25756.24
+    },
+    {
+      "days": 6743,
+      "amount": 25843.106
+    },
+    {
+      "days": 6832,
+      "amount": 25930.756
+    },
+    {
+      "days": 6924,
+      "amount": 26016.432
+    },
+    {
+      "days": 7016,
+      "amount": 26104.354
+    },
+    {
+      "days": 7108,
+      "amount": 26188.908
+    },
+    {
+      "days": 7197,
+      "amount": 26273.73
+    },
+    {
+      "days": 7289,
+      "amount": 26331.43
+    },
+    {
+      "days": 7381,
+      "amount": 26371.495
+    },
+    {
+      "days": 7473,
+      "amount": 26405.402
+    },
+    {
+      "days": 7562,
+      "amount": 26446.087
+    },
+    {
+      "days": 7654,
+      "amount": 26487.563
+    },
+    {
+      "days": 7746,
+      "amount": 26526.852
+    },
+    {
+      "days": 7838,
+      "amount": 26570.977
+    },
+    {
+      "days": 7928,
+      "amount": 26617.125
+    },
+    {
+      "days": 8020,
+      "amount": 26667.103
+    },
+    {
+      "days": 8112,
+      "amount": 26719.681
+    },
+    {
+      "days": 8204,
+      "amount": 26773.882
+    },
+    {
+      "days": 8293,
+      "amount": 26829.479
+    },
+    {
+      "days": 8385,
+      "amount": 26892.715
+    },
+    {
+      "days": 8477,
+      "amount": 26950.886
+    },
+    {
+      "days": 8569,
+      "amount": 27010.008
+    },
+    {
+      "days": 8658,
+      "amount": 27083.575
+    },
+    {
+      "days": 8750,
+      "amount": 27172.594
+    },
+    {
+      "days": 8842,
+      "amount": 27258.052
+    },
+    {
+      "days": 8934,
+      "amount": 27346.243
+    },
+    {
+      "days": 9023,
+      "amount": 27438.972
+    },
+    {
+      "days": 9115,
+      "amount": 27529.009
+    },
+    {
+      "days": 9207,
+      "amount": 27619.244
+    },
+    {
+      "days": 9299,
+      "amount": 27704.263
+    },
+    {
+      "days": 9389,
+      "amount": 27782.564
+    },
+    {
+      "days": 9481,
+      "amount": 27852.503
+    },
+    {
+      "days": 9573,
+      "amount": 27916.843
+    },
+    {
+      "days": 9665,
+      "amount": 27982.826
+    },
+    {
+      "days": 9754,
+      "amount": 28045.419
+    },
+    {
+      "days": 9846,
+      "amount": 28116.983
+    },
+    {
+      "days": 9938,
+      "amount": 28183.427
+    },
+    {
+      "days": 10030,
+      "amount": 28254.625
+    },
+    {
+      "days": 10119,
+      "amount": 28331.046
+    },
+    {
+      "days": 10211,
+      "amount": 28405.313
+    },
+    {
+      "days": 10303,
+      "amount": 28485.376
+    },
+    {
+      "days": 10395,
+      "amount": 28565.277
+    },
+    {
+      "days": 10484,
+      "amount": 28646.08
+    },
+    {
+      "days": 10576,
+      "amount": 28723.913
+    },
+    {
+      "days": 10668,
+      "amount": 28803.191
+    },
+    {
+      "days": 10760,
+      "amount": 28883.18
+    },
+    {
+      "days": 10850,
+      "amount": 28960.393
+    },
+    {
+      "days": 10942,
+      "amount": 28991.716
+    }
+  ],
+  "observations": [
+    {
+      "term": "Bills",
+      "days": 1,
+      "amount": 275.176,
+      "maturity": "2026-09-01",
+      "value": 275.176
+    },
+    {
+      "term": "Bills",
+      "days": 3,
+      "amount": 325.997,
+      "maturity": "2026-09-03",
+      "value": 325.997
+    },
+    {
+      "term": "Bills",
+      "days": 8,
+      "amount": 285.623,
+      "maturity": "2026-09-08",
+      "value": 285.623
+    },
+    {
+      "term": "Bills",
+      "days": 10,
+      "amount": 277.781,
+      "maturity": "2026-09-10",
+      "value": 277.781
+    },
+    {
+      "term": "Bills",
+      "days": 15,
+      "amount": 295.916,
+      "maturity": "2026-09-15",
+      "value": 295.916
+    },
+    {
+      "term": "Bills",
+      "days": 17,
+      "amount": 282.159,
+      "maturity": "2026-09-17",
+      "value": 282.159
+    },
+    {
+      "term": "Bills",
+      "days": 22,
+      "amount": 294.707,
+      "maturity": "2026-09-22",
+      "value": 294.707
+    },
+    {
+      "term": "Bills",
+      "days": 24,
+      "amount": 276.678,
+      "maturity": "2026-09-24",
+      "value": 276.678
+    },
+    {
+      "term": "Bills",
+      "days": 29,
+      "amount": 177.169,
+      "maturity": "2026-09-29",
+      "value": 177.169
+    },
+    {
+      "term": "Bills",
+      "days": 31,
+      "amount": 334.135,
+      "maturity": "2026-10-01",
+      "value": 334.135
+    },
+    {
+      "term": "Bills",
+      "days": 36,
+      "amount": 177.364,
+      "maturity": "2026-10-06",
+      "value": 177.364
+    },
+    {
+      "term": "Bills",
+      "days": 38,
+      "amount": 278.775,
+      "maturity": "2026-10-08",
+      "value": 278.775
+    },
+    {
+      "term": "Bills",
+      "days": 43,
+      "amount": 181.05,
+      "maturity": "2026-10-13",
+      "value": 181.05
+    },
+    {
+      "term": "Bills",
+      "days": 45,
+      "amount": 175.764,
+      "maturity": "2026-10-15",
+      "value": 175.764
+    },
+    {
+      "term": "Bills",
+      "days": 50,
+      "amount": 179.657,
+      "maturity": "2026-10-20",
+      "value": 179.657
+    },
+    {
+      "term": "Bills",
+      "days": 52,
+      "amount": 180.13,
+      "maturity": "2026-10-22",
+      "value": 180.13
+    },
+    {
+      "term": "Bills",
+      "days": 57,
+      "amount": 74.41,
+      "maturity": "2026-10-27",
+      "value": 74.41
+    },
+    {
+      "term": "Bills",
+      "days": 59,
+      "amount": 233.607,
+      "maturity": "2026-10-29",
+      "value": 233.607
+    },
+    {
+      "term": "Bills",
+      "days": 64,
+      "amount": 74.703,
+      "maturity": "2026-11-03",
+      "value": 74.703
+    },
+    {
+      "term": "Bills",
+      "days": 66,
+      "amount": 181.172,
+      "maturity": "2026-11-05",
+      "value": 181.172
+    },
+    {
+      "term": "Bills",
+      "days": 71,
+      "amount": 76.456,
+      "maturity": "2026-11-10",
+      "value": 76.456
+    },
+    {
+      "term": "Bills",
+      "days": 73,
+      "amount": 179.388,
+      "maturity": "2026-11-12",
+      "value": 179.388
+    },
+    {
+      "term": "Bills",
+      "days": 78,
+      "amount": 76.223,
+      "maturity": "2026-11-17",
+      "value": 76.223
+    },
+    {
+      "term": "Bills",
+      "days": 80,
+      "amount": 180.367,
+      "maturity": "2026-11-19",
+      "value": 180.367
+    },
+    {
+      "term": "Bills",
+      "days": 85,
+      "amount": 76.314,
+      "maturity": "2026-11-24",
+      "value": 76.314
+    },
+    {
+      "term": "Bills",
+      "days": 88,
+      "amount": 228.403,
+      "maturity": "2026-11-27",
+      "value": 228.403
+    },
+    {
+      "term": "Bills",
+      "days": 92,
+      "amount": 75.933,
+      "maturity": "2026-12-01",
+      "value": 75.933
+    },
+    {
+      "term": "Bills",
+      "days": 94,
+      "amount": 81.875,
+      "maturity": "2026-12-03",
+      "value": 81.875
+    },
+    {
+      "term": "Bills",
+      "days": 99,
+      "amount": 75.354,
+      "maturity": "2026-12-08",
+      "value": 75.354
+    },
+    {
+      "term": "Bills",
+      "days": 101,
+      "amount": 81.951,
+      "maturity": "2026-12-10",
+      "value": 81.951
+    },
+    {
+      "term": "Bills",
+      "days": 106,
+      "amount": 77.348,
+      "maturity": "2026-12-15",
+      "value": 77.348
+    },
+    {
+      "term": "Bills",
+      "days": 108,
+      "amount": 83.445,
+      "maturity": "2026-12-17",
+      "value": 83.445
+    },
+    {
+      "term": "Bills",
+      "days": 113,
+      "amount": 76.592,
+      "maturity": "2026-12-22",
+      "value": 76.592
+    },
+    {
+      "term": "Bills",
+      "days": 115,
+      "amount": 134.573,
+      "maturity": "2026-12-24",
+      "value": 134.573
+    },
+    {
+      "term": "Bills",
+      "days": 122,
+      "amount": 84.117,
+      "maturity": "2026-12-31",
+      "value": 84.117
+    },
+    {
+      "term": "Bills",
+      "days": 129,
+      "amount": 83.181,
+      "maturity": "2027-01-07",
+      "value": 83.181
+    },
+    {
+      "term": "Bills",
+      "days": 136,
+      "amount": 82.201,
+      "maturity": "2027-01-14",
+      "value": 82.201
+    },
+    {
+      "term": "Bills",
+      "days": 143,
+      "amount": 135.965,
+      "maturity": "2027-01-21",
+      "value": 135.965
+    },
+    {
+      "term": "Bills",
+      "days": 150,
+      "amount": 84.547,
+      "maturity": "2027-01-28",
+      "value": 84.547
+    },
+    {
+      "term": "Bills",
+      "days": 157,
+      "amount": 85.26,
+      "maturity": "2027-02-04",
+      "value": 85.26
+    },
+    {
+      "term": "Bills",
+      "days": 164,
+      "amount": 83.784,
+      "maturity": "2027-02-11",
+      "value": 83.784
+    },
+    {
+      "term": "Bills",
+      "days": 171,
+      "amount": 137.055,
+      "maturity": "2027-02-18",
+      "value": 137.055
+    },
+    {
+      "term": "Bills",
+      "days": 178,
+      "amount": 82.557,
+      "maturity": "2027-02-25",
+      "value": 82.557
+    },
+    {
+      "term": "Bills",
+      "days": 199,
+      "amount": 54.007,
+      "maturity": "2027-03-18",
+      "value": 54.007
+    },
+    {
+      "term": "Bills",
+      "days": 227,
+      "amount": 51.973,
+      "maturity": "2027-04-15",
+      "value": 51.973
+    },
+    {
+      "term": "Bills",
+      "days": 255,
+      "amount": 53.134,
+      "maturity": "2027-05-13",
+      "value": 53.134
+    },
+    {
+      "term": "Bills",
+      "days": 283,
+      "amount": 53.211,
+      "maturity": "2027-06-10",
+      "value": 53.211
+    },
+    {
+      "term": "Bills",
+      "days": 311,
+      "amount": 54.76,
+      "maturity": "2027-07-08",
+      "value": 54.76
+    },
+    {
+      "term": "Bills",
+      "days": 339,
+      "amount": 56.121,
+      "maturity": "2027-08-05",
+      "value": 56.121
+    },
+    {
+      "term": "2Y",
+      "days": 30,
+      "amount": 70.42,
+      "maturity": "2026-09-30",
+      "value": 70.42
+    },
+    {
+      "term": "2Y",
+      "days": 61,
+      "amount": 66.25,
+      "maturity": "2026-10-31",
+      "value": 66.25
+    },
+    {
+      "term": "2Y",
+      "days": 91,
+      "amount": 64.572,
+      "maturity": "2026-11-30",
+      "value": 64.572
+    },
+    {
+      "term": "2Y",
+      "days": 122,
+      "amount": 69.666,
+      "maturity": "2026-12-31",
+      "value": 69.666
+    },
+    {
+      "term": "2Y",
+      "days": 153,
+      "amount": 65.451,
+      "maturity": "2027-01-31",
+      "value": 65.451
+    },
+    {
+      "term": "2Y",
+      "days": 181,
+      "amount": 74.943,
+      "maturity": "2027-02-28",
+      "value": 74.943
+    },
+    {
+      "term": "2Y",
+      "days": 212,
+      "amount": 70.776,
+      "maturity": "2027-03-31",
+      "value": 70.776
+    },
+    {
+      "term": "2Y",
+      "days": 242,
+      "amount": 73.265,
+      "maturity": "2027-04-30",
+      "value": 73.265
+    },
+    {
+      "term": "2Y",
+      "days": 273,
+      "amount": 72.474,
+      "maturity": "2027-05-31",
+      "value": 72.474
+    },
+    {
+      "term": "2Y",
+      "days": 303,
+      "amount": 75.628,
+      "maturity": "2027-06-30",
+      "value": 75.628
+    },
+    {
+      "term": "2Y",
+      "days": 334,
+      "amount": 72.738,
+      "maturity": "2027-07-31",
+      "value": 72.738
+    },
+    {
+      "term": "2Y",
+      "days": 365,
+      "amount": 74.359,
+      "maturity": "2027-08-31",
+      "value": 74.359
+    },
+    {
+      "term": "2Y",
+      "days": 395,
+      "amount": 72.708,
+      "maturity": "2027-09-30",
+      "value": 72.708
+    },
+    {
+      "term": "2Y",
+      "days": 426,
+      "amount": 71.44,
+      "maturity": "2027-10-31",
+      "value": 71.44
+    },
+    {
+      "term": "2Y",
+      "days": 456,
+      "amount": 76.37,
+      "maturity": "2027-11-30",
+      "value": 76.37
+    },
+    {
+      "term": "2Y",
+      "days": 487,
+      "amount": 76.352,
+      "maturity": "2027-12-31",
+      "value": 76.352
+    },
+    {
+      "term": "2Y",
+      "days": 547,
+      "amount": 77.264,
+      "maturity": "2028-02-29",
+      "value": 77.264
+    },
+    {
+      "term": "2Y",
+      "days": 578,
+      "amount": 76.128,
+      "maturity": "2028-03-31",
+      "value": 76.128
+    },
+    {
+      "term": "2Y",
+      "days": 608,
+      "amount": 77.693,
+      "maturity": "2028-04-30",
+      "value": 77.693
+    },
+    {
+      "term": "2Y",
+      "days": 639,
+      "amount": 79.174,
+      "maturity": "2028-05-31",
+      "value": 79.174
+    },
+    {
+      "term": "2Y",
+      "days": 669,
+      "amount": 79.327,
+      "maturity": "2028-06-30",
+      "value": 79.327
+    },
+    {
+      "term": "2Y",
+      "days": 700,
+      "amount": 76.626,
+      "maturity": "2028-07-31",
+      "value": 76.626
+    },
+    {
+      "term": "2Y",
+      "days": 731,
+      "amount": 77.87,
+      "maturity": "2028-08-31",
+      "value": 77.87
+    },
+    {
+      "term": "3Y",
+      "days": 15,
+      "amount": 43.081,
+      "maturity": "2026-09-15",
+      "value": 43.081
+    },
+    {
+      "term": "3Y",
+      "days": 45,
+      "amount": 42.45,
+      "maturity": "2026-10-15",
+      "value": 42.45
+    },
+    {
+      "term": "3Y",
+      "days": 76,
+      "amount": 47.237,
+      "maturity": "2026-11-15",
+      "value": 47.237
+    },
+    {
+      "term": "3Y",
+      "days": 106,
+      "amount": 49.999,
+      "maturity": "2026-12-15",
+      "value": 49.999
+    },
+    {
+      "term": "3Y",
+      "days": 137,
+      "amount": 51.12,
+      "maturity": "2027-01-15",
+      "value": 51.12
+    },
+    {
+      "term": "3Y",
+      "days": 168,
+      "amount": 51.294,
+      "maturity": "2027-02-15",
+      "value": 51.294
+    },
+    {
+      "term": "3Y",
+      "days": 196,
+      "amount": 55.202,
+      "maturity": "2027-03-15",
+      "value": 55.202
+    },
+    {
+      "term": "3Y",
+      "days": 227,
+      "amount": 58.95,
+      "maturity": "2027-04-15",
+      "value": 58.95
+    },
+    {
+      "term": "3Y",
+      "days": 257,
+      "amount": 58.302,
+      "maturity": "2027-05-15",
+      "value": 58.302
+    },
+    {
+      "term": "3Y",
+      "days": 288,
+      "amount": 58.501,
+      "maturity": "2027-06-15",
+      "value": 58.501
+    },
+    {
+      "term": "3Y",
+      "days": 318,
+      "amount": 62.95,
+      "maturity": "2027-07-15",
+      "value": 62.95
+    },
+    {
+      "term": "3Y",
+      "days": 349,
+      "amount": 65.832,
+      "maturity": "2027-08-15",
+      "value": 65.832
+    },
+    {
+      "term": "3Y",
+      "days": 380,
+      "amount": 58.543,
+      "maturity": "2027-09-15",
+      "value": 58.543
+    },
+    {
+      "term": "3Y",
+      "days": 410,
+      "amount": 57.644,
+      "maturity": "2027-10-15",
+      "value": 57.644
+    },
+    {
+      "term": "3Y",
+      "days": 441,
+      "amount": 70.88,
+      "maturity": "2027-11-15",
+      "value": 70.88
+    },
+    {
+      "term": "3Y",
+      "days": 471,
+      "amount": 58.391,
+      "maturity": "2027-12-15",
+      "value": 58.391
+    },
+    {
+      "term": "3Y",
+      "days": 502,
+      "amount": 70.744,
+      "maturity": "2028-01-15",
+      "value": 70.744
+    },
+    {
+      "term": "3Y",
+      "days": 533,
+      "amount": 73.131,
+      "maturity": "2028-02-15",
+      "value": 73.131
+    },
+    {
+      "term": "3Y",
+      "days": 562,
+      "amount": 58.731,
+      "maturity": "2028-03-15",
+      "value": 58.731
+    },
+    {
+      "term": "3Y",
+      "days": 593,
+      "amount": 67.679,
+      "maturity": "2028-04-15",
+      "value": 67.679
+    },
+    {
+      "term": "3Y",
+      "days": 623,
+      "amount": 78.273,
+      "maturity": "2028-05-15",
+      "value": 78.273
+    },
+    {
+      "term": "3Y",
+      "days": 654,
+      "amount": 59.043,
+      "maturity": "2028-06-15",
+      "value": 59.043
+    },
+    {
+      "term": "3Y",
+      "days": 684,
+      "amount": 64.863,
+      "maturity": "2028-07-15",
+      "value": 64.863
+    },
+    {
+      "term": "3Y",
+      "days": 715,
+      "amount": 77.418,
+      "maturity": "2028-08-15",
+      "value": 77.418
+    },
+    {
+      "term": "3Y",
+      "days": 746,
+      "amount": 57.999,
+      "maturity": "2028-09-15",
+      "value": 57.999
+    },
+    {
+      "term": "3Y",
+      "days": 776,
+      "amount": 59.076,
+      "maturity": "2028-10-15",
+      "value": 59.076
+    },
+    {
+      "term": "3Y",
+      "days": 807,
+      "amount": 66.833,
+      "maturity": "2028-11-15",
+      "value": 66.833
+    },
+    {
+      "term": "3Y",
+      "days": 837,
+      "amount": 57.965,
+      "maturity": "2028-12-15",
+      "value": 57.965
+    },
+    {
+      "term": "3Y",
+      "days": 868,
+      "amount": 74.882,
+      "maturity": "2029-01-15",
+      "value": 74.882
+    },
+    {
+      "term": "3Y",
+      "days": 899,
+      "amount": 74.434,
+      "maturity": "2029-02-15",
+      "value": 74.434
+    },
+    {
+      "term": "3Y",
+      "days": 927,
+      "amount": 58.014,
+      "maturity": "2029-03-15",
+      "value": 58.014
+    },
+    {
+      "term": "3Y",
+      "days": 958,
+      "amount": 68.285,
+      "maturity": "2029-04-15",
+      "value": 68.285
+    },
+    {
+      "term": "3Y",
+      "days": 988,
+      "amount": 71.772,
+      "maturity": "2029-05-15",
+      "value": 71.772
+    },
+    {
+      "term": "3Y",
+      "days": 1019,
+      "amount": 58.0,
+      "maturity": "2029-06-15",
+      "value": 58.0
+    },
+    {
+      "term": "3Y",
+      "days": 1049,
+      "amount": 64.031,
+      "maturity": "2029-07-15",
+      "value": 64.031
+    },
+    {
+      "term": "3Y",
+      "days": 1080,
+      "amount": 72.67,
+      "maturity": "2029-08-15",
+      "value": 72.67
+    },
+    {
+      "term": "5Y",
+      "days": 30,
+      "amount": 68.246,
+      "maturity": "2026-09-30",
+      "value": 68.246
+    },
+    {
+      "term": "5Y",
+      "days": 61,
+      "amount": 66.587,
+      "maturity": "2026-10-31",
+      "value": 66.587
+    },
+    {
+      "term": "5Y",
+      "days": 91,
+      "amount": 61.76,
+      "maturity": "2026-11-30",
+      "value": 61.76
+    },
+    {
+      "term": "5Y",
+      "days": 122,
+      "amount": 63.499,
+      "maturity": "2026-12-31",
+      "value": 63.499
+    },
+    {
+      "term": "5Y",
+      "days": 181,
+      "amount": 55.609,
+      "maturity": "2027-02-28",
+      "value": 55.609
+    },
+    {
+      "term": "5Y",
+      "days": 212,
+      "amount": 60.045,
+      "maturity": "2027-03-31",
+      "value": 60.045
+    },
+    {
+      "term": "5Y",
+      "days": 242,
+      "amount": 54.616,
+      "maturity": "2027-04-30",
+      "value": 54.616
+    },
+    {
+      "term": "5Y",
+      "days": 273,
+      "amount": 52.231,
+      "maturity": "2027-05-31",
+      "value": 52.231
+    },
+    {
+      "term": "5Y",
+      "days": 303,
+      "amount": 50.148,
+      "maturity": "2027-06-30",
+      "value": 50.148
+    },
+    {
+      "term": "5Y",
+      "days": 334,
+      "amount": 48.89,
+      "maturity": "2027-07-31",
+      "value": 48.89
+    },
+    {
+      "term": "5Y",
+      "days": 365,
+      "amount": 48.757,
+      "maturity": "2027-08-31",
+      "value": 48.757
+    },
+    {
+      "term": "5Y",
+      "days": 395,
+      "amount": 44.0,
+      "maturity": "2027-09-30",
+      "value": 44.0
+    },
+    {
+      "term": "5Y",
+      "days": 426,
+      "amount": 42.613,
+      "maturity": "2027-10-31",
+      "value": 42.613
+    },
+    {
+      "term": "5Y",
+      "days": 456,
+      "amount": 45.242,
+      "maturity": "2027-11-30",
+      "value": 45.242
+    },
+    {
+      "term": "5Y",
+      "days": 487,
+      "amount": 43.0,
+      "maturity": "2027-12-31",
+      "value": 43.0
+    },
+    {
+      "term": "5Y",
+      "days": 518,
+      "amount": 116.621,
+      "maturity": "2028-01-31",
+      "value": 116.621
+    },
+    {
+      "term": "5Y",
+      "days": 547,
+      "amount": 52.169,
+      "maturity": "2028-02-29",
+      "value": 52.169
+    },
+    {
+      "term": "5Y",
+      "days": 578,
+      "amount": 43.0,
+      "maturity": "2028-03-31",
+      "value": 43.0
+    },
+    {
+      "term": "5Y",
+      "days": 608,
+      "amount": 47.183,
+      "maturity": "2028-04-30",
+      "value": 47.183
+    },
+    {
+      "term": "5Y",
+      "days": 639,
+      "amount": 48.376,
+      "maturity": "2028-05-31",
+      "value": 48.376
+    },
+    {
+      "term": "5Y",
+      "days": 669,
+      "amount": 43.0,
+      "maturity": "2028-06-30",
+      "value": 43.0
+    },
+    {
+      "term": "5Y",
+      "days": 700,
+      "amount": 43.0,
+      "maturity": "2028-07-31",
+      "value": 43.0
+    },
+    {
+      "term": "5Y",
+      "days": 731,
+      "amount": 50.496,
+      "maturity": "2028-08-31",
+      "value": 50.496
+    },
+    {
+      "term": "5Y",
+      "days": 761,
+      "amount": 49.0,
+      "maturity": "2028-09-30",
+      "value": 49.0
+    },
+    {
+      "term": "5Y",
+      "days": 792,
+      "amount": 51.839,
+      "maturity": "2028-10-31",
+      "value": 51.839
+    },
+    {
+      "term": "5Y",
+      "days": 822,
+      "amount": 54.914,
+      "maturity": "2028-11-30",
+      "value": 54.914
+    },
+    {
+      "term": "5Y",
+      "days": 853,
+      "amount": 57.996,
+      "maturity": "2028-12-31",
+      "value": 57.996
+    },
+    {
+      "term": "5Y",
+      "days": 884,
+      "amount": 60.79,
+      "maturity": "2029-01-31",
+      "value": 60.79
+    },
+    {
+      "term": "5Y",
+      "days": 912,
+      "amount": 66.465,
+      "maturity": "2029-02-28",
+      "value": 66.465
+    },
+    {
+      "term": "5Y",
+      "days": 943,
+      "amount": 67.0,
+      "maturity": "2029-03-31",
+      "value": 67.0
+    },
+    {
+      "term": "5Y",
+      "days": 973,
+      "amount": 70.232,
+      "maturity": "2029-04-30",
+      "value": 70.232
+    },
+    {
+      "term": "5Y",
+      "days": 1004,
+      "amount": 72.971,
+      "maturity": "2029-05-31",
+      "value": 72.971
+    },
+    {
+      "term": "5Y",
+      "days": 1034,
+      "amount": 72.15,
+      "maturity": "2029-06-30",
+      "value": 72.15
+    },
+    {
+      "term": "5Y",
+      "days": 1065,
+      "amount": 73.591,
+      "maturity": "2029-07-31",
+      "value": 73.591
+    },
+    {
+      "term": "5Y",
+      "days": 1096,
+      "amount": 75.544,
+      "maturity": "2029-08-31",
+      "value": 75.544
+    },
+    {
+      "term": "5Y",
+      "days": 1126,
+      "amount": 71.325,
+      "maturity": "2029-09-30",
+      "value": 71.325
+    },
+    {
+      "term": "5Y",
+      "days": 1157,
+      "amount": 70.856,
+      "maturity": "2029-10-31",
+      "value": 70.856
+    },
+    {
+      "term": "5Y",
+      "days": 1187,
+      "amount": 74.761,
+      "maturity": "2029-11-30",
+      "value": 74.761
+    },
+    {
+      "term": "5Y",
+      "days": 1218,
+      "amount": 70.389,
+      "maturity": "2029-12-31",
+      "value": 70.389
+    },
+    {
+      "term": "5Y",
+      "days": 1249,
+      "amount": 73.886,
+      "maturity": "2030-01-31",
+      "value": 73.886
+    },
+    {
+      "term": "5Y",
+      "days": 1308,
+      "amount": 72.024,
+      "maturity": "2030-03-31",
+      "value": 72.024
+    },
+    {
+      "term": "5Y",
+      "days": 1338,
+      "amount": 74.794,
+      "maturity": "2030-04-30",
+      "value": 74.794
+    },
+    {
+      "term": "5Y",
+      "days": 1369,
+      "amount": 79.582,
+      "maturity": "2030-05-31",
+      "value": 79.582
+    },
+    {
+      "term": "5Y",
+      "days": 1399,
+      "amount": 76.966,
+      "maturity": "2030-06-30",
+      "value": 76.966
+    },
+    {
+      "term": "5Y",
+      "days": 1430,
+      "amount": 74.767,
+      "maturity": "2030-07-31",
+      "value": 74.767
+    },
+    {
+      "term": "5Y",
+      "days": 1461,
+      "amount": 78.448,
+      "maturity": "2030-08-31",
+      "value": 78.448
+    },
+    {
+      "term": "5Y",
+      "days": 1491,
+      "amount": 73.433,
+      "maturity": "2030-09-30",
+      "value": 73.433
+    },
+    {
+      "term": "5Y",
+      "days": 1522,
+      "amount": 73.302,
+      "maturity": "2030-10-31",
+      "value": 73.302
+    },
+    {
+      "term": "5Y",
+      "days": 1552,
+      "amount": 78.005,
+      "maturity": "2030-11-30",
+      "value": 78.005
+    },
+    {
+      "term": "5Y",
+      "days": 1583,
+      "amount": 77.46,
+      "maturity": "2030-12-31",
+      "value": 77.46
+    },
+    {
+      "term": "5Y",
+      "days": 1614,
+      "amount": 74.933,
+      "maturity": "2031-01-31",
+      "value": 74.933
+    },
+    {
+      "term": "5Y",
+      "days": 1642,
+      "amount": 78.385,
+      "maturity": "2031-02-28",
+      "value": 78.385
+    },
+    {
+      "term": "5Y",
+      "days": 1673,
+      "amount": 77.233,
+      "maturity": "2031-03-31",
+      "value": 77.233
+    },
+    {
+      "term": "5Y",
+      "days": 1703,
+      "amount": 78.81,
+      "maturity": "2031-04-30",
+      "value": 78.81
+    },
+    {
+      "term": "5Y",
+      "days": 1734,
+      "amount": 80.328,
+      "maturity": "2031-05-31",
+      "value": 80.328
+    },
+    {
+      "term": "5Y",
+      "days": 1764,
+      "amount": 80.473,
+      "maturity": "2031-06-30",
+      "value": 80.473
+    },
+    {
+      "term": "5Y",
+      "days": 1795,
+      "amount": 77.74,
+      "maturity": "2031-07-31",
+      "value": 77.74
+    },
+    {
+      "term": "5Y",
+      "days": 1826,
+      "amount": 78.999,
+      "maturity": "2031-08-31",
+      "value": 78.999
+    },
+    {
+      "term": "7Y",
+      "days": 30,
+      "amount": 35.324,
+      "maturity": "2026-09-30",
+      "value": 35.324
+    },
+    {
+      "term": "7Y",
+      "days": 61,
+      "amount": 34.733,
+      "maturity": "2026-10-31",
+      "value": 34.733
+    },
+    {
+      "term": "7Y",
+      "days": 91,
+      "amount": 32.632,
+      "maturity": "2026-11-30",
+      "value": 32.632
+    },
+    {
+      "term": "7Y",
+      "days": 122,
+      "amount": 35.012,
+      "maturity": "2026-12-31",
+      "value": 35.012
+    },
+    {
+      "term": "7Y",
+      "days": 153,
+      "amount": 95.497,
+      "maturity": "2027-01-31",
+      "value": 95.497
+    },
+    {
+      "term": "7Y",
+      "days": 181,
+      "amount": 36.737,
+      "maturity": "2027-02-28",
+      "value": 36.737
+    },
+    {
+      "term": "7Y",
+      "days": 212,
+      "amount": 35.878,
+      "maturity": "2027-03-31",
+      "value": 35.878
+    },
+    {
+      "term": "7Y",
+      "days": 242,
+      "amount": 37.189,
+      "maturity": "2027-04-30",
+      "value": 37.189
+    },
+    {
+      "term": "7Y",
+      "days": 273,
+      "amount": 39.19,
+      "maturity": "2027-05-31",
+      "value": 39.19
+    },
+    {
+      "term": "7Y",
+      "days": 303,
+      "amount": 45.952,
+      "maturity": "2027-06-30",
+      "value": 45.952
+    },
+    {
+      "term": "7Y",
+      "days": 334,
+      "amount": 48.738,
+      "maturity": "2027-07-31",
+      "value": 48.738
+    },
+    {
+      "term": "7Y",
+      "days": 365,
+      "amount": 50.805,
+      "maturity": "2027-08-31",
+      "value": 50.805
+    },
+    {
+      "term": "7Y",
+      "days": 395,
+      "amount": 56.617,
+      "maturity": "2027-09-30",
+      "value": 56.617
+    },
+    {
+      "term": "7Y",
+      "days": 426,
+      "amount": 57.733,
+      "maturity": "2027-10-31",
+      "value": 57.733
+    },
+    {
+      "term": "7Y",
+      "days": 456,
+      "amount": 63.157,
+      "maturity": "2027-11-30",
+      "value": 63.157
+    },
+    {
+      "term": "7Y",
+      "days": 487,
+      "amount": 67.189,
+      "maturity": "2027-12-31",
+      "value": 67.189
+    },
+    {
+      "term": "7Y",
+      "days": 518,
+      "amount": 69.771,
+      "maturity": "2028-01-31",
+      "value": 69.771
+    },
+    {
+      "term": "7Y",
+      "days": 547,
+      "amount": 75.418,
+      "maturity": "2028-02-29",
+      "value": 75.418
+    },
+    {
+      "term": "7Y",
+      "days": 578,
+      "amount": 72.452,
+      "maturity": "2028-03-31",
+      "value": 72.452
+    },
+    {
+      "term": "7Y",
+      "days": 608,
+      "amount": 73.42,
+      "maturity": "2028-04-30",
+      "value": 73.42
+    },
+    {
+      "term": "7Y",
+      "days": 639,
+      "amount": 73.206,
+      "maturity": "2028-05-31",
+      "value": 73.206
+    },
+    {
+      "term": "7Y",
+      "days": 669,
+      "amount": 70.834,
+      "maturity": "2028-06-30",
+      "value": 70.834
+    },
+    {
+      "term": "7Y",
+      "days": 700,
+      "amount": 66.446,
+      "maturity": "2028-07-31",
+      "value": 66.446
+    },
+    {
+      "term": "7Y",
+      "days": 731,
+      "amount": 69.173,
+      "maturity": "2028-08-31",
+      "value": 69.173
+    },
+    {
+      "term": "7Y",
+      "days": 761,
+      "amount": 69.467,
+      "maturity": "2028-09-30",
+      "value": 69.467
+    },
+    {
+      "term": "7Y",
+      "days": 792,
+      "amount": 67.425,
+      "maturity": "2028-10-31",
+      "value": 67.425
+    },
+    {
+      "term": "7Y",
+      "days": 822,
+      "amount": 62.735,
+      "maturity": "2028-11-30",
+      "value": 62.735
+    },
+    {
+      "term": "7Y",
+      "days": 853,
+      "amount": 63.608,
+      "maturity": "2028-12-31",
+      "value": 63.608
+    },
+    {
+      "term": "7Y",
+      "days": 884,
+      "amount": 60.407,
+      "maturity": "2029-01-31",
+      "value": 60.407
+    },
+    {
+      "term": "7Y",
+      "days": 912,
+      "amount": 57.011,
+      "maturity": "2029-02-28",
+      "value": 57.011
+    },
+    {
+      "term": "7Y",
+      "days": 943,
+      "amount": 55.675,
+      "maturity": "2029-03-31",
+      "value": 55.675
+    },
+    {
+      "term": "7Y",
+      "days": 973,
+      "amount": 48.495,
+      "maturity": "2029-04-30",
+      "value": 48.495
+    },
+    {
+      "term": "7Y",
+      "days": 1004,
+      "amount": 46.198,
+      "maturity": "2029-05-31",
+      "value": 46.198
+    },
+    {
+      "term": "7Y",
+      "days": 1034,
+      "amount": 42.974,
+      "maturity": "2029-06-30",
+      "value": 42.974
+    },
+    {
+      "term": "7Y",
+      "days": 1065,
+      "amount": 39.105,
+      "maturity": "2029-07-31",
+      "value": 39.105
+    },
+    {
+      "term": "7Y",
+      "days": 1096,
+      "amount": 41.014,
+      "maturity": "2029-08-31",
+      "value": 41.014
+    },
+    {
+      "term": "7Y",
+      "days": 1126,
+      "amount": 35.787,
+      "maturity": "2029-09-30",
+      "value": 35.787
+    },
+    {
+      "term": "7Y",
+      "days": 1157,
+      "amount": 34.908,
+      "maturity": "2029-10-31",
+      "value": 34.908
+    },
+    {
+      "term": "7Y",
+      "days": 1187,
+      "amount": 38.155,
+      "maturity": "2029-11-30",
+      "value": 38.155
+    },
+    {
+      "term": "7Y",
+      "days": 1218,
+      "amount": 34.278,
+      "maturity": "2029-12-31",
+      "value": 34.278
+    },
+    {
+      "term": "7Y",
+      "days": 1249,
+      "amount": 34.046,
+      "maturity": "2030-01-31",
+      "value": 34.046
+    },
+    {
+      "term": "7Y",
+      "days": 1277,
+      "amount": 119.605,
+      "maturity": "2030-02-28",
+      "value": 119.605
+    },
+    {
+      "term": "7Y",
+      "days": 1308,
+      "amount": 33.995,
+      "maturity": "2030-03-31",
+      "value": 33.995
+    },
+    {
+      "term": "7Y",
+      "days": 1338,
+      "amount": 38.04,
+      "maturity": "2030-04-30",
+      "value": 38.04
+    },
+    {
+      "term": "7Y",
+      "days": 1369,
+      "amount": 40.695,
+      "maturity": "2030-05-31",
+      "value": 40.695
+    },
+    {
+      "term": "7Y",
+      "days": 1399,
+      "amount": 34.099,
+      "maturity": "2030-06-30",
+      "value": 34.099
+    },
+    {
+      "term": "7Y",
+      "days": 1430,
+      "amount": 33.76,
+      "maturity": "2030-07-31",
+      "value": 33.76
+    },
+    {
+      "term": "7Y",
+      "days": 1461,
+      "amount": 39.737,
+      "maturity": "2030-08-31",
+      "value": 39.737
+    },
+    {
+      "term": "7Y",
+      "days": 1491,
+      "amount": 36.71,
+      "maturity": "2030-09-30",
+      "value": 36.71
+    },
+    {
+      "term": "7Y",
+      "days": 1522,
+      "amount": 37.23,
+      "maturity": "2030-10-31",
+      "value": 37.23
+    },
+    {
+      "term": "7Y",
+      "days": 1552,
+      "amount": 39.412,
+      "maturity": "2030-11-30",
+      "value": 39.412
+    },
+    {
+      "term": "7Y",
+      "days": 1583,
+      "amount": 39.437,
+      "maturity": "2030-12-31",
+      "value": 39.437
+    },
+    {
+      "term": "7Y",
+      "days": 1614,
+      "amount": 39.41,
+      "maturity": "2031-01-31",
+      "value": 39.41
+    },
+    {
+      "term": "7Y",
+      "days": 1642,
+      "amount": 41.166,
+      "maturity": "2031-02-28",
+      "value": 41.166
+    },
+    {
+      "term": "7Y",
+      "days": 1673,
+      "amount": 42.351,
+      "maturity": "2031-03-31",
+      "value": 42.351
+    },
+    {
+      "term": "7Y",
+      "days": 1703,
+      "amount": 42.944,
+      "maturity": "2031-04-30",
+      "value": 42.944
+    },
+    {
+      "term": "7Y",
+      "days": 1734,
+      "amount": 46.212,
+      "maturity": "2031-05-31",
+      "value": 46.212
+    },
+    {
+      "term": "7Y",
+      "days": 1764,
+      "amount": 45.531,
+      "maturity": "2031-06-30",
+      "value": 45.531
+    },
+    {
+      "term": "7Y",
+      "days": 1795,
+      "amount": 45.993,
+      "maturity": "2031-07-31",
+      "value": 45.993
+    },
+    {
+      "term": "7Y",
+      "days": 1826,
+      "amount": 47.423,
+      "maturity": "2031-08-31",
+      "value": 47.423
+    },
+    {
+      "term": "7Y",
+      "days": 1856,
+      "amount": 44.83,
+      "maturity": "2031-09-30",
+      "value": 44.83
+    },
+    {
+      "term": "7Y",
+      "days": 1887,
+      "amount": 44.695,
+      "maturity": "2031-10-31",
+      "value": 44.695
+    },
+    {
+      "term": "7Y",
+      "days": 1917,
+      "amount": 46.91,
+      "maturity": "2031-11-30",
+      "value": 46.91
+    },
+    {
+      "term": "7Y",
+      "days": 1948,
+      "amount": 44.091,
+      "maturity": "2031-12-31",
+      "value": 44.091
+    },
+    {
+      "term": "7Y",
+      "days": 1979,
+      "amount": 46.438,
+      "maturity": "2032-01-31",
+      "value": 46.438
+    },
+    {
+      "term": "7Y",
+      "days": 2008,
+      "amount": 48.435,
+      "maturity": "2032-02-29",
+      "value": 48.435
+    },
+    {
+      "term": "7Y",
+      "days": 2039,
+      "amount": 44.799,
+      "maturity": "2032-03-31",
+      "value": 44.799
+    },
+    {
+      "term": "7Y",
+      "days": 2069,
+      "amount": 47.013,
+      "maturity": "2032-04-30",
+      "value": 47.013
+    },
+    {
+      "term": "7Y",
+      "days": 2100,
+      "amount": 50.024,
+      "maturity": "2032-05-31",
+      "value": 50.024
+    },
+    {
+      "term": "7Y",
+      "days": 2130,
+      "amount": 48.378,
+      "maturity": "2032-06-30",
+      "value": 48.378
+    },
+    {
+      "term": "7Y",
+      "days": 2161,
+      "amount": 46.917,
+      "maturity": "2032-07-31",
+      "value": 46.917
+    },
+    {
+      "term": "7Y",
+      "days": 2192,
+      "amount": 49.31,
+      "maturity": "2032-08-31",
+      "value": 49.31
+    },
+    {
+      "term": "7Y",
+      "days": 2222,
+      "amount": 46.43,
+      "maturity": "2032-09-30",
+      "value": 46.43
+    },
+    {
+      "term": "7Y",
+      "days": 2253,
+      "amount": 46.526,
+      "maturity": "2032-10-31",
+      "value": 46.526
+    },
+    {
+      "term": "7Y",
+      "days": 2283,
+      "amount": 49.031,
+      "maturity": "2032-11-30",
+      "value": 49.031
+    },
+    {
+      "term": "7Y",
+      "days": 2314,
+      "amount": 48.688,
+      "maturity": "2032-12-31",
+      "value": 48.688
+    },
+    {
+      "term": "7Y",
+      "days": 2345,
+      "amount": 47.1,
+      "maturity": "2033-01-31",
+      "value": 47.1
+    },
+    {
+      "term": "7Y",
+      "days": 2373,
+      "amount": 49.271,
+      "maturity": "2033-02-28",
+      "value": 49.271
+    },
+    {
+      "term": "7Y",
+      "days": 2404,
+      "amount": 48.546,
+      "maturity": "2033-03-31",
+      "value": 48.546
+    },
+    {
+      "term": "7Y",
+      "days": 2434,
+      "amount": 49.537,
+      "maturity": "2033-04-30",
+      "value": 49.537
+    },
+    {
+      "term": "7Y",
+      "days": 2465,
+      "amount": 50.492,
+      "maturity": "2033-05-31",
+      "value": 50.492
+    },
+    {
+      "term": "7Y",
+      "days": 2495,
+      "amount": 50.587,
+      "maturity": "2033-06-30",
+      "value": 50.587
+    },
+    {
+      "term": "7Y",
+      "days": 2526,
+      "amount": 48.865,
+      "maturity": "2033-07-31",
+      "value": 48.865
+    },
+    {
+      "term": "7Y",
+      "days": 2557,
+      "amount": 49.657,
+      "maturity": "2033-08-31",
+      "value": 49.657
+    },
+    {
+      "term": "10Y",
+      "days": 76,
+      "amount": 64.288,
+      "maturity": "2026-11-15",
+      "value": 64.288
+    },
+    {
+      "term": "10Y",
+      "days": 168,
+      "amount": 61.003,
+      "maturity": "2027-02-15",
+      "value": 61.003
+    },
+    {
+      "term": "10Y",
+      "days": 257,
+      "amount": 66.863,
+      "maturity": "2027-05-15",
+      "value": 66.863
+    },
+    {
+      "term": "10Y",
+      "days": 349,
+      "amount": 69.445,
+      "maturity": "2027-08-15",
+      "value": 69.445
+    },
+    {
+      "term": "10Y",
+      "days": 441,
+      "amount": 65.568,
+      "maturity": "2027-11-15",
+      "value": 65.568
+    },
+    {
+      "term": "10Y",
+      "days": 533,
+      "amount": 69.744,
+      "maturity": "2028-02-15",
+      "value": 69.744
+    },
+    {
+      "term": "10Y",
+      "days": 623,
+      "amount": 72.893,
+      "maturity": "2028-05-15",
+      "value": 72.893
+    },
+    {
+      "term": "10Y",
+      "days": 715,
+      "amount": 73.001,
+      "maturity": "2028-08-15",
+      "value": 73.001
+    },
+    {
+      "term": "10Y",
+      "days": 807,
+      "amount": 80.487,
+      "maturity": "2028-11-15",
+      "value": 80.487
+    },
+    {
+      "term": "10Y",
+      "days": 899,
+      "amount": 80.704,
+      "maturity": "2029-02-15",
+      "value": 80.704
+    },
+    {
+      "term": "10Y",
+      "days": 988,
+      "amount": 84.173,
+      "maturity": "2029-05-15",
+      "value": 84.173
+    },
+    {
+      "term": "10Y",
+      "days": 1080,
+      "amount": 92.619,
+      "maturity": "2029-08-15",
+      "value": 92.619
+    },
+    {
+      "term": "10Y",
+      "days": 1172,
+      "amount": 88.553,
+      "maturity": "2029-11-15",
+      "value": 88.553
+    },
+    {
+      "term": "10Y",
+      "days": 1264,
+      "amount": 87.402,
+      "maturity": "2030-02-15",
+      "value": 87.402
+    },
+    {
+      "term": "10Y",
+      "days": 1353,
+      "amount": 109.62,
+      "maturity": "2030-05-15",
+      "value": 109.62
+    },
+    {
+      "term": "10Y",
+      "days": 1445,
+      "amount": 132.351,
+      "maturity": "2030-08-15",
+      "value": 132.351
+    },
+    {
+      "term": "10Y",
+      "days": 1537,
+      "amount": 133.681,
+      "maturity": "2030-11-15",
+      "value": 133.681
+    },
+    {
+      "term": "10Y",
+      "days": 1629,
+      "amount": 140.063,
+      "maturity": "2031-02-15",
+      "value": 140.063
+    },
+    {
+      "term": "10Y",
+      "days": 1718,
+      "amount": 147.678,
+      "maturity": "2031-05-15",
+      "value": 147.678
+    },
+    {
+      "term": "10Y",
+      "days": 1810,
+      "amount": 141.344,
+      "maturity": "2031-08-15",
+      "value": 141.344
+    },
+    {
+      "term": "10Y",
+      "days": 1902,
+      "amount": 144.572,
+      "maturity": "2031-11-15",
+      "value": 144.572
+    },
+    {
+      "term": "10Y",
+      "days": 1994,
+      "amount": 140.513,
+      "maturity": "2032-02-15",
+      "value": 140.513
+    },
+    {
+      "term": "10Y",
+      "days": 2084,
+      "amount": 132.745,
+      "maturity": "2032-05-15",
+      "value": 132.745
+    },
+    {
+      "term": "10Y",
+      "days": 2176,
+      "amount": 119.424,
+      "maturity": "2032-08-15",
+      "value": 119.424
+    },
+    {
+      "term": "10Y",
+      "days": 2268,
+      "amount": 111.255,
+      "maturity": "2032-11-15",
+      "value": 111.255
+    },
+    {
+      "term": "10Y",
+      "days": 2360,
+      "amount": 114.516,
+      "maturity": "2033-02-15",
+      "value": 114.516
+    },
+    {
+      "term": "10Y",
+      "days": 2449,
+      "amount": 108.21,
+      "maturity": "2033-05-15",
+      "value": 108.21
+    },
+    {
+      "term": "10Y",
+      "days": 2541,
+      "amount": 121.58,
+      "maturity": "2033-08-15",
+      "value": 121.58
+    },
+    {
+      "term": "10Y",
+      "days": 2633,
+      "amount": 114.678,
+      "maturity": "2033-11-15",
+      "value": 114.678
+    },
+    {
+      "term": "10Y",
+      "days": 2725,
+      "amount": 123.093,
+      "maturity": "2034-02-15",
+      "value": 123.093
+    },
+    {
+      "term": "10Y",
+      "days": 2814,
+      "amount": 132.756,
+      "maturity": "2034-05-15",
+      "value": 132.756
+    },
+    {
+      "term": "10Y",
+      "days": 2906,
+      "amount": 128.74,
+      "maturity": "2034-08-15",
+      "value": 128.74
+    },
+    {
+      "term": "10Y",
+      "days": 2998,
+      "amount": 139.056,
+      "maturity": "2034-11-15",
+      "value": 139.056
+    },
+    {
+      "term": "10Y",
+      "days": 3090,
+      "amount": 138.494,
+      "maturity": "2035-02-15",
+      "value": 138.494
+    },
+    {
+      "term": "10Y",
+      "days": 3179,
+      "amount": 140.13,
+      "maturity": "2035-05-15",
+      "value": 140.13
+    },
+    {
+      "term": "10Y",
+      "days": 3271,
+      "amount": 134.935,
+      "maturity": "2035-08-15",
+      "value": 134.935
+    },
+    {
+      "term": "10Y",
+      "days": 3363,
+      "amount": 137.842,
+      "maturity": "2035-11-15",
+      "value": 137.842
+    },
+    {
+      "term": "10Y",
+      "days": 3455,
+      "amount": 138.826,
+      "maturity": "2036-02-15",
+      "value": 138.826
+    },
+    {
+      "term": "10Y",
+      "days": 3545,
+      "amount": 134.018,
+      "maturity": "2036-05-15",
+      "value": 134.018
+    },
+    {
+      "term": "10Y",
+      "days": 3637,
+      "amount": 52.623,
+      "maturity": "2036-08-15",
+      "value": 52.623
+    },
+    {
+      "term": "20Y",
+      "days": 5006,
+      "amount": 55.392,
+      "maturity": "2040-05-15",
+      "value": 55.392
+    },
+    {
+      "term": "20Y",
+      "days": 5098,
+      "amount": 75.489,
+      "maturity": "2040-08-15",
+      "value": 75.489
+    },
+    {
+      "term": "20Y",
+      "days": 5190,
+      "amount": 83.256,
+      "maturity": "2040-11-15",
+      "value": 83.256
+    },
+    {
+      "term": "20Y",
+      "days": 5282,
+      "amount": 82.499,
+      "maturity": "2041-02-15",
+      "value": 82.499
+    },
+    {
+      "term": "20Y",
+      "days": 5371,
+      "amount": 75.465,
+      "maturity": "2041-05-15",
+      "value": 75.465
+    },
+    {
+      "term": "20Y",
+      "days": 5463,
+      "amount": 78.07,
+      "maturity": "2041-08-15",
+      "value": 78.07
+    },
+    {
+      "term": "20Y",
+      "days": 5555,
+      "amount": 68.489,
+      "maturity": "2041-11-15",
+      "value": 68.489
+    },
+    {
+      "term": "20Y",
+      "days": 5647,
+      "amount": 56.404,
+      "maturity": "2042-02-15",
+      "value": 56.404
+    },
+    {
+      "term": "20Y",
+      "days": 5736,
+      "amount": 41.115,
+      "maturity": "2042-05-15",
+      "value": 41.115
+    },
+    {
+      "term": "20Y",
+      "days": 5828,
+      "amount": 39.64,
+      "maturity": "2042-08-15",
+      "value": 39.64
+    },
+    {
+      "term": "20Y",
+      "days": 5920,
+      "amount": 40.587,
+      "maturity": "2042-11-15",
+      "value": 40.587
+    },
+    {
+      "term": "20Y",
+      "days": 6012,
+      "amount": 42.06,
+      "maturity": "2043-02-15",
+      "value": 42.06
+    },
+    {
+      "term": "20Y",
+      "days": 6101,
+      "amount": 41.058,
+      "maturity": "2043-05-15",
+      "value": 41.058
+    },
+    {
+      "term": "20Y",
+      "days": 6193,
+      "amount": 43.651,
+      "maturity": "2043-08-15",
+      "value": 43.651
+    },
+    {
+      "term": "20Y",
+      "days": 6285,
+      "amount": 42.178,
+      "maturity": "2043-11-15",
+      "value": 42.178
+    },
+    {
+      "term": "20Y",
+      "days": 6377,
+      "amount": 42.722,
+      "maturity": "2044-02-15",
+      "value": 42.722
+    },
+    {
+      "term": "20Y",
+      "days": 6467,
+      "amount": 44.115,
+      "maturity": "2044-05-15",
+      "value": 44.115
+    },
+    {
+      "term": "20Y",
+      "days": 6559,
+      "amount": 43.757,
+      "maturity": "2044-08-15",
+      "value": 43.757
+    },
+    {
+      "term": "20Y",
+      "days": 6651,
+      "amount": 43.92,
+      "maturity": "2044-11-15",
+      "value": 43.92
+    },
+    {
+      "term": "20Y",
+      "days": 6743,
+      "amount": 44.865,
+      "maturity": "2045-02-15",
+      "value": 44.865
+    },
+    {
+      "term": "20Y",
+      "days": 6832,
+      "amount": 46.364,
+      "maturity": "2045-05-15",
+      "value": 46.364
+    },
+    {
+      "term": "20Y",
+      "days": 6924,
+      "amount": 45.375,
+      "maturity": "2045-08-15",
+      "value": 45.375
+    },
+    {
+      "term": "20Y",
+      "days": 7016,
+      "amount": 46.13,
+      "maturity": "2045-11-15",
+      "value": 46.13
+    },
+    {
+      "term": "20Y",
+      "days": 7108,
+      "amount": 46.894,
+      "maturity": "2046-02-15",
+      "value": 46.894
+    },
+    {
+      "term": "20Y",
+      "days": 7197,
+      "amount": 44.344,
+      "maturity": "2046-05-15",
+      "value": 44.344
+    },
+    {
+      "term": "20Y",
+      "days": 7289,
+      "amount": 18.054,
+      "maturity": "2046-08-15",
+      "value": 18.054
+    },
+    {
+      "term": "30Y",
+      "days": 76,
+      "amount": 10.86,
+      "maturity": "2026-11-15",
+      "value": 10.86
+    },
+    {
+      "term": "30Y",
+      "days": 168,
+      "amount": 9.522,
+      "maturity": "2027-02-15",
+      "value": 9.522
+    },
+    {
+      "term": "30Y",
+      "days": 349,
+      "amount": 9.197,
+      "maturity": "2027-08-15",
+      "value": 9.197
+    },
+    {
+      "term": "30Y",
+      "days": 441,
+      "amount": 22.021,
+      "maturity": "2027-11-15",
+      "value": 22.021
+    },
+    {
+      "term": "30Y",
+      "days": 715,
+      "amount": 11.776,
+      "maturity": "2028-08-15",
+      "value": 11.776
+    },
+    {
+      "term": "30Y",
+      "days": 807,
+      "amount": 10.947,
+      "maturity": "2028-11-15",
+      "value": 10.947
+    },
+    {
+      "term": "30Y",
+      "days": 899,
+      "amount": 11.35,
+      "maturity": "2029-02-15",
+      "value": 11.35
+    },
+    {
+      "term": "30Y",
+      "days": 1080,
+      "amount": 11.179,
+      "maturity": "2029-08-15",
+      "value": 11.179
+    },
+    {
+      "term": "30Y",
+      "days": 1353,
+      "amount": 17.043,
+      "maturity": "2030-05-15",
+      "value": 17.043
+    },
+    {
+      "term": "30Y",
+      "days": 1629,
+      "amount": 16.428,
+      "maturity": "2031-02-15",
+      "value": 16.428
+    },
+    {
+      "term": "30Y",
+      "days": 3455,
+      "amount": 26.397,
+      "maturity": "2036-02-15",
+      "value": 26.397
+    },
+    {
+      "term": "30Y",
+      "days": 3821,
+      "amount": 16.589,
+      "maturity": "2037-02-15",
+      "value": 16.589
+    },
+    {
+      "term": "30Y",
+      "days": 3910,
+      "amount": 21.413,
+      "maturity": "2037-05-15",
+      "value": 21.413
+    },
+    {
+      "term": "30Y",
+      "days": 4186,
+      "amount": 22.525,
+      "maturity": "2038-02-15",
+      "value": 22.525
+    },
+    {
+      "term": "30Y",
+      "days": 4275,
+      "amount": 25.5,
+      "maturity": "2038-05-15",
+      "value": 25.5
+    },
+    {
+      "term": "30Y",
+      "days": 4551,
+      "amount": 25.909,
+      "maturity": "2039-02-15",
+      "value": 25.909
+    },
+    {
+      "term": "30Y",
+      "days": 4640,
+      "amount": 38.779,
+      "maturity": "2039-05-15",
+      "value": 38.779
+    },
+    {
+      "term": "30Y",
+      "days": 4732,
+      "amount": 41.431,
+      "maturity": "2039-08-15",
+      "value": 41.431
+    },
+    {
+      "term": "30Y",
+      "days": 4824,
+      "amount": 44.564,
+      "maturity": "2039-11-15",
+      "value": 44.564
+    },
+    {
+      "term": "30Y",
+      "days": 4916,
+      "amount": 44.902,
+      "maturity": "2040-02-15",
+      "value": 44.902
+    },
+    {
+      "term": "30Y",
+      "days": 5006,
+      "amount": 43.473,
+      "maturity": "2040-05-15",
+      "value": 43.473
+    },
+    {
+      "term": "30Y",
+      "days": 5098,
+      "amount": 43.213,
+      "maturity": "2040-08-15",
+      "value": 43.213
+    },
+    {
+      "term": "30Y",
+      "days": 5190,
+      "amount": 42.903,
+      "maturity": "2040-11-15",
+      "value": 42.903
+    },
+    {
+      "term": "30Y",
+      "days": 5282,
+      "amount": 43.005,
+      "maturity": "2041-02-15",
+      "value": 43.005
+    },
+    {
+      "term": "30Y",
+      "days": 5371,
+      "amount": 41.996,
+      "maturity": "2041-05-15",
+      "value": 41.996
+    },
+    {
+      "term": "30Y",
+      "days": 5463,
+      "amount": 42.489,
+      "maturity": "2041-08-15",
+      "value": 42.489
+    },
+    {
+      "term": "30Y",
+      "days": 5555,
+      "amount": 44.622,
+      "maturity": "2041-11-15",
+      "value": 44.622
+    },
+    {
+      "term": "30Y",
+      "days": 5647,
+      "amount": 47.219,
+      "maturity": "2042-02-15",
+      "value": 47.219
+    },
+    {
+      "term": "30Y",
+      "days": 5736,
+      "amount": 43.919,
+      "maturity": "2042-05-15",
+      "value": 43.919
+    },
+    {
+      "term": "30Y",
+      "days": 5828,
+      "amount": 41.795,
+      "maturity": "2042-08-15",
+      "value": 41.795
+    },
+    {
+      "term": "30Y",
+      "days": 5920,
+      "amount": 41.944,
+      "maturity": "2042-11-15",
+      "value": 41.944
+    },
+    {
+      "term": "30Y",
+      "days": 6012,
+      "amount": 42.0,
+      "maturity": "2043-02-15",
+      "value": 42.0
+    },
+    {
+      "term": "30Y",
+      "days": 6101,
+      "amount": 41.799,
+      "maturity": "2043-05-15",
+      "value": 41.799
+    },
+    {
+      "term": "30Y",
+      "days": 6193,
+      "amount": 41.904,
+      "maturity": "2043-08-15",
+      "value": 41.904
+    },
+    {
+      "term": "30Y",
+      "days": 6285,
+      "amount": 41.995,
+      "maturity": "2043-11-15",
+      "value": 41.995
+    },
+    {
+      "term": "30Y",
+      "days": 6377,
+      "amount": 41.845,
+      "maturity": "2044-02-15",
+      "value": 41.845
+    },
+    {
+      "term": "30Y",
+      "days": 6467,
+      "amount": 41.988,
+      "maturity": "2044-05-15",
+      "value": 41.988
+    },
+    {
+      "term": "30Y",
+      "days": 6559,
+      "amount": 42.0,
+      "maturity": "2044-08-15",
+      "value": 42.0
+    },
+    {
+      "term": "30Y",
+      "days": 6651,
+      "amount": 41.475,
+      "maturity": "2044-11-15",
+      "value": 41.475
+    },
+    {
+      "term": "30Y",
+      "days": 6743,
+      "amount": 42.001,
+      "maturity": "2045-02-15",
+      "value": 42.001
+    },
+    {
+      "term": "30Y",
+      "days": 6832,
+      "amount": 41.286,
+      "maturity": "2045-05-15",
+      "value": 41.286
+    },
+    {
+      "term": "30Y",
+      "days": 6924,
+      "amount": 40.301,
+      "maturity": "2045-08-15",
+      "value": 40.301
+    },
+    {
+      "term": "30Y",
+      "days": 7016,
+      "amount": 41.792,
+      "maturity": "2045-11-15",
+      "value": 41.792
+    },
+    {
+      "term": "30Y",
+      "days": 7108,
+      "amount": 37.66,
+      "maturity": "2046-02-15",
+      "value": 37.66
+    },
+    {
+      "term": "30Y",
+      "days": 7197,
+      "amount": 40.478,
+      "maturity": "2046-05-15",
+      "value": 40.478
+    },
+    {
+      "term": "30Y",
+      "days": 7289,
+      "amount": 39.646,
+      "maturity": "2046-08-15",
+      "value": 39.646
+    },
+    {
+      "term": "30Y",
+      "days": 7381,
+      "amount": 40.065,
+      "maturity": "2046-11-15",
+      "value": 40.065
+    },
+    {
+      "term": "30Y",
+      "days": 7473,
+      "amount": 33.907,
+      "maturity": "2047-02-15",
+      "value": 33.907
+    },
+    {
+      "term": "30Y",
+      "days": 7562,
+      "amount": 40.685,
+      "maturity": "2047-05-15",
+      "value": 40.685
+    },
+    {
+      "term": "30Y",
+      "days": 7654,
+      "amount": 41.476,
+      "maturity": "2047-08-15",
+      "value": 41.476
+    },
+    {
+      "term": "30Y",
+      "days": 7746,
+      "amount": 39.289,
+      "maturity": "2047-11-15",
+      "value": 39.289
+    },
+    {
+      "term": "30Y",
+      "days": 7838,
+      "amount": 44.125,
+      "maturity": "2048-02-15",
+      "value": 44.125
+    },
+    {
+      "term": "30Y",
+      "days": 7928,
+      "amount": 46.148,
+      "maturity": "2048-05-15",
+      "value": 46.148
+    },
+    {
+      "term": "30Y",
+      "days": 8020,
+      "amount": 49.978,
+      "maturity": "2048-08-15",
+      "value": 49.978
+    },
+    {
+      "term": "30Y",
+      "days": 8112,
+      "amount": 52.578,
+      "maturity": "2048-11-15",
+      "value": 52.578
+    },
+    {
+      "term": "30Y",
+      "days": 8204,
+      "amount": 54.201,
+      "maturity": "2049-02-15",
+      "value": 54.201
+    },
+    {
+      "term": "30Y",
+      "days": 8293,
+      "amount": 55.597,
+      "maturity": "2049-05-15",
+      "value": 55.597
+    },
+    {
+      "term": "30Y",
+      "days": 8385,
+      "amount": 63.236,
+      "maturity": "2049-08-15",
+      "value": 63.236
+    },
+    {
+      "term": "30Y",
+      "days": 8477,
+      "amount": 58.171,
+      "maturity": "2049-11-15",
+      "value": 58.171
+    },
+    {
+      "term": "30Y",
+      "days": 8569,
+      "amount": 59.122,
+      "maturity": "2050-02-15",
+      "value": 59.122
+    },
+    {
+      "term": "30Y",
+      "days": 8658,
+      "amount": 73.567,
+      "maturity": "2050-05-15",
+      "value": 73.567
+    },
+    {
+      "term": "30Y",
+      "days": 8750,
+      "amount": 89.019,
+      "maturity": "2050-08-15",
+      "value": 89.019
+    },
+    {
+      "term": "30Y",
+      "days": 8842,
+      "amount": 85.458,
+      "maturity": "2050-11-15",
+      "value": 85.458
+    },
+    {
+      "term": "30Y",
+      "days": 8934,
+      "amount": 88.191,
+      "maturity": "2051-02-15",
+      "value": 88.191
+    },
+    {
+      "term": "30Y",
+      "days": 9023,
+      "amount": 92.729,
+      "maturity": "2051-05-15",
+      "value": 92.729
+    },
+    {
+      "term": "30Y",
+      "days": 9115,
+      "amount": 90.037,
+      "maturity": "2051-08-15",
+      "value": 90.037
+    },
+    {
+      "term": "30Y",
+      "days": 9207,
+      "amount": 90.235,
+      "maturity": "2051-11-15",
+      "value": 90.235
+    },
+    {
+      "term": "30Y",
+      "days": 9299,
+      "amount": 85.019,
+      "maturity": "2052-02-15",
+      "value": 85.019
+    },
+    {
+      "term": "30Y",
+      "days": 9389,
+      "amount": 78.301,
+      "maturity": "2052-05-15",
+      "value": 78.301
+    },
+    {
+      "term": "30Y",
+      "days": 9481,
+      "amount": 69.939,
+      "maturity": "2052-08-15",
+      "value": 69.939
+    },
+    {
+      "term": "30Y",
+      "days": 9573,
+      "amount": 64.34,
+      "maturity": "2052-11-15",
+      "value": 64.34
+    },
+    {
+      "term": "30Y",
+      "days": 9665,
+      "amount": 65.983,
+      "maturity": "2053-02-15",
+      "value": 65.983
+    },
+    {
+      "term": "30Y",
+      "days": 9754,
+      "amount": 62.593,
+      "maturity": "2053-05-15",
+      "value": 62.593
+    },
+    {
+      "term": "30Y",
+      "days": 9846,
+      "amount": 71.564,
+      "maturity": "2053-08-15",
+      "value": 71.564
+    },
+    {
+      "term": "30Y",
+      "days": 9938,
+      "amount": 66.444,
+      "maturity": "2053-11-15",
+      "value": 66.444
+    },
+    {
+      "term": "30Y",
+      "days": 10030,
+      "amount": 71.198,
+      "maturity": "2054-02-15",
+      "value": 71.198
+    },
+    {
+      "term": "30Y",
+      "days": 10119,
+      "amount": 76.421,
+      "maturity": "2054-05-15",
+      "value": 76.421
+    },
+    {
+      "term": "30Y",
+      "days": 10211,
+      "amount": 74.267,
+      "maturity": "2054-08-15",
+      "value": 74.267
+    },
+    {
+      "term": "30Y",
+      "days": 10303,
+      "amount": 80.063,
+      "maturity": "2054-11-15",
+      "value": 80.063
+    },
+    {
+      "term": "30Y",
+      "days": 10395,
+      "amount": 79.901,
+      "maturity": "2055-02-15",
+      "value": 79.901
+    },
+    {
+      "term": "30Y",
+      "days": 10484,
+      "amount": 80.803,
+      "maturity": "2055-05-15",
+      "value": 80.803
+    },
+    {
+      "term": "30Y",
+      "days": 10576,
+      "amount": 77.833,
+      "maturity": "2055-08-15",
+      "value": 77.833
+    },
+    {
+      "term": "30Y",
+      "days": 10668,
+      "amount": 79.278,
+      "maturity": "2055-11-15",
+      "value": 79.278
+    },
+    {
+      "term": "30Y",
+      "days": 10760,
+      "amount": 79.989,
+      "maturity": "2056-02-15",
+      "value": 79.989
+    },
+    {
+      "term": "30Y",
+      "days": 10850,
+      "amount": 77.213,
+      "maturity": "2056-05-15",
+      "value": 77.213
+    },
+    {
+      "term": "30Y",
+      "days": 10942,
+      "amount": 31.323,
+      "maturity": "2056-08-15",
+      "value": 31.323
+    }
+  ]
+}

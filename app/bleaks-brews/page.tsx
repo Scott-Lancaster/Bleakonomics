@@ -69,6 +69,11 @@ That is similar to unemployment. When more people are out of work, the economy h
     title: "Credit Card Debt",
     placeholder: `Under Construction`,
   },
+  {
+    id: "us-debt",
+    title: "US Treasury Debt",
+    placeholder: `Under Construction`,
+  },
 ];
 
 export default function BleaksBrewsPage() {

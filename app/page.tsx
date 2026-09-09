@@ -11,6 +11,7 @@ import m2Data from "../public/data/m2.json";
 import netLiquidityData from "../public/data/net_liquidity.json";
 import creditSpreadData from "../public/data/credit_spread.json";
 import creditCardsData from "../public/data/credit_cards.json";
+import usDebtData from "../public/data/us_debt.json";
 
 function formatUpdatedAtUtc(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -25,7 +26,7 @@ function formatUpdatedAtUtc(date: string) {
 }
 
 export default function Home() {
-  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at, m2Data.updated_at, netLiquidityData.updated_at, creditSpreadData.updated_at, creditCardsData.updated_at]
+  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at, m2Data.updated_at, netLiquidityData.updated_at, creditSpreadData.updated_at, creditCardsData.updated_at, usDebtData.updated_at]
     .filter(Boolean)
     .sort()
     .at(-1);
@@ -66,6 +67,12 @@ export default function Home() {
             className="rounded-md border border-neutral-800 px-3 py-2 text-sm font-semibold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
           >
             The Consumer
+          </Link>
+          <Link
+            href="#us-government"
+            className="rounded-md border border-neutral-800 px-3 py-2 text-sm font-semibold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
+          >
+            US Government
           </Link>
           <Link
             href="#acute-charts"
@@ -239,10 +246,31 @@ export default function Home() {
           </article>
         </section>
 
-        <section id="acute-charts" className="mt-16 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
+        <section id="us-government" className="mt-16 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
           <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
-            Acute Charts
+            US Government
           </h2>
+          <article>
+            <h3 className="text-lg font-semibold text-neutral-300">
+              US Treasury Debt
+            </h3>
+            <Link
+              href="/us-debt"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive US Treasury debt maturity chart"
+            >
+              <img
+                src="/charts/us_debt.png"
+                alt="US Treasury debt by days remaining chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  Treasuries lined up by days until they come due. Colored lines are original terms. White line is the running total.
+                </p>
+              </div>
+            </Link>
+          </article>
           <article>
             <h3 className="text-lg font-semibold text-neutral-300">
               US Net Liquidity
@@ -264,6 +292,12 @@ export default function Home() {
               </div>
             </Link>
           </article>
+        </section>
+
+        <section id="acute-charts" className="mt-16 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
+          <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
+            Acute Charts
+          </h2>
           <article>
             <h3 className="text-lg font-semibold text-neutral-300">
               SOFR - IORB Spread

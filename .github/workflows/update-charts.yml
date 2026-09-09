@@ -48,6 +48,7 @@ jobs:
           python scripts/NetLiquidity.py
           python scripts/CreditSpread.py
           python scripts/CreditCards.py
+          python scripts/USDebt.py
 
       - name: Commit updated charts
         run: |
