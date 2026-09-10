@@ -1,9 +1,9 @@
 {
   "title": "High Yield Credit Spread",
-  "latest": 2.68,
-  "latest_hy": 2.68,
+  "latest": 2.67,
+  "latest_hy": 2.67,
   "latest_baa": 1.57,
-  "updated_at": "2026-09-09T05:45:22Z",
+  "updated_at": "2026-09-10T00:27:53Z",
   "source": "FRED BAA10Y, BAMLH0A0HYM2",
   "chart_path": "/charts/credit_spread.png",
   "description": "Moody's Baa minus 10-year Treasury, plus ICE BofA high-yield OAS where FRED still publishes it.",
@@ -61272,7 +61272,7 @@
     },
     {
       "date": "2026-09-04",
-      "baa": null,
+      "baa": 1.56,
       "hy": 2.68,
       "value": 2.68
     },
@@ -61281,6 +61281,12 @@
       "baa": null,
       "hy": 2.68,
       "value": 2.68
+    },
+    {
+      "date": "2026-09-08",
+      "baa": 1.57,
+      "hy": 2.67,
+      "value": 2.67
     }
   ],
   "recessions": [
