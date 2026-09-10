@@ -94,8 +94,9 @@ export default function USDebtChart({
 
   const points = useMemo(() => {
     const preset = ranges.find((range) => range.label === activeRange) ?? ranges[ranges.length - 1];
-    if (preset.max || !preset.days) return clean;
-    return clean.filter((point) => point.days <= preset.days);
+    const cutoff = preset.days;
+    if (preset.max || cutoff == null) return clean;
+    return clean.filter((point) => point.days <= cutoff);
   }, [activeRange, clean]);
 
   const chart = useMemo(() => {
@@ -118,7 +119,7 @@ export default function USDebtChart({
     const y = (amount: number) =>
       pad.top + ((maxAmount - amount) / maxAmount) * (height - pad.top - pad.bottom);
     const yCum = (amount: number) =>
-      pad.top + ((maxCum - amount) / maxCum) * (height - pad.top - pad.bottom);
+      pad.top + ((maxCum - amount) / (maxCum || 1)) * (height - pad.top - pad.bottom);
 
     const lines = terms.map((term) => {
       const series = points.filter((point) => point.term === term.key).sort((a, b) => a.days - b.days);
