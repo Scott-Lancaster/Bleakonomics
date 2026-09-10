@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import sofrIorbData from "../../public/data/sofr_iorb.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import SOFRIORBChart from "./SOFRIORBChart";
 
@@ -49,16 +50,13 @@ export default function SOFRIORBPage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            SOFR - IORB Spread
-          </h1>
+          <ChartPageTitle title="SOFR - IORB Spread" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "SOFR is what it costs to borrow cash overnight using Treasuries as collateral. IORB is what the Fed pays banks to park money. When SOFR jumps above IORB, cash is getting scarce."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#sofr-iorb"
           />
         </div>
 

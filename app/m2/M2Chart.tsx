@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from "react";
+import { latestDataParen } from "../../components/LatestDataStamp";
 
 type Observation = {
   date: string;
@@ -246,22 +247,22 @@ export default function M2Chart({
       <div className="flex flex-col gap-5 border-b border-neutral-900 pb-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">
-              Four-region total
+            <p className="text-base font-bold text-white">
+              {typeof globalSharePct === "number"
+                ? "~" + Math.round(globalSharePct) + "% Of Global Money Supply Over Time In USD"
+                : "Global Money Supply Over Time In USD"}
+              {latestDataParen(maxDate)}
+            </p>
+            <p className="mt-1 text-sm text-neutral-400">
+              Last Total {formatTrillions(latest ?? num(activePoint.total ?? activePoint.value))}
             </p>
             <p className="mt-2 text-4xl font-bold text-white">
               {formatTrillions(num(activePoint.total ?? activePoint.value))}
             </p>
-            <p className="mt-1 text-sm text-neutral-400">
+            <p className="mt-1 text-sm text-neutral-500">
               {formatDate(activePoint.date)}
               {isInspecting && latest !== null ? " · Latest: " + formatTrillions(latest) : ""}
             </p>
-            {typeof globalSharePct === "number" ? (
-              <p className="mt-2 text-sm font-semibold text-neutral-200">
-                ≈{Math.round(globalSharePct)}% of global money supply
-                {globalYear != null ? " (" + globalYear + ")" : ""}
-              </p>
-            ) : null}
             {shareLine ? (
               <p className="mt-1 text-xs leading-5 text-neutral-500">
                 Of this basket: {shareLine}
@@ -420,7 +421,7 @@ export default function M2Chart({
             </text>
           ))}
           {chart.xTicks.map((tick) => (
-            <text key={tick.date} x={tick.x} y={height - 18} fill="#737373" fontSize="13" textAnchor="middle">
+            <text key={tick.date} x={tick.x} y={height - 18} fill="#d4d4d4" fontSize="14" fontWeight="700" textAnchor="middle">
               {formatShortDate(tick.date)}
             </text>
           ))}

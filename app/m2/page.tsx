@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import m2Data from "../../public/data/m2.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import M2Chart from "./M2Chart";
 
@@ -65,16 +66,13 @@ export default function M2Page() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            Money Supply
-          </h1>
+          <ChartPageTitle title="Money Supply" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "US, Europe, China, and Japan money, converted into dollars. The orange line is the four-region total."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#us-m2"
           />
         </div>
         <div className="mt-8">

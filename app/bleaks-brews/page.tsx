@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import bleaksBrewsButton from "../../BleaksBrewsButton.png";
@@ -5,6 +6,11 @@ import bleaksBrewIntroduction from "../../BleaksBrewIntroduction.png";
 import bleaksBrewYield from "../../BleaksBrewYieldCurve.png";
 import bleaksBrewUnemployment from "../../BleaksBrewUnemployment.png";
 import SiteHeader from "../../components/SiteHeader";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+  title: "Bleak's Brews",
+};
 
 const sections = [
   {

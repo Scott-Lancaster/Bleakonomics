@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import creditSpreadData from "../../public/data/credit_spread.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import CreditSpreadChart from "./CreditSpreadChart";
 
@@ -51,16 +52,13 @@ export default function CreditSpreadPage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            High Yield Credit Spread
-          </h1>
+          <ChartPageTitle title="High Yield Credit Spread" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "Extra yield lenders demand to hold company debt instead of Treasuries. When it jumps, credit is getting tight."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#credit-spread"
           />
         </div>
         <div className="mt-8">

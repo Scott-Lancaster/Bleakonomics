@@ -109,19 +109,21 @@ ax.axhline(2, color="#ff6b6b", linestyle="--", linewidth=1.2, alpha=0.75, label=
 ax.axhline(0, color="#888888", linestyle="--", linewidth=1.0, alpha=0.5)
 
 ax.set_title(
-    f"CPI Inflation YoY ({START_YEAR}-Now)\nLatest: {data['YoY'].iloc[-1]:.2f}%",
+    f"CPI Inflation ({START_YEAR}-Now)\nLatest: {data['YoY'].iloc[-1]:.2f}%",
     color="white",
     fontsize=14,
     pad=20,
     fontweight="bold",
 )
-ax.set_xlabel("Year", color="white")
+ax.set_xlabel("Year", color="white", fontsize=13, fontweight="bold")
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.set_ylabel("Year-over-year change (%)", color="white")
 ax.legend(loc="upper left", framealpha=0.95)
 ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.margins(x=0)
 ax.set_xlim(pd.Timestamp(datetime(START_YEAR, 1, 1)), data.index.max())
 plt.tight_layout()

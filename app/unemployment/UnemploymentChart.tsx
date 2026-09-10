@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from "react";
+import { latestDataParen } from "../../components/LatestDataStamp";
 
 type Observation = {
   date: string;
@@ -187,14 +188,16 @@ export default function UnemploymentChart({
       <div className="flex flex-col gap-5 border-b border-neutral-900 pb-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">
-              US Unemployment Rate
+            <p className="text-base font-bold text-white">
+              US Unemployment Rate{latestDataParen(maxDate)}
+            </p>
+            <p className="mt-1 text-sm text-neutral-400">
+              Sahm Rule: {sahm !== null ? sahm.toFixed(2) + " pp" : "—"}
+              {status ? " · " + status : ""}
             </p>
             <p className="mt-2 text-4xl font-bold text-white">{activePoint.value.toFixed(1)}%</p>
-            <p className="mt-1 text-sm text-neutral-400">
+            <p className="mt-1 text-sm text-neutral-500">
               {formatDate(activePoint.date)} {isInspecting && latest !== null ? "· Latest: " + latest.toFixed(1) + "%" : ""}
-              {isInspecting && sahm !== null ? " · Sahm: " + sahm.toFixed(2) + " pp" : ""}
-              {isInspecting && status ? " · " + status : ""}
             </p>
           </div>
 
@@ -304,7 +307,7 @@ export default function UnemploymentChart({
             </g>
           ))}
           {chart.xTicks.map((tick) => (
-            <text key={tick.date} x={tick.x} y={height - 18} fill="#737373" fontSize="13" textAnchor="middle">
+            <text key={tick.date} x={tick.x} y={height - 18} fill="#d4d4d4" fontSize="14" fontWeight="700" textAnchor="middle">
               {formatShortDate(tick.date)}
             </text>
           ))}

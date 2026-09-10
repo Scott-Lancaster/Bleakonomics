@@ -129,10 +129,11 @@ if in_recession:
 ax.axhline(0, color='#ff6b6b', linestyle='--', linewidth=1.3, alpha=0.8, label='Inversion (0%)')
 
 # Title & labels
-ax.set_title(f'10-Year minus 2-Year Treasury Yield Spread ({START_YEAR}–{END_YEAR or "Now"})\n'
+ax.set_title(f'10 Year - 2 Year Treasury Spread ({START_YEAR}–{END_YEAR or "Now"})\n'
              f'Last: {yield_curve["T10Y2Y"].iloc[-1]:.2f}%',
              color='white', fontsize=14, pad=20, fontweight='bold')
-ax.set_xlabel('Year', color='white')
+ax.set_xlabel('Year', color='white', fontsize=13, fontweight='bold')
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight='bold')
 ax.set_ylabel('Spread (%)', color='white')
 
 # Legend
@@ -143,6 +144,7 @@ ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%Y'))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.margins(x=0)
 ax.set_xlim(pd.Timestamp(start), yield_curve.index.max())
 

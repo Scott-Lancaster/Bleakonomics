@@ -135,18 +135,20 @@ ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:.0f}B"))
 ax2.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"${v:.0f}B"))
 
 ax.set_title(
-    f"Credit card debt\nLast: {latest_nominal:,.0f}B  |  M2-adjusted: {latest_adjusted:,.0f}B",
+    f"Credit Card Debt\nLast: {latest_nominal:,.0f}B  |  M2-Adjusted: {latest_adjusted:,.0f}B",
     color="white",
     fontsize=13,
     pad=16,
     fontweight="bold",
 )
-ax.set_xlabel("Year", color="white")
+ax.set_xlabel("Year", color="white", fontsize=13, fontweight="bold")
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.set_ylabel("Credit card debt ($B)", color="white")
 ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.margins(x=0)
 ax.set_xlim(frame.index.min(), frame.index.max())
 h1, l1 = ax.get_legend_handles_labels()

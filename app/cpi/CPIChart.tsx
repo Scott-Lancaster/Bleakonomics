@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState } from "react";
+import { latestDataParen } from "../../components/LatestDataStamp";
 
 type Observation = {
   date: string;
@@ -178,8 +179,8 @@ export default function CPIChart({ observations, recessions, latest, updatedAt }
       <div className="flex flex-col gap-5 border-b border-neutral-900 pb-5">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-neutral-500">
-              CPI Inflation YoY
+            <p className="text-base font-bold text-white">
+              CPI Inflation{latestDataParen(maxDate)}
             </p>
             <p className="mt-2 text-4xl font-bold text-white">{activePoint.value.toFixed(2)}%</p>
             <p className="mt-1 text-sm text-neutral-400">
@@ -294,7 +295,7 @@ export default function CPIChart({ observations, recessions, latest, updatedAt }
             </g>
           ))}
           {chart.xTicks.map((tick) => (
-            <text key={tick.date} x={tick.x} y={height - 18} fill="#737373" fontSize="13" textAnchor="middle">
+            <text key={tick.date} x={tick.x} y={height - 18} fill="#d4d4d4" fontSize="14" fontWeight="700" textAnchor="middle">
               {formatShortDate(tick.date)}
             </text>
           ))}

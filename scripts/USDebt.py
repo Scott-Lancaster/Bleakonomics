@@ -4,24 +4,23 @@ os.environ["MATPLOTLIB_NO_SECURE_CODING_WARNING"] = "1"
 
 """
 ===============================================================================
-US TREASURY DEBT | Days until due × dollars outstanding | Dark Mode
+US TREASURY DEBT | Remaining-life buckets × original term | Dark Mode
 ===============================================================================
 Snapshot of marketable Treasuries still outstanding, from Treasury MSPD
-Table III. X-axis is remaining days to maturity. Left Y-axis is face
-amount by original term. Right Y-axis is the running total of all those
-issues that come due by that remaining-day count.
+Table III. X-axis is how soon the bond comes due (next 4 quarters, then
+2Y / 5Y / 10Y / 20Y / 30Y remaining). Stacked colors are the original
+auction term (Bills, 2Y, 10Y, 30Y, ...).
 
-TIPS and FRNs are omitted so the lines stay nominal coupon terms.
+TIPS and FRNs are omitted.
 ===============================================================================
 """
 
 import json
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-import pandas as pd
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -45,6 +44,24 @@ COLORS = {
     "30Y": "#e8c36a",
 }
 KEEP_CLASS = {"Notes", "Bonds", "Bills Maturity Value"}
+BUCKETS = [
+    {"key": "Q1", "label": "Q1", "days_min": 0, "days_max": 91},
+    {"key": "Q2", "label": "Q2", "days_min": 91, "days_max": 182},
+    {"key": "Q3", "label": "Q3", "days_min": 182, "days_max": 273},
+    {"key": "Q4", "label": "Q4", "days_min": 273, "days_max": 366},
+    {"key": "2Y", "label": "2Y", "days_min": 366, "days_max": 730},
+    {"key": "5Y", "label": "5Y", "days_min": 730, "days_max": 1826},
+    {"key": "10Y", "label": "10Y", "days_min": 1826, "days_max": 3652},
+    {"key": "20Y", "label": "20Y", "days_min": 3652, "days_max": 7305},
+    {"key": "30Y", "label": "30Y", "days_min": 7305, "days_max": 20000},
+]
+
+
+def remaining_bucket(days):
+    for bucket in BUCKETS:
+        if bucket["days_min"] <= days < bucket["days_max"]:
+            return bucket["key"]
+    return BUCKETS[-1]["key"]
 
 
 def fetch_json(url):
@@ -68,6 +85,40 @@ def parse_date(value):
     return datetime.strptime(value[:10], "%Y-%m-%d")
 
 
+def month_year(dt):
+    return str(dt.month) + "/" + str(dt.year)[2:]
+
+
+def range_label(start, end):
+    left = month_year(start)
+    right = month_year(end)
+    if left == right:
+        return left
+    return left + "–" + right
+
+
+def pick_rate(items, cls):
+    prefer_yield = cls == "Bills Maturity Value"
+
+    def from_row(item):
+        yield_pct = to_float(item.get("yield_pct"))
+        coupon = to_float(item.get("interest_rate_pct"))
+        if prefer_yield:
+            return yield_pct if yield_pct is not None else coupon
+        return coupon if coupon is not None else yield_pct
+
+    for item in items:
+        if to_float(item.get("outstanding_amt")) is not None:
+            rate = from_row(item)
+            if rate is not None:
+                return rate
+    for item in items:
+        rate = from_row(item)
+        if rate is not None:
+            return rate
+    return None
+
+
 def classify_term(cls, orig_years):
     if cls == "Bills Maturity Value":
         return "Bills"
@@ -81,7 +132,7 @@ try:
     print("Fetching Treasury MSPD Table III...")
     latest_payload = fetch_json(API + "?fields=record_date&sort=-record_date&page[size]=1")
     as_of = latest_payload["data"][0]["record_date"]
-    fields = "security_class1_desc,security_class2_desc,issue_date,maturity_date,outstanding_amt"
+    fields = "security_class1_desc,security_class2_desc,issue_date,maturity_date,outstanding_amt,interest_rate_pct,yield_pct"
     url = (
         API
         + f"?filter=record_date:eq:{as_of},security_type_desc:eq:Marketable"
@@ -125,12 +176,14 @@ for cusip, items in by_cusip.items():
     if remain_days < 0 or amount_mil <= 0:
         continue
     orig_years = (maturity - issue).days / 365.25
-    term = classify_term(items[0]["security_class1_desc"], orig_years)
+    cls = items[0]["security_class1_desc"]
+    term = classify_term(cls, orig_years)
     points.append({
         "cusip": cusip,
         "term": term,
         "days": remain_days,
         "amount": round(amount_mil / 1000.0, 3),  # $B
+        "rate": pick_rate(items, cls),
         "maturity": maturity.date().isoformat(),
         "issue": issue.date().isoformat(),
     })
@@ -138,40 +191,53 @@ for cusip, items in by_cusip.items():
 if not points:
     raise RuntimeError("No outstanding marketable CUSIPs with amounts.")
 
-# Sum CUSIPs that share a term and remaining-day count so the line is one y per x.
-grouped = defaultdict(float)
-meta_by_key = {}
+bucket_terms = {bucket["key"]: {term: 0.0 for term in TERM_ORDER} for bucket in BUCKETS}
+bucket_rate_num = {bucket["key"]: {term: 0.0 for term in TERM_ORDER} for bucket in BUCKETS}
+bucket_rate_den = {bucket["key"]: {term: 0.0 for term in TERM_ORDER} for bucket in BUCKETS}
+bucket_max_days = {bucket["key"]: bucket["days_min"] for bucket in BUCKETS}
+totals = {term: 0.0 for term in TERM_ORDER}
 for point in points:
-    key = (point["term"], point["days"])
-    grouped[key] += point["amount"]
-    meta_by_key[key] = point
+    bucket_key = remaining_bucket(point["days"])
+    term = point["term"]
+    if term not in totals:
+        continue
+    bucket_terms[bucket_key][term] += point["amount"]
+    totals[term] += point["amount"]
+    bucket_max_days[bucket_key] = max(bucket_max_days[bucket_key], point["days"])
+    if point["rate"] is not None:
+        bucket_rate_num[bucket_key][term] += point["rate"] * point["amount"]
+        bucket_rate_den[bucket_key][term] += point["amount"]
 
-observations = []
-for (term, days), amount in sorted(grouped.items(), key=lambda item: (TERM_ORDER.index(item[0][0]) if item[0][0] in TERM_ORDER else 99, item[0][1])):
-    sample = meta_by_key[(term, days)]
-    observations.append({
-        "term": term,
-        "days": days,
-        "amount": round(amount, 3),
-        "maturity": sample["maturity"],
-        "value": round(amount, 3),
+buckets = []
+for bucket in BUCKETS:
+    terms = {term: round(bucket_terms[bucket["key"]][term], 3) for term in TERM_ORDER}
+    total = round(sum(terms.values()), 3)
+    yields = {}
+    yield_num = 0.0
+    yield_den = 0.0
+    for term in TERM_ORDER:
+        den = bucket_rate_den[bucket["key"]][term]
+        if den > 0:
+            yields[term] = round(bucket_rate_num[bucket["key"]][term] / den, 2)
+            yield_num += bucket_rate_num[bucket["key"]][term]
+            yield_den += den
+        else:
+            yields[term] = None
+    start = as_of_dt + timedelta(days=bucket["days_min"])
+    end = as_of_dt + timedelta(days=max(bucket["days_min"], bucket_max_days[bucket["key"]]))
+    buckets.append({
+        "key": bucket["key"],
+        "label": range_label(start, end),
+        "days_min": bucket["days_min"],
+        "days_max": bucket["days_max"],
+        "terms": terms,
+        "yields": yields,
+        "avg_yield": round(yield_num / yield_den, 2) if yield_den > 0 else None,
+        "total": total,
     })
 
-totals = {term: 0.0 for term in TERM_ORDER}
-for point in observations:
-    if point["term"] in totals:
-        totals[point["term"]] += point["amount"]
 latest_total = round(sum(totals.values()), 1)
-due_1y = round(sum(point["amount"] for point in observations if point["days"] <= 365), 1)
-
-by_day = defaultdict(float)
-for point in observations:
-    by_day[point["days"]] += point["amount"]
-cumulative = []
-running = 0.0
-for days in sorted(by_day):
-    running += by_day[days]
-    cumulative.append({"days": days, "amount": round(running, 3)})
+due_1y = round(sum(bucket["total"] for bucket in buckets if bucket["key"] in ("Q1", "Q2", "Q3", "Q4")), 1)
 
 plt.style.use("dark_background")
 plt.rcParams.update({
@@ -190,58 +256,43 @@ plt.rcParams.update({
 })
 
 fig, ax = plt.subplots(figsize=(14, 7))
+labels = [bucket["label"] for bucket in buckets]
+x = list(range(len(buckets)))
+bottoms = [0.0] * len(buckets)
 for term in TERM_ORDER:
-    series = sorted(
-        [point for point in observations if point["term"] == term],
-        key=lambda point: point["days"],
-    )
-    if not series:
+    values = [bucket["terms"].get(term, 0.0) / 1000.0 for bucket in buckets]
+    if not any(values):
         continue
-    ax.plot(
-        [point["days"] for point in series],
-        [point["amount"] for point in series],
+    ax.bar(
+        x,
+        values,
+        bottom=bottoms,
         color=COLORS[term],
-        linewidth=1.8,
-        marker="o",
-        markersize=3.2,
+        width=0.72,
         label=term,
+        linewidth=0,
     )
+    bottoms = [bottom + value for bottom, value in zip(bottoms, values)]
 
-ax2 = ax.twinx()
-ax2.plot(
-    [point["days"] for point in cumulative],
-    [point["amount"] / 1000.0 for point in cumulative],
-    color="#f0f0f0",
-    linewidth=2.4,
-    label="Cumulative",
-)
-ax2.set_ylabel("Cumulative (trillions of dollars)", color="#f0f0f0")
-ax2.tick_params(axis="y", colors="#f0f0f0")
-ax2.spines["right"].set_color("#f0f0f0")
-ax2.set_ylim(0, (cumulative[-1]["amount"] / 1000.0) * 1.12)
-ax2.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0f}T"))
+for index, total in enumerate(bottoms):
+    ax.text(index, total + 0.12, f"{total:.1f}T", ha="center", va="bottom", color="#d4d4d4", fontsize=9)
 
 ax.set_title(
-    f"US Treasury debt by days remaining\nAs of {as_of}  |  {latest_total/1000:.1f}T marketable  |  {due_1y/1000:.1f}T due within 1 year",
+    f"US Treasury Debt\nAs of {as_of}  |  {latest_total/1000:.1f}T Marketable  |  {due_1y/1000:.1f}T Due In 4 Quarters",
     color="white",
     fontsize=13,
     pad=16,
     fontweight="bold",
 )
-ax.set_xlabel("Days until due", color="white")
-ax.set_ylabel("Outstanding (billions of dollars)", color="white")
-ax.set_xlim(left=0)
-ax.set_ylim(bottom=0)
-ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0f}B"))
-year_ticks = [0, 365, 730, 1826, 3652, 7305, 10957]
-year_labels = ["0d", "1Y", "2Y", "5Y", "10Y", "20Y", "30Y"]
-visible = [i for i, tick in enumerate(year_ticks) if tick <= max(point["days"] for point in observations) + 30]
-ax.set_xticks([year_ticks[i] for i in visible])
-ax.set_xticklabels([year_labels[i] for i in visible])
-ax.grid(True, alpha=0.3)
-h1, l1 = ax.get_legend_handles_labels()
-h2, l2 = ax2.get_legend_handles_labels()
-ax.legend(h1 + h2, l1 + l2, loc="upper right", framealpha=0.95, ncol=2)
+ax.set_xlabel("How Soon It Comes Due", color="white", fontsize=13, fontweight="bold")
+ax.set_ylabel("Outstanding (trillions of dollars)", color="white")
+ax.set_xticks(x)
+ax.set_xticklabels(labels, rotation=28, ha="right", fontsize=13, fontweight="bold")
+ax.set_ylim(0, max(bottoms) * 1.18 if bottoms else 1)
+ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, _: f"{v:.0f}T"))
+ax.grid(True, axis="y", alpha=0.3)
+ax.set_axisbelow(True)
+ax.legend(loc="upper right", framealpha=0.95, ncol=2)
 plt.tight_layout()
 
 CHART_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -250,11 +301,9 @@ plt.savefig(CHART_PATH, dpi=300, bbox_inches="tight", facecolor="#0a0a0a")
 plt.close(fig)
 
 summary = (
-    "This is every marketable Treasury still outstanding, lined up by how many days until it comes due. "
-    "Each colored line is the original term — a 10-year note with 80 days left sits on the left of the 10Y line; "
-    "a 30-year bond issued last year sits far right. Height is the dollar face still out. "
-    "TIPS and floating-rate notes are left off. The pile on the left is the near-term refinancing wall. "
-    "The white line is the running total: at any day-count, how many dollars come due by then."
+    "Each bar is a window of maturity dates. Hover a color to see the average yield on those bonds. "
+    "Color is the original auction term — a 30-year bond that is almost due sits in the nearest window. "
+    "TIPS and floating-rate notes are left off."
 )
 papers = [
     {
@@ -279,12 +328,11 @@ metadata = {
     "updated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
     "source": "Treasury Fiscal Data MSPD Table III",
     "chart_path": "/charts/us_debt.png",
-    "description": "Marketable Treasuries outstanding by remaining days to maturity, split by original term, plus the running total.",
+    "description": "Marketable Treasuries outstanding by remaining life, stacked by original auction term.",
     "summary": summary,
     "papers": papers,
     "totals": {term: round(amount, 1) for term, amount in totals.items() if amount > 0},
-    "cumulative": cumulative,
-    "observations": observations,
+    "buckets": buckets,
 }
 
 with open(DATA_PATH, "w", encoding="utf-8") as f:
@@ -293,5 +341,6 @@ with open(DATA_PATH, "w", encoding="utf-8") as f:
 
 print(f"Generated {CHART_PATH.relative_to(ROOT)}")
 print(f"Generated {DATA_PATH.relative_to(ROOT)}")
-print(f"As of {as_of} | {latest_total}B | due 1y {due_1y}B | points {len(observations)}")
+print(f"As of {as_of} | {latest_total}B | due 4Q {due_1y}B")
+print("bucket totals T", {bucket["label"]: round(bucket["total"] / 1000, 2) for bucket in buckets})
 print("totals B", {k: round(v, 0) for k, v in totals.items() if v})

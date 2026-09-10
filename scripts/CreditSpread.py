@@ -123,18 +123,20 @@ if latest_hy is not None:
 if latest_baa is not None:
     title_bits.append(f"Baa−10Y {latest_baa:.2f}%")
 ax.set_title(
-    "High yield credit spread\n" + "  |  ".join(title_bits),
+    "High Yield Credit Spread\nCurrent: " + "  |  ".join(title_bits),
     color="white",
     fontsize=13,
     pad=16,
     fontweight="bold",
 )
-ax.set_xlabel("Year", color="white")
+ax.set_xlabel("Year", color="white", fontsize=13, fontweight="bold")
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.set_ylabel("Spread (percentage points)", color="white")
 ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.margins(x=0)
 ax.set_xlim(frame.index.min(), frame.index.max())
 ax.legend(loc="upper left", framealpha=0.95)

@@ -1,15 +1,13 @@
 'use client';
 
-import Image from "next/image";
 import { useRef, useState } from "react";
-import bleaksBrewsButton from "../../BleaksBrewsButton.png";
 
 type Paper = {
   title: string;
   url: string;
 };
 
-type Panel = "summary" | "papers" | "brews";
+type Panel = "summary" | "papers";
 
 type ChartInfoButtonsProps = {
   summary: string;
@@ -54,16 +52,11 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
       </button>
       <button
         type="button"
-        onClick={() => setOpenPanel("brews")}
-        onMouseLeave={scheduleClose}
-        className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-md border border-neutral-800 bg-black transition hover:border-neutral-600"
-        aria-label="Show Bleak's Brews"
+        disabled
+        className="h-10 rounded-md border border-neutral-800 px-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-500"
+        aria-label="Bleak's Brews coming soon"
       >
-        <Image
-          src={bleaksBrewsButton}
-          alt="Bleak's Brews"
-          className="h-8 w-8 object-contain"
-        />
+        Coming soon
       </button>
 
       {openPanel ? (
@@ -106,14 +99,6 @@ export default function ChartInfoButtons({ summary, papers }: ChartInfoButtonsPr
             </div>
           ) : null}
 
-          {openPanel === "brews" ? (
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-                Bleak&apos;s Brews
-              </p>
-              <p className="mt-3 text-sm leading-6 text-neutral-300">Coming Soon!</p>
-            </div>
-          ) : null}
         </div>
       ) : null}
     </div>

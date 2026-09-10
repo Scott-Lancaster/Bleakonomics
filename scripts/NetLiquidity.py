@@ -116,19 +116,21 @@ if in_recession and rec_start is not None:
 
 ax.plot(frame.index, frame["net_trillion"], color="#cccccc", linewidth=1.4, label="Net liquidity")
 ax.set_title(
-    f"US Net Liquidity (Fed assets − TGA − ON RRP)\nLast: ${latest:.2f}T",
+    f"US Net Liquidity\nLast: ${latest:.2f}T  |  Fed Assets - TGA - ON RRP",
     color="white",
     fontsize=14,
     pad=20,
     fontweight="bold",
 )
-ax.set_xlabel("Year", color="white")
+ax.set_xlabel("Year", color="white", fontsize=13, fontweight="bold")
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.set_ylabel("Trillions of dollars", color="white")
 ax.legend(loc="upper left", framealpha=0.95)
 ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 plt.tight_layout()
 
 CHART_PATH.parent.mkdir(parents=True, exist_ok=True)

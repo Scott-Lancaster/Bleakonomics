@@ -5,10 +5,7 @@ type SiteHeaderProps = {
   active: "home" | "brews";
 };
 
-const tabs = [
-  { href: "/", label: "Home", id: "home" },
-  { href: "/bleaks-brews", label: "Bleak's Brews", id: "brews" },
-] as const;
+const tabs = [{ href: "/", label: "Home", id: "home" }] as const;
 
 export default function SiteHeader({ active }: SiteHeaderProps) {
   return (

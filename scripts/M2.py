@@ -286,19 +286,21 @@ global_txt = (
     else ""
 )
 ax.set_title(
-    f"Major-region money supply in USD\nLast total: ${latest_total:.1f}T"
-    + global_txt,
+    f"~{global_share:.0f}% Of Global Money Supply Over Time In USD\nLast Total: ${latest_total:.1f}T"
+    if global_share is not None
+    else f"Global Money Supply Over Time In USD\nLast Total: ${latest_total:.1f}T",
     color="white",
     fontsize=13,
     pad=16,
     fontweight="bold",
 )
-ax.set_xlabel("Year", color="white")
+ax.set_xlabel("Year", color="white", fontsize=13, fontweight="bold")
 ax.set_ylabel("Trillions of dollars", color="white")
 ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.margins(x=0)
 ax.set_xlim(frame.index.min(), frame.index.max())
 

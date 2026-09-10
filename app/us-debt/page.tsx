@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import usDebtData from "../../public/data/us_debt.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import USDebtChart from "./USDebtChart";
 
@@ -14,12 +15,15 @@ type USDebtData = {
   as_of?: string | null;
   updated_at?: string;
   totals?: Record<string, number>;
-  observations?: Array<{
-    term: string;
-    days: number;
-    amount: number;
-    maturity?: string;
-    value?: number;
+  buckets?: Array<{
+    key: string;
+    label: string;
+    days_min?: number;
+    days_max?: number;
+    terms: Record<string, number>;
+    yields?: Record<string, number | null>;
+    avg_yield?: number | null;
+    total: number;
   }>;
   summary?: string;
   papers?: Array<{ title: string; url: string }>;
@@ -52,21 +56,18 @@ export default function USDebtPage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            US Treasury Debt
-          </h1>
+          <ChartPageTitle title="US Treasury Debt" />
           <ChartInfoButtons
             summary={
               data.summary ??
-              "Marketable Treasuries lined up by days until they come due. Each line is the original term."
+              "Each bar is how soon the debt comes due. Colors inside the bar are the original term of those bonds."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#us-debt"
           />
         </div>
         <div className="mt-8">
           <USDebtChart
-            observations={data.observations ?? []}
+            buckets={data.buckets ?? []}
             latest={typeof data.latest === "number" ? data.latest : null}
             due1y={typeof data.due_1y === "number" ? data.due_1y : null}
             asOf={data.as_of ?? null}
@@ -76,8 +77,8 @@ export default function USDebtPage() {
         </div>
 
         <p className="mt-4 max-w-3xl text-sm leading-6 text-neutral-400">
-          Colored lines are original terms. The white line is the running total — at 365 days it is how much
-          comes due within a year; at the far right it is the whole pile. TIPS and floating-rate notes are not in the lines.
+          Axis labels are the month/year window those bonds mature. Hover a color for the average yield on that
+          slice. Color is the original term, so a 30-year bond that is almost due sits in the nearest window.
         </p>
 
         <div className="mt-6">

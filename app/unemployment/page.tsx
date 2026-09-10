@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import unemploymentData from "../../public/data/unemployment.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import UnemploymentChart from "./UnemploymentChart";
 
@@ -51,16 +52,13 @@ export default function UnemploymentPage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            US Unemployment Rate
-          </h1>
+          <ChartPageTitle title="US Unemployment Rate" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "The unemployment rate shows how much labor-market stress has reached workers, while the Sahm Rule tracks whether unemployment is rising quickly enough to confirm recession risk."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#unemployment"
           />
         </div>
 

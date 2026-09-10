@@ -12,6 +12,7 @@ import netLiquidityData from "../public/data/net_liquidity.json";
 import creditSpreadData from "../public/data/credit_spread.json";
 import creditCardsData from "../public/data/credit_cards.json";
 import usDebtData from "../public/data/us_debt.json";
+import { ChartHeading } from "../components/LatestDataStamp";
 
 function formatUpdatedAtUtc(date: string) {
   return new Intl.DateTimeFormat("en-US", {
@@ -54,6 +55,9 @@ export default function Home() {
         <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-neutral-400">
           Macro charts for the people. Free, Open, & Current.
         </p>
+        <p className="mx-auto mt-2 max-w-2xl text-sm italic leading-6 text-neutral-500">
+          Click on each chart&apos;s picture to dive deeper, hover over each to learn a bit more.
+        </p>
 
         <nav className="mt-10 flex flex-wrap justify-center gap-2 border-y border-neutral-900 py-4">
           <Link
@@ -74,22 +78,17 @@ export default function Home() {
           >
             US Government
           </Link>
-          <Link
-            href="#acute-charts"
-            className="rounded-md border border-neutral-800 px-3 py-2 text-sm font-semibold text-neutral-300 transition hover:border-neutral-600 hover:text-white"
-          >
-            Acute Charts
-          </Link>
         </nav>
 
         <section id="the-economy" className="mt-10 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
           <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
             The Economy
           </h2>
+          <p className="text-base leading-7 text-neutral-400">
+            A series of graphs evaluating the pressure and dynamics of the general economy.
+          </p>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              10 Year - 2 Year Treasury Spread
-            </h3>
+            <ChartHeading title="10 Year - 2 Year Treasury Spread" data={yieldCurveData} />
             <Link
               href="/yield-curve"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -109,9 +108,7 @@ export default function Home() {
           </article>
 
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              Money Supply
-            </h3>
+            <ChartHeading title="Money Supply" data={m2Data} />
             <Link
               href="/m2"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -134,9 +131,7 @@ export default function Home() {
             </Link>
           </article>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              WTI Crude Oil
-            </h3>
+            <ChartHeading title="WTI Crude Oil" data={oilData} />
             <Link
               href="/oil"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -155,9 +150,7 @@ export default function Home() {
             </Link>
           </article>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              High Yield Credit Spread
-            </h3>
+            <ChartHeading title="High Yield Credit Spread" data={creditSpreadData} />
             <Link
               href="/credit-spread"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -175,16 +168,36 @@ export default function Home() {
               </div>
             </Link>
           </article>
+          <article>
+            <ChartHeading title="SOFR - IORB Spread" data={sofrIorbData} />
+            <Link
+              href="/sofr-iorb"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive SOFR - IORB Spread chart"
+            >
+              <img
+                src="/charts/sofr_iorb.png"
+                alt="SOFR - IORB Spread chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  Overnight cash versus what the Fed pays banks to sit still. When this jumps, cash is getting scarce.
+                </p>
+              </div>
+            </Link>
+          </article>
         </section>
 
         <section id="the-consumer" className="mt-16 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
           <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
             The Consumer
           </h2>
+          <p className="text-base leading-7 text-neutral-400">
+            A series of graphs evaluating the pressure and dynamics of the US consumer.
+          </p>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              US Unemployment Rate
-            </h3>
+            <ChartHeading title="US Unemployment Rate" data={unemploymentData} />
             <Link
               href="/unemployment"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -197,15 +210,14 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  The Sahm Rule flags recession risk when the three-month average unemployment rate has risen 0.5 points from its recent low.
                   The unemployment rate is the share of people in the labor force who are actively looking for work but do not have a job. Less of a predictor and more of an indication that stress has hit U.S. households.
                 </p>
               </div>
             </Link>
           </article>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              CPI Inflation
-            </h3>
+            <ChartHeading title="CPI Inflation" data={cpiData} />
             <Link
               href="/cpi"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -224,9 +236,7 @@ export default function Home() {
             </Link>
           </article>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              Credit Card Debt
-            </h3>
+            <ChartHeading title="Credit Card Debt" data={creditCardsData} />
             <Link
               href="/credit-cards"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -250,10 +260,11 @@ export default function Home() {
           <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
             US Government
           </h2>
+          <p className="text-base leading-7 text-neutral-400">
+            A series of graphs evaluating the pressure and dynamics of the US government.
+          </p>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              US Treasury Debt
-            </h3>
+            <ChartHeading title="US Treasury Debt" data={usDebtData} />
             <Link
               href="/us-debt"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -266,15 +277,13 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  Treasuries lined up by days until they come due. Colored lines are original terms. White line is the running total.
+                  Each bar is a window of when Treasuries come due. Color is the original term — gold in the near window is old 30-year bonds almost due, not new 30-years. The left pile is the refinancing wall: that is how much Treasury has to roll soon, and it is where rate resets hit the budget first.
                 </p>
               </div>
             </Link>
           </article>
           <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              US Net Liquidity
-            </h3>
+            <ChartHeading title="US Net Liquidity" data={netLiquidityData} />
             <Link
               href="/net-liquidity"
               className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
@@ -287,34 +296,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                 <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  Fed assets minus Treasury cash minus overnight RRP. Starts 2002 — not a 1980s series.
-                </p>
-              </div>
-            </Link>
-          </article>
-        </section>
-
-        <section id="acute-charts" className="mt-16 scroll-mt-24 grid gap-10 border-t border-neutral-900 pt-7">
-          <h2 className="font-mono text-4xl font-bold tracking-wide text-white md:text-5xl">
-            Acute Charts
-          </h2>
-          <article>
-            <h3 className="text-lg font-semibold text-neutral-300">
-              SOFR - IORB Spread
-            </h3>
-            <Link
-              href="/sofr-iorb"
-              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
-              aria-label="Open interactive SOFR - IORB Spread chart"
-            >
-              <img
-                src="/charts/sofr_iorb.png"
-                alt="SOFR - IORB Spread chart"
-                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
-              />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
-                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
-                  Overnight cash versus what the Fed pays banks to sit still. When this jumps, cash is getting scarce.
+                  Fed assets minus cash parked at Treasury minus overnight RRP — the dollars actually loose in markets. Luke Gromen watches this as the true liquidity hose: when it rises, stocks, gold, and Bitcoin tend to catch a bid; when it falls, the dollar is draining and those trades get harder. Starts 2002.
                 </p>
               </div>
             </Link>

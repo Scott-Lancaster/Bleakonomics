@@ -95,13 +95,15 @@ ax.set_title(
     pad=20,
     fontweight="bold",
 )
-ax.set_xlabel("Year", color="white")
+ax.set_xlabel("Year", color="white", fontsize=13, fontweight="bold")
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 ax.set_ylabel("Spread (basis points)", color="white")
 ax.legend(loc="upper left", framealpha=0.95)
 ax.grid(True, alpha=0.3)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter("%Y"))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(1))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight="bold")
 plt.tight_layout()
 
 CHART_PATH.parent.mkdir(parents=True, exist_ok=True)

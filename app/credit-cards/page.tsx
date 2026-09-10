@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import creditCardsData from "../../public/data/credit_cards.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import CreditCardsChart from "./CreditCardsChart";
 
@@ -52,16 +53,13 @@ export default function CreditCardsPage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            Credit Card Debt
-          </h1>
+          <ChartPageTitle title="Credit Card Debt" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "What households owe on bank credit cards. The orange line holds that pile still against M2 growth."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#credit-card-debt"
           />
         </div>
         <div className="mt-8">

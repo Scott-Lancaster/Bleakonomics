@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import cpiData from "../../public/data/cpi.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import CPIChart from "./CPIChart";
 
@@ -49,16 +50,13 @@ export default function CPIPage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            CPI Inflation
-          </h1>
+          <ChartPageTitle title="CPI Inflation" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "This is how fast a typical pile of stuff people buy is getting more expensive. The government adds it up once a month. Last month's number can get rewritten later."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#cpi-inflation"
           />
         </div>
 

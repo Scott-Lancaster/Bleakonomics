@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import oilData from "../../public/data/oil.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import OilChart from "./OilChart";
 
@@ -44,16 +45,13 @@ export default function OilPage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            WTI Crude Oil
-          </h1>
+          <ChartPageTitle title="WTI Crude Oil" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "West Texas Intermediate is the US benchmark price for a barrel of crude oil."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#wti-crude-oil"
           />
         </div>
         <div className="mt-8">

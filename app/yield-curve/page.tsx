@@ -4,6 +4,7 @@ import bleakLogo from "../../bleaklogo1.png";
 import yieldCurveData from "../../public/data/yield_curve.json";
 import DonateButton from "../../components/DonateButton";
 import ChartInfoButtons from "../../components/ChartInfoButtons";
+import { ChartPageTitle } from "../../components/LatestDataStamp";
 import DataGradeSection from "../../components/DataGradeSection";
 import YieldCurveChart from "./YieldCurveChart";
 
@@ -44,16 +45,13 @@ export default function YieldCurvePage() {
 
       <section className="mx-auto mt-14 max-w-6xl">
         <div className="flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
-            10Y - 2Y Treasury Spread
-          </h1>
+          <ChartPageTitle title="10 Year - 2 Year Treasury Spread" />
           <ChartInfoButtons
             summary={
               data.summary ??
               "Negative spread equates to negative sentiment. Investors have more faith in the economy 2 years from now than 10 years from now."
             }
             papers={data.papers ?? []}
-            brewsHref="/bleaks-brews#10-year-2-year-treasury-yields"
           />
         </div>
         <div className="mt-8">

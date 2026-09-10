@@ -120,16 +120,17 @@ if in_rec:
     lbl = 'Recession' if not label_added else ""
     ax.axvspan(rec_start, end, color='#cc4444', alpha=0.25, label=lbl)
 
-ax.set_title(f'US Unemployment Rate + Sahm Rule ({START_YEAR}-Now)\n'
-             f'Latest: {current_unrate:.2f}% | Sahm: {current_sahm:.2f} pp -> {status}',
+ax.set_title(f'US Unemployment Rate ({START_YEAR}-Now)\n'
+             f'Latest: {current_unrate:.2f}% | Sahm Rule: {current_sahm:.2f} pp -> {status}',
              color='white', fontsize=14, pad=20, fontweight='bold')
-ax.set_xlabel('Year', color='white')
+ax.set_xlabel('Year', color='white', fontsize=13, fontweight='bold')
 ax.set_ylabel('Unemployment Rate (%)', color='white')
 ax.legend(loc='upper left', framealpha=0.95)
 ax.grid(True, alpha=0.15)
 ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%Y'))
 ax.xaxis.set_major_locator(plt.matplotlib.dates.YearLocator(2))
 plt.xticks(rotation=45)
+plt.setp(ax.get_xticklabels(), fontsize=13, fontweight='bold')
 ax.margins(x=0)
 ax.set_xlim(pd.Timestamp(start), unrate.index.max())
 plt.tight_layout()
@@ -181,7 +182,7 @@ observations = [
 ]
 
 metadata = {
-    "title": "US Unemployment Rate + Sahm Rule",
+    "title": "US Unemployment Rate",
     "latest": current_unrate,
     "updated_at": datetime.utcnow().replace(microsecond=0).isoformat() + "Z",
     "source": "FRED",
