@@ -2,7 +2,7 @@
   "title": "Major-region money supply (USD)",
   "latest": 104.87,
   "latest_yoy": 6.6,
-  "updated_at": "2026-09-14T00:21:41Z",
+  "updated_at": "2026-09-15T00:50:25Z",
   "source": "FRED M2SL, ECB M2, FRED/World Bank China and Japan, FRED FX",
   "chart_path": "/charts/m2.png",
   "description": "US, euro-area, China, and Japan money supply converted to trillions of USD, plus the four-region total.",
