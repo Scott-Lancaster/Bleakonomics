@@ -1,13 +1,13 @@
 {
   "title": "High Yield Credit Spread",
-  "latest": 2.68,
-  "latest_hy": 2.68,
-  "latest_baa": 1.4,
-  "updated_at": "2026-09-22T01:03:36Z",
+  "latest": 2.66,
+  "latest_hy": 2.66,
+  "latest_baa": 1.42,
+  "updated_at": "2026-09-23T00:51:56Z",
   "source": "FRED BAA10Y, BAMLH0A0HYM2",
   "chart_path": "/charts/credit_spread.png",
   "description": "Moody's Baa minus 10-year Treasury, plus ICE BofA high-yield OAS where FRED still publishes it.",
-  "summary": "This is the extra yield lenders demand to hold company debt instead of Treasuries. When it jumps, credit is getting tight. Orange is ICE BofA US High Yield OAS, the junk-bond spread. FRED only publishes about three years of it as of 2026 (from 2023-09-22). Silver is Moody's Baa minus the 10-year Treasury \u2014 the long public credit-spread series.",
+  "summary": "This is the extra yield lenders demand to hold company debt instead of Treasuries. When it jumps, credit is getting tight. Orange is ICE BofA US High Yield OAS, the junk-bond spread. FRED only publishes about three years of it as of 2026 (from 2023-09-25). Silver is Moody's Baa minus the 10-year Treasury \u2014 the long public credit-spread series.",
   "papers": [
     {
       "title": "FRED: Moody's Baa minus 10-Year Treasury (BAA10Y)",
@@ -26,7 +26,7 @@
       "url": "https://www.federalreserve.gov/releases/h15/"
     }
   ],
-  "hy_start": "2023-09-22",
+  "hy_start": "2023-09-25",
   "observations": [
     {
       "date": "1986-01-02",
@@ -56629,8 +56629,8 @@
     {
       "date": "2023-09-22",
       "baa": 1.73,
-      "hy": 3.93,
-      "value": 3.93
+      "hy": null,
+      "value": 1.73
     },
     {
       "date": "2023-09-25",
@@ -61335,6 +61335,12 @@
       "baa": 1.4,
       "hy": 2.68,
       "value": 2.68
+    },
+    {
+      "date": "2026-09-21",
+      "baa": 1.42,
+      "hy": 2.66,
+      "value": 2.66
     }
   ],
   "recessions": [
