@@ -1,12 +1,12 @@
 {
   "title": "Major-region money supply (USD)",
-  "latest": 104.99,
-  "latest_yoy": 6.7,
-  "updated_at": "2026-09-25T00:43:38Z",
+  "latest": 105.17,
+  "latest_yoy": 6.9,
+  "updated_at": "2026-09-26T00:47:35Z",
   "source": "FRED M2SL, ECB M2, FRED/World Bank China and Japan, FRED FX",
   "chart_path": "/charts/m2.png",
   "description": "US, euro-area, China, and Japan money supply converted to trillions of USD, plus the four-region total.",
-  "summary": "This is US, euro-area, Chinese, and Japanese money, all converted into dollars. Each colored line is one region; the orange line is the four-region total. In 2024, these four were about 59% of World Bank global broad money ($90T of $152T). UK, India, and the rest of EM make up most of the remainder. Of this basket, China is about 49.8%, the US 22.2%, Europe 18.0%, Japan 9.9%. China after 2019 and Japan after late 2023 use World Bank annual figures (plus a PBOC May 2026 China print), so the last few years are less precise. FX moves the dollar lines even when local money is unchanged.",
+  "summary": "This is US, euro-area, Chinese, and Japanese money, all converted into dollars. Each colored line is one region; the orange line is the four-region total. In 2024, these four were about 59% of World Bank global broad money ($90T of $152T). UK, India, and the rest of EM make up most of the remainder. Of this basket, China is about 49.7%, the US 22.2%, Europe 18.2%, Japan 9.9%. China after 2019 and Japan after late 2023 use World Bank annual figures (plus a PBOC May 2026 China print), so the last few years are less precise. FX moves the dollar lines even when local money is unchanged.",
   "papers": [
     {
       "title": "Fed H.6 Money Stock Measures (US M2)",
@@ -39,8 +39,8 @@
   ],
   "shares": {
     "us": 22.2,
-    "europe": 18.0,
-    "china": 49.8,
+    "europe": 18.2,
+    "china": 49.7,
     "japan": 9.9
   },
   "global_share_pct": 59.2,
@@ -3352,32 +3352,32 @@
     {
       "date": "2026-07-01",
       "us": 23.218,
-      "europe": 18.933,
+      "europe": 18.931,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.868,
+      "total": 104.866,
       "yoy": 9.05,
-      "value": 104.868
+      "value": 104.866
     },
     {
       "date": "2026-08-01",
       "us": 23.343,
-      "europe": 18.933,
+      "europe": 19.107,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.993,
-      "yoy": 7.37,
-      "value": 104.993
+      "total": 105.166,
+      "yoy": 7.55,
+      "value": 105.166
     },
     {
       "date": "2026-09-01",
       "us": 23.343,
-      "europe": 18.933,
+      "europe": 19.107,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.993,
-      "yoy": 6.74,
-      "value": 104.993
+      "total": 105.166,
+      "yoy": 6.91,
+      "value": 105.166
     }
   ],
   "recessions": [
