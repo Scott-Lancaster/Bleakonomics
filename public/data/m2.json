@@ -2,11 +2,11 @@
   "title": "Major-region money supply (USD)",
   "latest": 105.17,
   "latest_yoy": 6.9,
-  "updated_at": "2026-09-28T01:04:21Z",
+  "updated_at": "2026-09-29T02:12:52Z",
   "source": "FRED M2SL, ECB M2, FRED/World Bank China and Japan, FRED FX",
   "chart_path": "/charts/m2.png",
   "description": "US, euro-area, China, and Japan money supply converted to trillions of USD, plus the four-region total.",
-  "summary": "This is US, euro-area, Chinese, and Japanese money, all converted into dollars. Each colored line is one region; the orange line is the four-region total. These four regions are a large share of global M2 \u2014 UK, India, and the rest of EM are not in the lines. Of this basket, China is about 49.7%, the US 22.2%, Europe 18.2%, Japan 9.9%. China after 2019 and Japan after late 2023 use World Bank annual figures (plus a PBOC May 2026 China print), so the last few years are less precise. FX moves the dollar lines even when local money is unchanged.",
+  "summary": "This is US, euro-area, Chinese, and Japanese money, all converted into dollars. Each colored line is one region; the orange line is the four-region total. In 2024, these four were about 59% of World Bank global broad money ($90T of $152T). UK, India, and the rest of EM make up most of the remainder. Of this basket, China is about 49.7%, the US 22.2%, Europe 18.2%, Japan 9.9%. China after 2019 and Japan after late 2023 use World Bank annual figures (plus a PBOC May 2026 China print), so the last few years are less precise. FX moves the dollar lines even when local money is unchanged.",
   "papers": [
     {
       "title": "Fed H.6 Money Stock Measures (US M2)",
@@ -43,11 +43,11 @@
     "china": 49.7,
     "japan": 9.9
   },
-  "global_share_pct": null,
-  "global_year": null,
-  "global_m2_t": null,
-  "four_region_at_global_year": null,
-  "basket_note": "Four-region total is a lower bound on global M2. Omitted: UK, India, Korea, and other EM.",
+  "global_share_pct": 59.2,
+  "global_year": 2024,
+  "global_m2_t": 152.0,
+  "four_region_at_global_year": 90.0,
+  "basket_note": "Four-region total is about 59% of World Bank global broad money (2024). Omitted: UK, India, Korea, and other EM.",
   "observations": [
     {
       "date": "1999-01-01",
