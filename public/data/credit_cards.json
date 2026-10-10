@@ -1,10 +1,10 @@
 {
   "title": "Credit Card Debt",
-  "latest": 1092.83,
-  "latest_adjusted": 224.33,
+  "latest": 1096.39,
+  "latest_adjusted": 225.06,
   "base_m2": 4791.6,
   "base_date": "2000-06-28",
-  "updated_at": "2026-10-09T02:27:27Z",
+  "updated_at": "2026-10-10T01:52:48Z",
   "source": "FRED CCLACBW027SBOG, M2SL",
   "chart_path": "/charts/credit_cards.png",
   "description": "Bank credit-card balances, plus the same balances held against M2 growth.",
@@ -9613,9 +9613,16 @@
     },
     {
       "date": "2026-09-23",
-      "value": 1092.83,
-      "nominal": 1092.83,
+      "value": 1092.829,
+      "nominal": 1092.829,
       "adjusted": 224.328,
+      "m2": 23342.8
+    },
+    {
+      "date": "2026-09-30",
+      "value": 1096.392,
+      "nominal": 1096.392,
+      "adjusted": 225.059,
       "m2": 23342.8
     }
   ],
