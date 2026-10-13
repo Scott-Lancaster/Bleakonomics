@@ -7,6 +7,7 @@ import unemploymentData from "../public/data/unemployment.json";
 import sofrIorbData from "../public/data/sofr_iorb.json";
 import cpiData from "../public/data/cpi.json";
 import oilData from "../public/data/oil.json";
+import sp500Data from "../public/data/sp500.json";
 import m2Data from "../public/data/m2.json";
 import netLiquidityData from "../public/data/net_liquidity.json";
 import creditSpreadData from "../public/data/credit_spread.json";
@@ -27,7 +28,7 @@ function formatUpdatedAtUtc(date: string) {
 }
 
 export default function Home() {
-  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at, m2Data.updated_at, netLiquidityData.updated_at, creditSpreadData.updated_at, creditCardsData.updated_at, usDebtData.updated_at]
+  const latestUpdatedAt = [yieldCurveData.updated_at, unemploymentData.updated_at, sofrIorbData.updated_at, cpiData.updated_at, oilData.updated_at, sp500Data.updated_at, m2Data.updated_at, netLiquidityData.updated_at, creditSpreadData.updated_at, creditCardsData.updated_at, usDebtData.updated_at]
     .filter(Boolean)
     .sort()
     .at(-1);
@@ -126,6 +127,25 @@ export default function Home() {
                   {typeof m2Data.global_share_pct === "number"
                     ? `About ${Math.round(m2Data.global_share_pct)}% of global money supply.`
                     : "This basket is a large share of global M2."}
+                </p>
+              </div>
+            </Link>
+          </article>
+          <article>
+            <ChartHeading title="S&P 500" data={sp500Data} />
+            <Link
+              href="/sp500"
+              className="group relative mt-6 block overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition hover:border-neutral-600"
+              aria-label="Open interactive S&P 500 chart"
+            >
+              <img
+                src="/charts/sp500.png"
+                alt="S&P 500 chart"
+                className="aspect-[2/1] w-full bg-neutral-950 object-contain transition duration-300 group-hover:scale-[1.01] group-hover:opacity-35"
+              />
+              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black via-black/70 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                <p className="max-w-2xl text-sm leading-6 text-neutral-200 sm:text-base sm:leading-7">
+                  White is the S&P 500 in dollars. Gold is the same index priced in ounces of gold. When the gold line falls, stocks are losing to metal even if the dollar index looks fine.
                 </p>
               </div>
             </Link>

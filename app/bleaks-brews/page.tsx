@@ -51,6 +51,11 @@ That is similar to unemployment. When more people are out of work, the economy h
     placeholder: `Under Construction`,
   },
   {
+    id: "sp500",
+    title: "S&P 500",
+    placeholder: `Under Construction`,
+  },
+  {
     id: "wti-crude-oil",
     title: "WTI Crude Oil",
     placeholder: `Under Construction`,
