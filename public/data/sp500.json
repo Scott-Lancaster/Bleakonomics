@@ -4,7 +4,7 @@
   "latest_gold_oz": 1.8319,
   "latest_ma200": 7271.44,
   "latest_gold": 4181.1,
-  "updated_at": "2026-10-18T00:11:51Z",
+  "updated_at": "2026-10-19T00:23:33Z",
   "source": "Yahoo ^GSPC, FRED SP500, datasets/gold-prices monthly, Yahoo GC=F",
   "chart_path": "/charts/sp500.png",
   "description": "S&P 500 in dollars and the same index priced in ounces of gold.",
