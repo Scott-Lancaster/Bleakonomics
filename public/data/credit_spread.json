@@ -1,13 +1,13 @@
 {
   "title": "High Yield Credit Spread",
-  "latest": 3.23,
-  "latest_hy": 3.23,
-  "latest_baa": 1.44,
-  "updated_at": "2026-10-19T00:23:44Z",
+  "latest": 3.31,
+  "latest_hy": 3.31,
+  "latest_baa": 1.46,
+  "updated_at": "2026-10-20T01:10:22Z",
   "source": "FRED BAA10Y, BAMLH0A0HYM2",
   "chart_path": "/charts/credit_spread.png",
   "description": "Moody's Baa minus 10-year Treasury, plus ICE BofA high-yield OAS where FRED still publishes it.",
-  "summary": "This is the extra yield lenders demand to hold company debt instead of Treasuries. When it jumps, credit is getting tight. Orange is ICE BofA US High Yield OAS, the junk-bond spread. FRED only publishes about three years of it as of 2026 (from 2023-10-17). Silver is Moody's Baa minus the 10-year Treasury \u2014 the long public credit-spread series.",
+  "summary": "This is the extra yield lenders demand to hold company debt instead of Treasuries. When it jumps, credit is getting tight. Orange is ICE BofA US High Yield OAS, the junk-bond spread. FRED only publishes about three years of it as of 2026 (from 2023-10-20). Silver is Moody's Baa minus the 10-year Treasury \u2014 the long public credit-spread series.",
   "papers": [
     {
       "title": "FRED: Moody's Baa minus 10-Year Treasury (BAA10Y)",
@@ -26,7 +26,7 @@
       "url": "https://www.federalreserve.gov/releases/h15/"
     }
   ],
-  "hy_start": "2023-10-17",
+  "hy_start": "2023-10-20",
   "observations": [
     {
       "date": "1986-01-02",
@@ -56725,20 +56725,20 @@
     {
       "date": "2023-10-17",
       "baa": 1.8,
-      "hy": 4.25,
-      "value": 4.25
+      "hy": null,
+      "value": 1.8
     },
     {
       "date": "2023-10-18",
       "baa": 1.78,
-      "hy": 4.32,
-      "value": 4.32
+      "hy": null,
+      "value": 1.78
     },
     {
       "date": "2023-10-19",
       "baa": 1.82,
-      "hy": 4.37,
-      "value": 4.37
+      "hy": null,
+      "value": 1.82
     },
     {
       "date": "2023-10-20",
@@ -61437,6 +61437,12 @@
       "baa": 1.44,
       "hy": 3.23,
       "value": 3.23
+    },
+    {
+      "date": "2026-10-16",
+      "baa": 1.46,
+      "hy": 3.31,
+      "value": 3.31
     }
   ],
   "recessions": [
