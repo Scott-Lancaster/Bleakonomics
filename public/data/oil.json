@@ -1,7 +1,7 @@
 {
   "title": "WTI Crude Oil",
-  "latest": 107.89,
-  "updated_at": "2026-10-28T01:33:54Z",
+  "latest": 103.37,
+  "updated_at": "2026-10-29T01:55:21Z",
   "source": "FRED WTISPLC (monthly to 1985), DCOILWTICO (daily from 1986)",
   "chart_path": "/charts/oil.png",
   "description": "West Texas Intermediate crude oil, dollars per barrel. Monthly before 1986, daily after.",
@@ -38520,6 +38520,26 @@
     {
       "date": "2026-10-20",
       "value": 107.89
+    },
+    {
+      "date": "2026-10-21",
+      "value": 103.95
+    },
+    {
+      "date": "2026-10-22",
+      "value": 104.27
+    },
+    {
+      "date": "2026-10-23",
+      "value": 109.72
+    },
+    {
+      "date": "2026-10-26",
+      "value": 105.25
+    },
+    {
+      "date": "2026-10-27",
+      "value": 103.37
     }
   ],
   "recessions": [
