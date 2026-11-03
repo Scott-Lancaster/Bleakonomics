@@ -1,7 +1,7 @@
 {
   "title": "US Net Liquidity",
   "latest": 5.75,
-  "updated_at": "2026-11-02T01:43:26Z",
+  "updated_at": "2026-11-03T03:39:07Z",
   "source": "FRED WALCL, WTREGEN, RRPONTSYD",
   "chart_path": "/charts/net_liquidity.png",
   "description": "Weekly Fed assets minus TGA minus overnight RRP, trillions of dollars.",
