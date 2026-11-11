@@ -1,7 +1,7 @@
 {
   "title": "CPI Inflation",
-  "latest": 4.023310268457836,
-  "updated_at": "2026-11-10T04:15:43Z",
+  "latest": 4.080556369412025,
+  "updated_at": "2026-11-11T02:07:43Z",
   "source": "FRED",
   "chart_path": "/charts/cpi.png",
   "description": "Monthly year-over-year inflation derived from CPIAUCSL.",
@@ -3524,6 +3524,12 @@
       "value": 4.023310268457836,
       "cpi": 336.298,
       "ma6": 3.869934869215593
+    },
+    {
+      "date": "2026-10-01",
+      "value": 4.080556369412025,
+      "cpi": 337.476,
+      "ma6": 3.892189779333551
     }
   ],
   "recessions": [
