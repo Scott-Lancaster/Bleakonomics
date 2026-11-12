@@ -3,7 +3,7 @@
   "latest": 29113.6,
   "due_1y": 10343.3,
   "as_of": "2026-10-31",
-  "updated_at": "2026-11-11T02:08:07Z",
+  "updated_at": "2026-11-12T03:16:54Z",
   "source": "Treasury Fiscal Data MSPD Table III",
   "chart_path": "/charts/us_debt.png",
   "description": "Marketable Treasuries outstanding by remaining life, stacked by original auction term.",
