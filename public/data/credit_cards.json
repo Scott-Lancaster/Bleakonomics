@@ -1,10 +1,10 @@
 {
   "title": "Credit Card Debt",
-  "latest": 1099.54,
-  "latest_adjusted": 225.02,
+  "latest": 1101.28,
+  "latest_adjusted": 225.38,
   "base_m2": 4791.6,
   "base_date": "2000-06-28",
-  "updated_at": "2026-11-13T02:50:46Z",
+  "updated_at": "2026-11-14T02:37:53Z",
   "source": "FRED CCLACBW027SBOG, M2SL",
   "chart_path": "/charts/credit_cards.png",
   "description": "Bank credit-card balances, plus the same balances held against M2 growth.",
@@ -9536,121 +9536,128 @@
     },
     {
       "date": "2026-07-08",
-      "value": 1090.254,
-      "nominal": 1090.254,
-      "adjusted": 225.126,
+      "value": 1090.253,
+      "nominal": 1090.253,
+      "adjusted": 225.125,
       "m2": 23205.3
     },
     {
       "date": "2026-07-15",
-      "value": 1088.497,
-      "nominal": 1088.497,
+      "value": 1088.496,
+      "nominal": 1088.496,
       "adjusted": 224.493,
       "m2": 23233.2
     },
     {
       "date": "2026-07-22",
-      "value": 1087.673,
-      "nominal": 1087.673,
+      "value": 1087.671,
+      "nominal": 1087.671,
       "adjusted": 224.054,
       "m2": 23261.1
     },
     {
       "date": "2026-07-29",
-      "value": 1089.902,
-      "nominal": 1089.902,
-      "adjusted": 224.245,
+      "value": 1089.899,
+      "nominal": 1089.899,
+      "adjusted": 224.244,
       "m2": 23288.9
     },
     {
       "date": "2026-08-05",
-      "value": 1088.514,
-      "nominal": 1088.514,
-      "adjusted": 223.704,
+      "value": 1088.509,
+      "nominal": 1088.509,
+      "adjusted": 223.703,
       "m2": 23315.5
     },
     {
       "date": "2026-08-12",
-      "value": 1089.696,
-      "nominal": 1089.696,
-      "adjusted": 223.702,
+      "value": 1089.69,
+      "nominal": 1089.69,
+      "adjusted": 223.701,
       "m2": 23341.0
     },
     {
       "date": "2026-08-19",
-      "value": 1092.259,
-      "nominal": 1092.259,
-      "adjusted": 223.983,
+      "value": 1092.253,
+      "nominal": 1092.253,
+      "adjusted": 223.982,
       "m2": 23366.5
     },
     {
       "date": "2026-08-26",
-      "value": 1090.618,
-      "nominal": 1090.618,
-      "adjusted": 223.403,
+      "value": 1090.611,
+      "nominal": 1090.611,
+      "adjusted": 223.402,
       "m2": 23392.0
     },
     {
       "date": "2026-09-02",
-      "value": 1083.819,
-      "nominal": 1083.819,
-      "adjusted": 221.803,
+      "value": 1083.813,
+      "nominal": 1083.813,
+      "adjusted": 221.802,
       "m2": 23413.9
     },
     {
       "date": "2026-09-09",
-      "value": 1092.327,
-      "nominal": 1092.327,
-      "adjusted": 223.544,
+      "value": 1092.322,
+      "nominal": 1092.322,
+      "adjusted": 223.543,
       "m2": 23413.9
     },
     {
       "date": "2026-09-16",
-      "value": 1092.812,
-      "nominal": 1092.812,
+      "value": 1092.809,
+      "nominal": 1092.809,
       "adjusted": 223.643,
       "m2": 23413.9
     },
     {
       "date": "2026-09-23",
-      "value": 1093.308,
-      "nominal": 1093.308,
-      "adjusted": 223.745,
+      "value": 1093.306,
+      "nominal": 1093.306,
+      "adjusted": 223.744,
       "m2": 23413.9
     },
     {
       "date": "2026-09-30",
-      "value": 1097.013,
-      "nominal": 1097.013,
+      "value": 1097.015,
+      "nominal": 1097.015,
       "adjusted": 224.503,
       "m2": 23413.9
     },
     {
       "date": "2026-10-07",
-      "value": 1096.34,
-      "nominal": 1096.34,
-      "adjusted": 224.365,
+      "value": 1096.434,
+      "nominal": 1096.434,
+      "adjusted": 224.385,
       "m2": 23413.9
     },
     {
       "date": "2026-10-14",
-      "value": 1097.991,
-      "nominal": 1097.991,
-      "adjusted": 224.703,
+      "value": 1097.929,
+      "nominal": 1097.929,
+      "adjusted": 224.69,
       "m2": 23413.9
     },
     {
       "date": "2026-10-21",
-      "value": 1099.868,
-      "nominal": 1099.868,
-      "adjusted": 225.087,
+      "value": 1099.634,
+      "nominal": 1099.634,
+      "adjusted": 225.039,
       "m2": 23413.9
     },
     {
       "date": "2026-10-28",
-      "value": 1099.54,
-      "nominal": 1099.54,
-      "adjusted": 225.02,
+      "value": 1099.143,
+      "nominal": 1099.143,
+      "adjusted": 224.939,
+      "m2": 23413.9
+    },
+    {
+      "date": "2026-11-04",
+      "value": 1101.283,
+      "nominal": 1101.283,
+      "adjusted": 225.377,
       "m2": 23413.9
     }
   ],
