@@ -4,7 +4,7 @@
   "latest_adjusted": 225.38,
   "base_m2": 4791.6,
   "base_date": "2000-06-28",
-  "updated_at": "2026-11-18T03:48:58Z",
+  "updated_at": "2026-11-19T03:47:05Z",
   "source": "FRED CCLACBW027SBOG, M2SL",
   "chart_path": "/charts/credit_cards.png",
   "description": "Bank credit-card balances, plus the same balances held against M2 growth.",

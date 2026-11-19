@@ -1,7 +1,7 @@
 {
   "title": "10Y - 2Y Treasury Yield Spread",
-  "latest": 0.3,
-  "updated_at": "2026-11-18T03:48:06Z",
+  "latest": 0.27,
+  "updated_at": "2026-11-19T03:46:16Z",
   "source": "FRED",
   "chart_path": "/charts/yield_curve.png",
   "description": "Daily spread between the 10-year and 2-year U.S. Treasury yields.",
@@ -48884,6 +48884,10 @@
     {
       "date": "2026-11-17",
       "value": 0.3
+    },
+    {
+      "date": "2026-11-18",
+      "value": 0.27
     }
   ],
   "recessions": [
