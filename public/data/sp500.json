@@ -1,10 +1,10 @@
 {
   "title": "S&P 500",
-  "latest": 6910.39,
-  "latest_gold_oz": 1.9657,
-  "latest_ma200": 7348.58,
-  "latest_gold": 3515.4,
-  "updated_at": "2026-11-23T02:59:46Z",
+  "latest": 7237.17,
+  "latest_gold_oz": 1.982,
+  "latest_ma200": 7350.1,
+  "latest_gold": 3651.4,
+  "updated_at": "2026-11-24T06:16:44Z",
   "source": "Yahoo ^GSPC, FRED SP500, datasets/gold-prices monthly, Yahoo GC=F",
   "chart_path": "/charts/sp500.png",
   "description": "S&P 500 in dollars and the same index priced in ounces of gold.",
@@ -98620,6 +98620,14 @@
       "ma200": 7348.58,
       "gold": 3515.4,
       "gold_oz": 1.9657
+    },
+    {
+      "date": "2026-11-23",
+      "value": 7237.17,
+      "spx": 7237.17,
+      "ma200": 7350.1,
+      "gold": 3651.4,
+      "gold_oz": 1.982
     }
   ],
   "recessions": [
