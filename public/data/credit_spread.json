@@ -3,7 +3,7 @@
   "latest": 3.72,
   "latest_hy": 3.72,
   "latest_baa": 1.61,
-  "updated_at": "2026-11-26T04:17:49Z",
+  "updated_at": "2026-11-27T04:27:14Z",
   "source": "FRED BAA10Y, BAMLH0A0HYM2",
   "chart_path": "/charts/credit_spread.png",
   "description": "Moody's Baa minus 10-year Treasury, plus ICE BofA high-yield OAS where FRED still publishes it.",

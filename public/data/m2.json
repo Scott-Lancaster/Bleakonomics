@@ -1,12 +1,12 @@
 {
   "title": "Major-region money supply (USD)",
-  "latest": 104.96,
-  "latest_yoy": 6.1,
-  "updated_at": "2026-11-26T04:17:46Z",
+  "latest": 104.71,
+  "latest_yoy": 5.8,
+  "updated_at": "2026-11-27T04:27:11Z",
   "source": "FRED M2SL, ECB M2, FRED/World Bank China and Japan, FRED FX",
   "chart_path": "/charts/m2.png",
   "description": "US, euro-area, China, and Japan money supply converted to trillions of USD, plus the four-region total.",
-  "summary": "This is US, euro-area, Chinese, and Japanese money, all converted into dollars. Each colored line is one region; the orange line is the four-region total. In 2024, these four were about 59% of World Bank global broad money ($90T of $152T). UK, India, and the rest of EM make up most of the remainder. Of this basket, China is about 49.8%, the US 22.4%, Europe 17.8%, Japan 10.0%. China after 2019 and Japan after late 2023 use World Bank annual figures (plus a PBOC May 2026 China print), so the last few years are less precise. FX moves the dollar lines even when local money is unchanged.",
+  "summary": "This is US, euro-area, Chinese, and Japanese money, all converted into dollars. Each colored line is one region; the orange line is the four-region total. In 2024, these four were about 59% of World Bank global broad money ($90T of $152T). UK, India, and the rest of EM make up most of the remainder. Of this basket, China is about 49.9%, the US 22.5%, Europe 17.6%, Japan 10.0%. China after 2019 and Japan after late 2023 use World Bank annual figures (plus a PBOC May 2026 China print), so the last few years are less precise. FX moves the dollar lines even when local money is unchanged.",
   "papers": [
     {
       "title": "Fed H.6 Money Stock Measures (US M2)",
@@ -38,9 +38,9 @@
     }
   ],
   "shares": {
-    "us": 22.4,
-    "europe": 17.8,
-    "china": 49.8,
+    "us": 22.5,
+    "europe": 17.6,
+    "china": 49.9,
     "japan": 10.0
   },
   "global_share_pct": 59.4,
@@ -2332,22 +2332,22 @@
     {
       "date": "2018-01-01",
       "us": 13.902,
-      "europe": 14.004,
+      "europe": 14.003,
       "china": 27.384,
       "japan": 12.071,
-      "total": 67.361,
+      "total": 67.36,
       "yoy": 13.75,
-      "value": 67.361
+      "value": 67.36
     },
     {
       "date": "2018-02-01",
       "us": 13.95,
-      "europe": 13.772,
+      "europe": 13.771,
       "china": 27.324,
       "japan": 12.392,
-      "total": 67.438,
+      "total": 67.437,
       "yoy": 13.53,
-      "value": 67.438
+      "value": 67.437
     },
     {
       "date": "2018-03-01",
@@ -2362,7 +2362,7 @@
     {
       "date": "2018-04-01",
       "us": 14.035,
-      "europe": 13.69,
+      "europe": 13.691,
       "china": 27.441,
       "japan": 12.134,
       "total": 67.3,
@@ -2375,9 +2375,9 @@
       "europe": 13.33,
       "china": 27.195,
       "japan": 12.206,
-      "total": 66.822,
+      "total": 66.821,
       "yoy": 9.48,
-      "value": 66.822
+      "value": 66.821
     },
     {
       "date": "2018-06-01",
@@ -2392,22 +2392,22 @@
     {
       "date": "2018-07-01",
       "us": 14.17,
-      "europe": 13.457,
+      "europe": 13.458,
       "china": 26.106,
       "japan": 11.924,
-      "total": 65.657,
+      "total": 65.658,
       "yoy": 4.76,
-      "value": 65.657
+      "value": 65.658
     },
     {
       "date": "2018-08-01",
       "us": 14.221,
-      "europe": 13.351,
+      "europe": 13.352,
       "china": 26.188,
       "japan": 12.041,
-      "total": 65.802,
+      "total": 65.803,
       "yoy": 3.34,
-      "value": 65.802
+      "value": 65.803
     },
     {
       "date": "2018-09-01",
@@ -2415,24 +2415,24 @@
       "europe": 13.437,
       "china": 26.233,
       "japan": 11.801,
-      "total": 65.715,
+      "total": 65.714,
       "yoy": 3.74,
-      "value": 65.715
+      "value": 65.714
     },
     {
       "date": "2018-10-01",
       "us": 14.258,
-      "europe": 13.171,
+      "europe": 13.169,
       "china": 25.748,
       "japan": 11.892,
-      "total": 65.067,
+      "total": 65.066,
       "yoy": 2.88,
-      "value": 65.067
+      "value": 65.066
     },
     {
       "date": "2018-11-01",
       "us": 14.288,
-      "europe": 13.209,
+      "europe": 13.21,
       "china": 26.067,
       "japan": 11.831,
       "total": 65.396,
@@ -2445,28 +2445,28 @@
       "europe": 13.415,
       "china": 26.569,
       "japan": 12.265,
-      "total": 66.641,
+      "total": 66.64,
       "yoy": 2.48,
-      "value": 66.641
+      "value": 66.64
     },
     {
       "date": "2019-01-01",
       "us": 14.46,
-      "europe": 13.458,
+      "europe": 13.457,
       "china": 27.867,
       "japan": 12.381,
       "total": 68.166,
-      "yoy": 1.19,
+      "yoy": 1.2,
       "value": 68.166
     },
     {
       "date": "2019-02-01",
       "us": 14.507,
-      "europe": 13.439,
+      "europe": 13.438,
       "china": 27.909,
       "japan": 12.113,
       "total": 67.967,
-      "yoy": 0.78,
+      "yoy": 0.79,
       "value": 67.967
     },
     {
@@ -2475,54 +2475,54 @@
       "europe": 13.352,
       "china": 28.153,
       "japan": 12.209,
-      "total": 68.274,
+      "total": 68.273,
       "yoy": 0.22,
-      "value": 68.274
+      "value": 68.273
     },
     {
       "date": "2019-04-01",
       "us": 14.594,
-      "europe": 13.404,
+      "europe": 13.405,
       "china": 27.984,
       "japan": 12.145,
-      "total": 68.127,
+      "total": 68.128,
       "yoy": 1.23,
-      "value": 68.127
+      "value": 68.128
     },
     {
       "date": "2019-05-01",
       "us": 14.703,
-      "europe": 13.414,
+      "europe": 13.415,
       "china": 27.397,
       "japan": 12.474,
-      "total": 67.988,
+      "total": 67.989,
       "yoy": 1.75,
-      "value": 67.988
+      "value": 67.989
     },
     {
       "date": "2019-06-01",
       "us": 14.799,
-      "europe": 13.731,
+      "europe": 13.73,
       "china": 27.988,
       "japan": 12.579,
-      "total": 69.097,
+      "total": 69.096,
       "yoy": 4.16,
-      "value": 69.097
+      "value": 69.096
     },
     {
       "date": "2019-07-01",
       "us": 14.883,
-      "europe": 13.51,
+      "europe": 13.509,
       "china": 27.885,
       "japan": 12.516,
-      "total": 68.793,
-      "yoy": 4.78,
-      "value": 68.793
+      "total": 68.792,
+      "yoy": 4.77,
+      "value": 68.792
     },
     {
       "date": "2019-08-01",
       "us": 14.974,
-      "europe": 13.451,
+      "europe": 13.452,
       "china": 27.054,
       "japan": 12.807,
       "total": 68.286,
@@ -2532,7 +2532,7 @@
     {
       "date": "2019-09-01",
       "us": 15.047,
-      "europe": 13.391,
+      "europe": 13.392,
       "china": 27.138,
       "japan": 12.62,
       "total": 68.197,
@@ -2542,7 +2542,7 @@
     {
       "date": "2019-10-01",
       "us": 15.186,
-      "europe": 13.765,
+      "europe": 13.764,
       "china": 27.62,
       "japan": 12.654,
       "total": 69.223,
@@ -2572,7 +2572,7 @@
     {
       "date": "2020-01-01",
       "us": 15.425,
-      "europe": 13.758,
+      "europe": 13.759,
       "china": 28.466,
       "japan": 12.705,
       "total": 70.354,
@@ -2582,7 +2582,7 @@
     {
       "date": "2020-02-01",
       "us": 15.493,
-      "europe": 13.735,
+      "europe": 13.736,
       "china": 28.4,
       "japan": 12.778,
       "total": 70.406,
@@ -2592,12 +2592,12 @@
     {
       "date": "2020-03-01",
       "us": 16.034,
-      "europe": 14.091,
+      "europe": 14.093,
       "china": 28.256,
       "japan": 12.897,
-      "total": 71.28,
+      "total": 71.281,
       "yoy": 4.4,
-      "value": 71.28
+      "value": 71.281
     },
     {
       "date": "2020-04-01",
@@ -2612,12 +2612,12 @@
     {
       "date": "2020-05-01",
       "us": 17.932,
-      "europe": 14.585,
+      "europe": 14.584,
       "china": 28.499,
       "japan": 13.097,
-      "total": 74.113,
+      "total": 74.112,
       "yoy": 9.01,
-      "value": 74.113
+      "value": 74.112
     },
     {
       "date": "2020-06-01",
@@ -2625,39 +2625,39 @@
       "europe": 14.857,
       "china": 29.015,
       "japan": 13.328,
-      "total": 75.379,
+      "total": 75.38,
       "yoy": 9.09,
-      "value": 75.379
+      "value": 75.38
     },
     {
       "date": "2020-07-01",
       "us": 18.331,
-      "europe": 15.712,
+      "europe": 15.713,
       "china": 29.622,
       "japan": 13.683,
-      "total": 77.349,
+      "total": 77.35,
       "yoy": 12.44,
-      "value": 77.349
+      "value": 77.35
     },
     {
       "date": "2020-08-01",
       "us": 18.413,
-      "europe": 15.953,
+      "europe": 15.954,
       "china": 30.413,
       "japan": 13.774,
-      "total": 78.554,
+      "total": 78.555,
       "yoy": 15.04,
-      "value": 78.554
+      "value": 78.555
     },
     {
       "date": "2020-09-01",
       "us": 18.605,
-      "europe": 15.766,
+      "europe": 15.765,
       "china": 30.916,
       "japan": 13.884,
-      "total": 79.171,
+      "total": 79.17,
       "yoy": 16.09,
-      "value": 79.171
+      "value": 79.17
     },
     {
       "date": "2020-10-01",
@@ -2672,42 +2672,42 @@
     {
       "date": "2020-11-01",
       "us": 19.002,
-      "europe": 16.294,
+      "europe": 16.293,
       "china": 32.415,
       "japan": 14.147,
-      "total": 81.859,
+      "total": 81.858,
       "yoy": 18.33,
-      "value": 81.859
+      "value": 81.858
     },
     {
       "date": "2020-12-01",
       "us": 19.119,
-      "europe": 16.804,
+      "europe": 16.802,
       "china": 32.914,
       "japan": 14.363,
-      "total": 83.201,
+      "total": 83.199,
       "yoy": 18.95,
-      "value": 83.201
+      "value": 83.199
     },
     {
       "date": "2021-01-01",
       "us": 19.375,
-      "europe": 16.779,
+      "europe": 16.778,
       "china": 33.668,
       "japan": 14.221,
-      "total": 84.043,
-      "yoy": 19.46,
-      "value": 84.043
+      "total": 84.042,
+      "yoy": 19.45,
+      "value": 84.042
     },
     {
       "date": "2021-02-01",
       "us": 19.641,
-      "europe": 16.827,
+      "europe": 16.826,
       "china": 33.69,
       "japan": 14.003,
-      "total": 84.161,
+      "total": 84.16,
       "yoy": 19.54,
-      "value": 84.161
+      "value": 84.16
     },
     {
       "date": "2021-03-01",
@@ -2722,32 +2722,32 @@
     {
       "date": "2021-04-01",
       "us": 20.174,
-      "europe": 16.921,
+      "europe": 16.923,
       "china": 34.167,
       "japan": 13.741,
-      "total": 85.004,
+      "total": 85.005,
       "yoy": 16.69,
-      "value": 85.004
+      "value": 85.005
     },
     {
       "date": "2021-05-01",
       "us": 20.458,
-      "europe": 17.261,
+      "europe": 17.262,
       "china": 34.995,
       "japan": 13.733,
-      "total": 86.447,
+      "total": 86.448,
       "yoy": 16.64,
-      "value": 86.447
+      "value": 86.448
     },
     {
       "date": "2021-06-01",
       "us": 20.472,
-      "europe": 16.864,
+      "europe": 16.861,
       "china": 34.768,
       "japan": 13.602,
-      "total": 85.706,
+      "total": 85.704,
       "yoy": 13.7,
-      "value": 85.706
+      "value": 85.704
     },
     {
       "date": "2021-07-01",
@@ -2755,19 +2755,19 @@
       "europe": 17.006,
       "china": 34.993,
       "japan": 13.799,
-      "total": 86.434,
+      "total": 86.435,
       "yoy": 11.75,
-      "value": 86.434
+      "value": 86.435
     },
     {
       "date": "2021-08-01",
       "us": 20.893,
-      "europe": 17.022,
+      "europe": 17.024,
       "china": 35.252,
       "japan": 13.785,
-      "total": 86.952,
+      "total": 86.954,
       "yoy": 10.69,
-      "value": 86.952
+      "value": 86.954
     },
     {
       "date": "2021-09-01",
@@ -2802,72 +2802,72 @@
     {
       "date": "2021-12-01",
       "us": 21.488,
-      "europe": 16.642,
+      "europe": 16.641,
       "china": 36.76,
       "japan": 13.309,
-      "total": 88.2,
+      "total": 88.199,
       "yoy": 6.01,
-      "value": 88.2
+      "value": 88.199
     },
     {
       "date": "2022-01-01",
       "us": 21.623,
-      "europe": 16.625,
+      "europe": 16.626,
       "china": 37.192,
       "japan": 13.343,
-      "total": 88.783,
+      "total": 88.784,
       "yoy": 5.64,
-      "value": 88.783
+      "value": 88.784
     },
     {
       "date": "2022-02-01",
       "us": 21.706,
-      "europe": 16.737,
+      "europe": 16.736,
       "china": 37.87,
       "japan": 13.389,
-      "total": 89.702,
+      "total": 89.701,
       "yoy": 6.58,
-      "value": 89.702
+      "value": 89.701
     },
     {
       "date": "2022-03-01",
       "us": 21.771,
-      "europe": 16.609,
+      "europe": 16.61,
       "china": 38.016,
       "japan": 12.721,
-      "total": 89.117,
+      "total": 89.118,
       "yoy": 6.87,
-      "value": 89.117
+      "value": 89.118
     },
     {
       "date": "2022-04-01",
       "us": 21.751,
-      "europe": 15.833,
+      "europe": 15.835,
       "china": 36.821,
       "japan": 11.926,
-      "total": 86.331,
+      "total": 86.333,
       "yoy": 1.56,
-      "value": 86.331
+      "value": 86.333
     },
     {
       "date": "2022-05-01",
       "us": 21.7,
-      "europe": 16.175,
+      "europe": 16.176,
       "china": 36.807,
       "japan": 12.068,
-      "total": 86.751,
+      "total": 86.752,
       "yoy": 0.35,
-      "value": 86.751
+      "value": 86.752
     },
     {
       "date": "2022-06-01",
       "us": 21.631,
-      "europe": 15.854,
+      "europe": 15.853,
       "china": 37.008,
       "japan": 11.457,
-      "total": 85.95,
+      "total": 85.949,
       "yoy": 0.29,
-      "value": 85.95
+      "value": 85.949
     },
     {
       "date": "2022-07-01",
@@ -2892,52 +2892,52 @@
     {
       "date": "2022-09-01",
       "us": 21.521,
-      "europe": 15.091,
+      "europe": 15.092,
       "china": 35.815,
       "japan": 10.806,
-      "total": 83.232,
+      "total": 83.234,
       "yoy": -4.42,
-      "value": 83.232
+      "value": 83.234
     },
     {
       "date": "2022-10-01",
       "us": 21.444,
-      "europe": 15.196,
+      "europe": 15.197,
       "china": 35.184,
       "japan": 10.539,
-      "total": 82.362,
+      "total": 82.363,
       "yoy": -5.79,
-      "value": 82.362
+      "value": 82.363
     },
     {
       "date": "2022-11-01",
       "us": 21.389,
-      "europe": 15.808,
+      "europe": 15.805,
       "china": 36.588,
       "japan": 11.27,
-      "total": 85.054,
-      "yoy": -3.22,
-      "value": 85.054
+      "total": 85.051,
+      "yoy": -3.23,
+      "value": 85.051
     },
     {
       "date": "2022-12-01",
       "us": 21.273,
-      "europe": 16.292,
+      "europe": 16.289,
       "china": 37.926,
       "japan": 11.927,
-      "total": 87.417,
+      "total": 87.414,
       "yoy": -0.89,
-      "value": 87.417
+      "value": 87.414
     },
     {
       "date": "2023-01-01",
       "us": 21.262,
-      "europe": 16.575,
+      "europe": 16.577,
       "china": 39.054,
       "japan": 12.086,
-      "total": 88.976,
+      "total": 88.978,
       "yoy": 0.22,
-      "value": 88.976
+      "value": 88.978
     },
     {
       "date": "2023-02-01",
@@ -2952,12 +2952,12 @@
     {
       "date": "2023-03-01",
       "us": 20.933,
-      "europe": 16.494,
+      "europe": 16.497,
       "china": 39.014,
       "japan": 11.882,
-      "total": 88.322,
+      "total": 88.326,
       "yoy": -0.89,
-      "value": 88.322
+      "value": 88.326
     },
     {
       "date": "2023-04-01",
@@ -2965,29 +2965,29 @@
       "europe": 16.696,
       "china": 39.086,
       "japan": 11.619,
-      "total": 88.138,
+      "total": 88.139,
       "yoy": 2.09,
-      "value": 88.138
+      "value": 88.139
     },
     {
       "date": "2023-05-01",
       "us": 20.808,
-      "europe": 16.094,
+      "europe": 16.093,
       "china": 38.289,
       "japan": 11.325,
-      "total": 86.517,
+      "total": 86.516,
       "yoy": -0.27,
-      "value": 86.517
+      "value": 86.516
     },
     {
       "date": "2023-06-01",
       "us": 20.777,
-      "europe": 16.476,
+      "europe": 16.475,
       "china": 37.845,
       "japan": 10.98,
-      "total": 86.078,
+      "total": 86.077,
       "yoy": 0.15,
-      "value": 86.078
+      "value": 86.077
     },
     {
       "date": "2023-07-01",
@@ -2995,309 +2995,309 @@
       "europe": 16.605,
       "china": 38.718,
       "japan": 11.17,
-      "total": 87.262,
+      "total": 87.263,
       "yoy": 1.5,
-      "value": 87.262
+      "value": 87.263
     },
     {
       "date": "2023-08-01",
       "us": 20.759,
-      "europe": 16.308,
+      "europe": 16.309,
       "china": 38.402,
       "japan": 10.918,
-      "total": 86.387,
+      "total": 86.389,
       "yoy": 1.62,
-      "value": 86.387
+      "value": 86.389
     },
     {
       "date": "2023-09-01",
       "us": 20.73,
-      "europe": 15.948,
+      "europe": 15.95,
       "china": 38.503,
       "japan": 10.655,
-      "total": 85.836,
+      "total": 85.837,
       "yoy": 3.13,
-      "value": 85.836
+      "value": 85.837
     },
     {
       "date": "2023-10-01",
       "us": 20.712,
-      "europe": 15.892,
+      "europe": 15.895,
       "china": 38.684,
       "japan": 10.532,
-      "total": 85.82,
+      "total": 85.823,
       "yoy": 4.2,
-      "value": 85.82
+      "value": 85.823
     },
     {
       "date": "2023-11-01",
       "us": 20.724,
-      "europe": 16.405,
+      "europe": 16.402,
       "china": 39.97,
       "japan": 10.8,
-      "total": 87.899,
+      "total": 87.896,
       "yoy": 3.34,
-      "value": 87.899
+      "value": 87.896
     },
     {
       "date": "2023-12-01",
       "us": 20.754,
-      "europe": 16.707,
+      "europe": 16.701,
       "china": 40.471,
       "japan": 11.546,
-      "total": 89.478,
-      "yoy": 2.36,
-      "value": 89.478
+      "total": 89.471,
+      "yoy": 2.35,
+      "value": 89.471
     },
     {
       "date": "2024-01-01",
       "us": 20.808,
-      "europe": 16.369,
+      "europe": 16.368,
       "china": 40.322,
       "japan": 11.125,
-      "total": 88.625,
+      "total": 88.623,
       "yoy": -0.4,
-      "value": 88.625
+      "value": 88.623
     },
     {
       "date": "2024-02-01",
       "us": 20.896,
-      "europe": 16.324,
+      "europe": 16.321,
       "china": 40.382,
       "japan": 10.855,
-      "total": 88.458,
+      "total": 88.455,
       "yoy": 1.31,
-      "value": 88.458
+      "value": 88.455
     },
     {
       "date": "2024-03-01",
       "us": 20.941,
-      "europe": 16.308,
+      "europe": 16.31,
       "china": 40.47,
       "japan": 10.761,
-      "total": 88.48,
+      "total": 88.483,
       "yoy": 0.18,
-      "value": 88.48
+      "value": 88.483
     },
     {
       "date": "2024-04-01",
       "us": 20.93,
-      "europe": 16.18,
+      "europe": 16.183,
       "china": 40.589,
       "japan": 10.33,
-      "total": 88.028,
+      "total": 88.032,
       "yoy": -0.12,
-      "value": 88.028
+      "value": 88.032
     },
     {
       "date": "2024-05-01",
       "us": 20.995,
-      "europe": 16.463,
+      "europe": 16.465,
       "china": 40.805,
       "japan": 10.354,
-      "total": 88.617,
+      "total": 88.619,
       "yoy": 2.43,
-      "value": 88.617
+      "value": 88.619
     },
     {
       "date": "2024-06-01",
       "us": 21.045,
-      "europe": 16.374,
+      "europe": 16.37,
       "china": 40.886,
       "japan": 10.117,
-      "total": 88.422,
+      "total": 88.418,
       "yoy": 2.72,
-      "value": 88.422
+      "value": 88.418
     },
     {
       "date": "2024-07-01",
       "us": 21.073,
-      "europe": 16.518,
+      "europe": 16.517,
       "china": 41.38,
       "japan": 10.824,
-      "total": 89.795,
+      "total": 89.794,
       "yoy": 2.9,
-      "value": 89.795
+      "value": 89.794
     },
     {
       "date": "2024-08-01",
       "us": 21.166,
-      "europe": 16.959,
+      "europe": 16.962,
       "china": 42.368,
       "japan": 11.153,
-      "total": 91.646,
+      "total": 91.649,
       "yoy": 6.09,
-      "value": 91.646
+      "value": 91.649
     },
     {
       "date": "2024-09-01",
       "us": 21.25,
-      "europe": 17.171,
+      "europe": 17.174,
       "china": 43.041,
       "japan": 11.364,
-      "total": 92.827,
-      "yoy": 8.14,
-      "value": 92.827
+      "total": 92.829,
+      "yoy": 8.15,
+      "value": 92.829
     },
     {
       "date": "2024-10-01",
       "us": 21.311,
-      "europe": 16.749,
+      "europe": 16.751,
       "china": 42.661,
       "japan": 10.686,
-      "total": 91.407,
+      "total": 91.409,
       "yoy": 6.51,
-      "value": 91.407
+      "value": 91.409
     },
     {
       "date": "2024-11-01",
       "us": 21.429,
-      "europe": 16.383,
+      "europe": 16.379,
       "china": 42.156,
       "japan": 10.825,
-      "total": 90.793,
+      "total": 90.79,
       "yoy": 3.29,
-      "value": 90.793
+      "value": 90.79
     },
     {
       "date": "2024-12-01",
       "us": 21.462,
-      "europe": 16.139,
+      "europe": 16.134,
       "china": 42.047,
       "japan": 10.346,
-      "total": 89.994,
+      "total": 89.989,
       "yoy": 0.58,
-      "value": 89.994
+      "value": 89.989
     },
     {
       "date": "2025-01-01",
       "us": 21.514,
-      "europe": 16.2,
+      "europe": 16.202,
       "china": 42.766,
       "japan": 10.516,
-      "total": 90.996,
+      "total": 90.998,
       "yoy": 2.68,
-      "value": 90.996
+      "value": 90.998
     },
     {
       "date": "2025-02-01",
       "us": 21.581,
-      "europe": 16.25,
+      "europe": 16.248,
       "china": 42.914,
       "japan": 10.82,
-      "total": 91.564,
+      "total": 91.562,
       "yoy": 3.51,
-      "value": 91.564
+      "value": 91.562
     },
     {
       "date": "2025-03-01",
       "us": 21.657,
-      "europe": 16.894,
+      "europe": 16.899,
       "china": 43.418,
       "japan": 10.878,
-      "total": 92.847,
+      "total": 92.852,
       "yoy": 4.94,
-      "value": 92.847
+      "value": 92.852
     },
     {
       "date": "2025-04-01",
       "us": 21.743,
-      "europe": 17.807,
+      "europe": 17.808,
       "china": 43.721,
       "japan": 11.438,
-      "total": 94.709,
+      "total": 94.711,
       "yoy": 7.59,
-      "value": 94.709
+      "value": 94.711
     },
     {
       "date": "2025-05-01",
       "us": 21.809,
-      "europe": 17.842,
+      "europe": 17.844,
       "china": 44.533,
       "japan": 11.321,
-      "total": 95.505,
+      "total": 95.506,
       "yoy": 7.77,
-      "value": 95.505
+      "value": 95.506
     },
     {
       "date": "2025-06-01",
       "us": 21.916,
-      "europe": 18.509,
+      "europe": 18.506,
       "china": 45.146,
       "japan": 11.328,
-      "total": 96.899,
+      "total": 96.896,
       "yoy": 9.59,
-      "value": 96.899
+      "value": 96.896
     },
     {
       "date": "2025-07-01",
       "us": 21.998,
-      "europe": 17.996,
+      "europe": 17.997,
       "china": 45.294,
       "japan": 10.849,
-      "total": 96.137,
-      "yoy": 7.06,
-      "value": 96.137
+      "total": 96.138,
+      "yoy": 7.07,
+      "value": 96.138
     },
     {
       "date": "2025-08-01",
       "us": 22.066,
-      "europe": 18.435,
+      "europe": 18.436,
       "china": 46.131,
       "japan": 11.128,
-      "total": 97.76,
+      "total": 97.761,
       "yoy": 6.67,
-      "value": 97.76
+      "value": 97.761
     },
     {
       "date": "2025-09-01",
       "us": 22.149,
-      "europe": 18.536,
+      "europe": 18.54,
       "china": 46.599,
       "japan": 11.053,
-      "total": 98.338,
+      "total": 98.342,
       "yoy": 5.94,
-      "value": 98.338
+      "value": 98.342
     },
     {
       "date": "2025-10-01",
       "us": 22.223,
-      "europe": 18.362,
+      "europe": 18.36,
       "china": 46.995,
       "japan": 10.622,
-      "total": 98.203,
+      "total": 98.2,
       "yoy": 7.43,
-      "value": 98.203
+      "value": 98.2
     },
     {
       "date": "2025-11-01",
       "us": 22.253,
-      "europe": 18.554,
+      "europe": 18.552,
       "china": 47.67,
       "japan": 10.483,
-      "total": 98.96,
+      "total": 98.958,
       "yoy": 9.0,
-      "value": 98.96
+      "value": 98.958
     },
     {
       "date": "2025-12-01",
       "us": 22.329,
-      "europe": 18.866,
+      "europe": 18.86,
       "china": 48.618,
       "japan": 10.446,
-      "total": 100.259,
-      "yoy": 11.41,
-      "value": 100.259
+      "total": 100.252,
+      "yoy": 11.4,
+      "value": 100.252
     },
     {
       "date": "2026-01-01",
       "us": 22.387,
-      "europe": 19.226,
+      "europe": 19.23,
       "china": 49.316,
       "japan": 10.446,
-      "total": 101.376,
+      "total": 101.38,
       "yoy": 11.41,
-      "value": 101.376
+      "value": 101.38
     },
     {
       "date": "2026-02-01",
@@ -3312,92 +3312,92 @@
     {
       "date": "2026-03-01",
       "us": 22.614,
-      "europe": 18.745,
+      "europe": 18.752,
       "china": 50.47,
       "japan": 10.446,
-      "total": 102.276,
-      "yoy": 10.15,
-      "value": 102.276
+      "total": 102.283,
+      "yoy": 10.16,
+      "value": 102.283
     },
     {
       "date": "2026-04-01",
       "us": 22.728,
-      "europe": 19.123,
+      "europe": 19.124,
       "china": 51.404,
       "japan": 10.446,
-      "total": 103.702,
+      "total": 103.703,
       "yoy": 9.49,
-      "value": 103.702
+      "value": 103.703
     },
     {
       "date": "2026-05-01",
       "us": 22.981,
-      "europe": 19.095,
+      "europe": 19.1,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.793,
-      "yoy": 9.72,
-      "value": 104.793
+      "total": 104.797,
+      "yoy": 9.73,
+      "value": 104.797
     },
     {
       "date": "2026-06-01",
       "us": 23.078,
-      "europe": 18.744,
+      "europe": 18.741,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.538,
+      "total": 104.535,
       "yoy": 7.88,
-      "value": 104.538
+      "value": 104.535
     },
     {
       "date": "2026-07-01",
       "us": 23.177,
-      "europe": 18.931,
+      "europe": 18.94,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.825,
-      "yoy": 9.04,
-      "value": 104.825
+      "total": 104.834,
+      "yoy": 9.05,
+      "value": 104.834
     },
     {
       "date": "2026-08-01",
       "us": 23.301,
-      "europe": 19.11,
+      "europe": 19.128,
       "china": 52.27,
       "japan": 10.446,
-      "total": 105.127,
-      "yoy": 7.54,
-      "value": 105.127
+      "total": 105.146,
+      "yoy": 7.55,
+      "value": 105.146
     },
     {
       "date": "2026-09-01",
       "us": 23.414,
-      "europe": 18.71,
+      "europe": 18.725,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.841,
-      "yoy": 6.61,
-      "value": 104.841
+      "total": 104.856,
+      "yoy": 6.62,
+      "value": 104.856
     },
     {
       "date": "2026-10-01",
       "us": 23.533,
-      "europe": 18.71,
+      "europe": 18.464,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.959,
-      "yoy": 6.88,
-      "value": 104.959
+      "total": 104.714,
+      "yoy": 6.63,
+      "value": 104.714
     },
     {
       "date": "2026-11-01",
       "us": 23.533,
-      "europe": 18.71,
+      "europe": 18.464,
       "china": 52.27,
       "japan": 10.446,
-      "total": 104.959,
-      "yoy": 6.06,
-      "value": 104.959
+      "total": 104.714,
+      "yoy": 5.82,
+      "value": 104.714
     }
   ],
   "recessions": [
