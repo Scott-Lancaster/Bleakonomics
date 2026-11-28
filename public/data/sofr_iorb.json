@@ -1,7 +1,7 @@
 {
   "title": "SOFR - IORB Spread",
-  "latest": 4.0,
-  "updated_at": "2026-11-27T04:27:00Z",
+  "latest": 5.0,
+  "updated_at": "2026-11-28T04:07:58Z",
   "source": "FRED",
   "chart_path": "/charts/sofr_iorb.png",
   "description": "Daily spread between SOFR and the Interest Rate on Reserve Balances, shown in basis points.",
@@ -9316,6 +9316,13 @@
       "sofr": 3.94,
       "iorb": 3.9,
       "ma30": 1.2666666666666768
+    },
+    {
+      "date": "2026-11-25",
+      "value": 5.000000000000027,
+      "sofr": 3.95,
+      "iorb": 3.9,
+      "ma30": 1.466666666666677
     }
   ]
 }
